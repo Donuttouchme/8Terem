@@ -24,5 +24,6 @@ public class Guest implements Users {
     public void makeOrder() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         //FAASZ
+        //FAAAAAAASZZGFFFAAASZ
     }
 }
