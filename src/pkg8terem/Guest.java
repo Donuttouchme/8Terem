@@ -12,7 +12,7 @@ package pkg8terem;
 public class Guest implements Users {
 
     @Override
-    public void Registration(int decision) {
+    public void Registration() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
