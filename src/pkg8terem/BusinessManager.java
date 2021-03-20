@@ -27,9 +27,9 @@ public class BusinessManager implements Users {
     Scanner input = new Scanner(System.in);
     
     @Override
-    public void Registration(int decision) {
+    public void Registration() {
    
-    System.out.println("Emter username: ");
+    System.out.println("Enter username: ");
          username = input.nextLine();
     //TO-DO check with the server
     //
