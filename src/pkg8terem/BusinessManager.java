@@ -29,32 +29,31 @@ public class BusinessManager implements Users {
     
     @Override
     public void Registration() {
-   
-        System.out.println("Enter email: ");
-            email=input.nextLine();
-        System.out.println("Enter username: ");
-             username = input.nextLine();
-        //TO-DO check with the server
-        //
-        //
-        System.out.println("Enter password: ");
-            password = input.nextLine();
-        System.out.println("Enter password again: ");   
-            passwordCheck = input.nextLine();
-        while(!password.equals(passwordCheck))
-        {
-             System.out.println("Passwords are not matching, please enter them again: ");
-                password = input.nextLine();
-             System.out.println("Enter password again: ");
-                passwordCheck = input.nextLine();
-        }
-            System.out.println("Enter your first name: ");
-                firstName = input.nextLine();
-            System.out.println("Enter your last name: ");
-                lastName = input.nextLine();
-            System.out.println("Enter your Corporation's Name: ");
-                corporationName = input.nextLine();
-            registrationDate = new Date(System.currentTimeMillis());             
+    System.out.println("Enter email: ");                        //EMAIL
+        email=input.nextLine();
+    System.out.println("Enter username: ");                     //USERNAME
+        username = input.nextLine();
+    //TO-DO check with the server
+    //
+    //
+    System.out.println("Enter password: ");                      //PASSWORD
+        password = input.nextLine();
+    System.out.println("Enter password again: ");   
+        passwordCheck = input.nextLine();
+    while(!password.equals(passwordCheck))                      //PASSWORD CHECK
+    {
+    System.out.println("Passwords are not matching, please enter them again: ");
+        password = input.nextLine();
+    System.out.println("Enter password again: ");
+        passwordCheck = input.nextLine();
+    }
+    System.out.println("Enter your first name: ");              //NAME
+        firstName = input.nextLine();
+    System.out.println("Enter your last name: ");
+        lastName = input.nextLine();
+    System.out.println("Enter your Corporation's Name: ");      //CORPORATION NAME
+       corporationName = input.nextLine();
+    registrationDate = new Date(System.currentTimeMillis());    //REGISTRATION DATE         
     }
 
     @Override
