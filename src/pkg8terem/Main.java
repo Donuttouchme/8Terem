@@ -29,7 +29,7 @@ s.close();
 }catch(Exception e){System.out.println(e);}  
         // TODO code application logic here
         Scanner input = new Scanner(System.in);
-        System.out.println("Would you like to registrate? 0- if yes\n 1- if no \n 2 - to login");
+        System.out.println("Would you like to registrate? \n 0- if yes\n 1- if no \n 2 - to login");
         int decisionInput =input.nextInt();
         
         switch (decisionInput)
