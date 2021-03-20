@@ -10,9 +10,8 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class NoRegistrationGuest {
-    private String firstName = null, lastName = null, guestAddress = null;
-    private int notRegisteredGuestID = 0;        
-    private long phoneNumber = 0;
+    private String firstName = null, lastName = null, guestAddress = null, phoneNumber = null;
+    
     Date registrationDate;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     Scanner input = new Scanner(System.in);
@@ -25,8 +24,7 @@ public class NoRegistrationGuest {
     System.out.println("Enter your address: ");                         //ADDRESS
         guestAddress = input.nextLine();
     System.out.println("Enter your phone number: ");                    //PHONE NUMBER
-        phoneNumber = input.nextLong();
-    notRegisteredGuestID++;                                                          //GUEST ID
+        phoneNumber = input.nextLine();
     registrationDate = new Date(System.currentTimeMillis());            //REGISTRATION DATE        
     }
     
