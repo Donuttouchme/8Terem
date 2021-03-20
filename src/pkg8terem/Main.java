@@ -5,6 +5,8 @@
  */
 package pkg8terem;
 
+import java.io.DataOutputStream;
+import java.net.Socket;
 import java.util.Scanner;
 
 /**
@@ -17,6 +19,14 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        try{      
+Socket s=new Socket("localhost",6666);  
+DataOutputStream dout=new DataOutputStream(s.getOutputStream());  
+dout.writeUTF("Hello Server");  
+dout.flush();  
+dout.close();  
+s.close();  
+}catch(Exception e){System.out.println(e);}  
         // TODO code application logic here
         Scanner input = new Scanner(System.in);
         System.out.println("Would you like to registrate? 0- if yes\n 1- if no \n 2 - to login");
