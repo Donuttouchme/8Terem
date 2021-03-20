@@ -15,8 +15,7 @@ public class Restaurant implements Menu {
 
     @Override
     public void addMenu() {
-        List<String> names;
-        
+        List<String> names; 
     }
     
 }
