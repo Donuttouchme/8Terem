@@ -23,12 +23,13 @@ public class BusinessManager implements Users {
     private String lastName=null;
     private String corporationName=null;
     private String email;
-    Date registrationDate;
+    private String registrationDate;
+    private Date regDate;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     Scanner input = new Scanner(System.in);
     
     @Override
-    public void Registration() {
+    public BusinessManager Registration() {
     System.out.println("Enter email: ");                        //EMAIL
         email=input.nextLine();
     System.out.println("Enter username: ");                     //USERNAME
@@ -53,7 +54,10 @@ public class BusinessManager implements Users {
         lastName = input.nextLine();
     System.out.println("Enter your Corporation's Name: ");      //CORPORATION NAME
        corporationName = input.nextLine();
-    registrationDate = new Date(System.currentTimeMillis());    //REGISTRATION DATE         
+    regDate = new Date(System.currentTimeMillis());
+    registrationDate=formatter.format(regDate);    //REGISTRATION DATE 
+        return new BusinessManager(username,password,firstName,lastName,corporationName,email,registrationDate);
+    
     }
 
     @Override
@@ -63,6 +67,18 @@ public class BusinessManager implements Users {
         System.out.println("Enter password: ");
             password = input.nextLine();
     }
+    
+    public BusinessManager(String username,String password,String firstName,String lastName,String corporationName,String email,String registrationDate)
+    {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.corporationName = corporationName;
+        this.email = email;
+        this.registrationDate = registrationDate;
+    }
+    
     Restaurant RestaurantRegistration()
     {
         int id,managerID;

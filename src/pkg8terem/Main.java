@@ -40,8 +40,8 @@ s.close();
                 switch(decisionInput2)
                 {
                     case 0:
-                        BusinessManager bm = new BusinessManager();
-                        bm.Registration();
+                        BusinessManager bm=null;
+                        bm=bm.Registration();
                         break;
                 }
                 break;
