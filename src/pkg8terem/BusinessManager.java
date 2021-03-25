@@ -74,4 +74,53 @@ public class BusinessManager implements Users {
             authorisationNumber = input.nextLine();
     }
     
+    void checkOrders()
+    {
+        
+    }
+    
+    void getTotalRevenue()
+    {
+        
+    }
+    void deleteOrder()
+    {
+        
+    }
+    void editOrder()
+    {
+        
+    }
+    void addMealToMenu()
+    {
+        
+    }
+    void editMealProperties()
+    {
+        
+    }
+    void editDiscount()
+    {
+        
+    }
+    void setPaymentType()
+    {
+        
+    }
+    void setOpenHours()
+    {
+        
+    }
+    void setDeliveryTime()
+    {
+        
+    }
+    void setOrderQueue()
+    {
+        
+    }
+    void assignCourierToOrder()
+    {
+        
+    }
 }
