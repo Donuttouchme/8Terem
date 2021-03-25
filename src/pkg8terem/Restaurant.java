@@ -15,8 +15,37 @@ import java.util.Scanner;
 public class Restaurant implements Menu {
     private int id, managerID;
     private String restaurantName, address, openHours, authorisationNumber;
+    List<Meal> menu;
+
+        public Restaurant(int id, String restaurantName, String address, String openHours, String authorisationNumber, int managerID)
+    {
+        this.id=id;
+        this.restaurantName=restaurantName;
+        this.address=address;
+        this.openHours=openHours;
+        this.authorisationNumber=authorisationNumber;
+        this.managerID=managerID;
+    }
+    
+    public List<Meal> getMenu() {
+        return menu;
+    }
     Scanner input = new Scanner(System.in);
     
+    @Override
+    public void listMenu(Restaurant restaurant)
+    {
+        List<Meal> menu =restaurant.getMenu();
+        for(int i=0;i<menu.size();i++)
+        {
+            System.out.println("menu.get(i)");
+        }
+    }
+    @Override
+    public void addMealToMenu(Meal meal)
+    {
+        menu.add(meal);
+    }
     
     
     @Override
@@ -35,15 +64,6 @@ public class Restaurant implements Menu {
             System.out.println(dishes.get(i));
         }
         return dishes;
-    }
-    public Restaurant(int id, String restaurantName, String address, String openHours, String authorisationNumber, int managerID)
-    {
-        this.id=id;
-        this.restaurantName=restaurantName;
-        this.address=address;
-        this.openHours=openHours;
-        this.authorisationNumber=authorisationNumber;
-        this.managerID=managerID;
     }
         
 }

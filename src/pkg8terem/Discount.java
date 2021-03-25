@@ -5,14 +5,10 @@
  */
 package pkg8terem;
 
-import java.util.List;
-
 /**
  *
  * @author polga
  */
-public interface Menu {
-    List<String> addMenu();
-    void listMenu(Restaurant restaurant);
-    void addMealToMenu(Meal meal);
+public class Discount {
+    
 }

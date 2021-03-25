@@ -16,6 +16,7 @@ import java.util.Scanner;
 
 
 public class BusinessManager implements Users {
+    //variables
     private String username = null;
     private String password=null;
     private String passwordCheck=null;
@@ -24,9 +25,23 @@ public class BusinessManager implements Users {
     private String corporationName=null;
     private String email;
     private String registrationDate;
-    private Date regDate;
+    private Restaurant managedRestaurant;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     Scanner input = new Scanner(System.in);
+    
+    //functions
+    //
+    
+        public BusinessManager(String _username,String _password,String _firstName,String _lastName,String _corporationName,String _email,String _registrationDate)
+    {
+        this.username = _username;
+        this.password = _password;
+        this.firstName = _firstName;
+        this.lastName = _lastName;
+        this.corporationName = _corporationName;
+        this.email = _email;
+        this.registrationDate = _registrationDate;
+    }
     
     @Override
     public BusinessManager Registration() {
@@ -37,6 +52,7 @@ public class BusinessManager implements Users {
     //TO-DO check with the server
     //
     //
+    
     System.out.println("Enter password: ");                      //PASSWORD
         password = input.nextLine();
     System.out.println("Enter password again: ");   
@@ -54,29 +70,22 @@ public class BusinessManager implements Users {
         lastName = input.nextLine();
     System.out.println("Enter your Corporation's Name: ");      //CORPORATION NAME
        corporationName = input.nextLine();
-    regDate = new Date(System.currentTimeMillis());
-    registrationDate=formatter.format(regDate);    //REGISTRATION DATE 
+    registrationDate=formatter.format(new Date(System.currentTimeMillis()));    //REGISTRATION DATE 
         return new BusinessManager(username,password,firstName,lastName,corporationName,email,registrationDate);
-    
     }
 
     @Override
     public void Login() {
         System.out.println("Enter username: ");
             username = input.nextLine();
+            //TO-DO CHECK WITH THE SERVER
+            //
+            //
         System.out.println("Enter password: ");
             password = input.nextLine();
-    }
-    
-    public BusinessManager(String username,String password,String firstName,String lastName,String corporationName,String email,String registrationDate)
-    {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.corporationName = corporationName;
-        this.email = email;
-        this.registrationDate = registrationDate;
+            //TO-DO CHECK WITH THE SERVER
+            //
+            //
     }
     
     Restaurant RestaurantRegistration()
@@ -94,57 +103,95 @@ public class BusinessManager implements Users {
             openHours = input.nextLine();
         System.out.println("Enter your restaurant's authorisation number: ");
             authorisationNumber = input.nextLine();
-            Restaurant restaurant = new Restaurant(id,restaurantName, address, openHours, authorisationNumber, managerID);
-            return restaurant;
+            return new Restaurant(id,restaurantName, address, openHours, authorisationNumber, managerID);
     }
     
     void checkOrders()
     {
-        
+        //TO-DO
+        //
+        //
     }
     
     void getTotalRevenue()
     {
-        
+        //TO-DO
+        //
+        // 
     }
     void deleteOrder()
     {
-        
+        //TO-DO
+        //
+        // 
     }
     void editOrder()
     {
-        
+        //TO-DO
+        //
+        // 
     }
     void addMealToMenu()
     {
-        
+        System.out.println("How many meals do you want to add? :");
+        int cycle =input.nextInt();
+        for (int i = 0; i < cycle; i++) 
+        {
+            System.out.println("Enter the " +(i+1)+". meal's name: ");
+               String mealName = input.nextLine();
+            System.out.println("Enter the " +(i+1)+". meal's cost: ");
+                int mealCost = input.nextInt();
+            System.out.println("How many allergens do you want to add to the meal?: ");
+                int cycle2=input.nextInt();
+                List<String>allergens =null;
+                for(int j=0;j<cycle2;j++)
+                {
+                    System.out.println("Enter the " +(j+1)+". allergen: ");
+                    allergens.add(input.nextLine());
+                }
+                managedRestaurant.addMealToMenu(new Meal(managedRestaurant.getMenu().size()+1,mealName,mealCost,allergens));
+        }
     }
     void editMealProperties()
     {
-        
+        //TO-DO
+        //
+        // 
     }
     void editDiscount()
     {
-        
+        //TO-DO
+        //
+        // 
     }
     void setPaymentType()
     {
-        
+       //TO-DO
+        //
+        //  
     }
     void setOpenHours()
     {
-        
+        //TO-DO
+        //
+        // 
     }
     void setDeliveryTime()
     {
-        
+        //TO-DO
+        //
+        // 
     }
     void setOrderQueue()
     {
-        
+        //TO-DO
+        //
+        // 
     }
     void assignCourierToOrder()
     {
-        
+        //TO-DO
+        //
+        // 
     }
 }
