@@ -12,11 +12,11 @@ import java.util.Scanner;
 public class NoRegistrationGuest {
     private String firstName = null, lastName = null, guestAddress = null, phoneNumber = null;
     
-    Date registrationDate;
+    String registrationDate;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     Scanner input = new Scanner(System.in);
 
-    public void Registration() {
+    public NoRegistrationGuest Registration() {
     System.out.println("Enter your first name: ");                      //NAME
         firstName = input.nextLine();
     System.out.println("Enter your last name: ");
@@ -25,8 +25,19 @@ public class NoRegistrationGuest {
         guestAddress = input.nextLine();
     System.out.println("Enter your phone number: ");                    //PHONE NUMBER
         phoneNumber = input.nextLine();
-    registrationDate = new Date(System.currentTimeMillis());            //REGISTRATION DATE        
+                            
+    registrationDate = formatter.format(new Date(System.currentTimeMillis())); //REGISTRATION DATE   
+    return new NoRegistrationGuest(firstName,lastName,guestAddress,phoneNumber,registrationDate);
     }
+    
+    public NoRegistrationGuest(String _firstName,String _lastName,String _guestAddress, String _phoneNumber, String _registrationDate)
+    {
+        this.firstName = _firstName;
+        this.lastName = _lastName;
+        this.guestAddress = _phoneNumber;
+        this.registrationDate = _registrationDate;
+    }
+    
     
     public void makeOrder() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.      

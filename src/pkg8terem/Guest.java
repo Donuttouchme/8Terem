@@ -12,7 +12,6 @@ public class Guest implements Users {
     private String firstName = null, lastName = null, guestAddress = null, phoneNumber = null;
 
     private String registrationDate;
-    private Date regDate;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     Scanner input = new Scanner(System.in);
 
@@ -41,20 +40,20 @@ public class Guest implements Users {
     System.out.println("Enter your address: ");                         //ADDRESS
         guestAddress = input.nextLine();
     System.out.println("Enter your phone number: ");                    //PHONE NUMBER
-        phoneNumber = input.nextLine();                                                 
-    regDate = new Date(System.currentTimeMillis());
-    registrationDate=formatter.format(regDate);//REGISTRATION DATE  
+        phoneNumber = input.nextLine();               
+    registrationDate = formatter.format(new Date(System.currentTimeMillis()));  //REGISTRATION DATE
+    
     return new Guest(username,password,firstName,lastName,guestAddress,phoneNumber,registrationDate);
     }
     
-    public Guest(String username,String  password, String firstName,String  lastName,String guestAddress, String phoneNumber, String registrationDate)
+    public Guest(String _username,String _password, String _firstName,String _lastName,String _guestAddress, String _phoneNumber, String _registrationDate)
     {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.guestAddress = phoneNumber;
-        this.registrationDate = registrationDate;
+        this.username = _username;
+        this.password = _password;
+        this.firstName = _firstName;
+        this.lastName = _lastName;
+        this.guestAddress = _phoneNumber;
+        this.registrationDate = _registrationDate;
     }
 
     @Override

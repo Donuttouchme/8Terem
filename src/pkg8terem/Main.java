@@ -43,7 +43,13 @@ s.close();
                         BusinessManager bm=null;
                         bm=bm.Registration();
                         break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
                 }
+           
+                
                 break;
         }
     }
