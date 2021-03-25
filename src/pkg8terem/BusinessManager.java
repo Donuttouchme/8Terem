@@ -63,15 +63,23 @@ public class BusinessManager implements Users {
         System.out.println("Enter password: ");
             password = input.nextLine();
     }
-    void RestaurantRegistration()
+    Restaurant RestaurantRegistration()
     {
-        String restaurantName, address, authorisationNumber;
+        int id,managerID;
+        String restaurantName, address, openHours, authorisationNumber;
+        System.out.println("");
+        id=0;
+        managerID=0;
         System.out.println("Enter your restaurant's name: ");
             restaurantName = input.nextLine();
         System.out.println("Enter your restaurant's address: ");
             address = input.nextLine();
+        System.out.println("Enter your restaurant's hopen hours: ");
+            openHours = input.nextLine();
         System.out.println("Enter your restaurant's authorisation number: ");
             authorisationNumber = input.nextLine();
+            Restaurant restaurant = new Restaurant(id,restaurantName, address, openHours, authorisationNumber, managerID);
+            return restaurant;
     }
     
     void checkOrders()
