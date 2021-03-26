@@ -133,24 +133,7 @@ public class BusinessManager implements Users {
     }
     void addMealToMenu()
     {
-        System.out.println("How many meals do you want to add? :");
-        int cycle =input.nextInt();
-        for (int i = 0; i < cycle; i++) 
-        {
-            System.out.println("Enter the " +(i+1)+". meal's name: ");
-               String mealName = input.nextLine();
-            System.out.println("Enter the " +(i+1)+". meal's cost: ");
-                int mealCost = input.nextInt();
-            System.out.println("How many allergens do you want to add to the meal?: ");
-                int cycle2=input.nextInt();
-                List<String>allergens =null;
-                for(int j=0;j<cycle2;j++)
-                {
-                    System.out.println("Enter the " +(j+1)+". allergen: ");
-                    allergens.add(input.nextLine());
-                }
-                managedRestaurant.addMealToMenu(new Meal(managedRestaurant.getMenu().size()+1,mealName,mealCost,allergens));
-        }
+        managedRestaurant.menu.addMealToMenu();
     }
     void editMealProperties()
     {
