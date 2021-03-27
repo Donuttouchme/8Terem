@@ -43,7 +43,7 @@ public class Main {
         switch (decisionInput)
             {
             case 0:
-                NoRegistrationGuest nrg = null;
+                NoRegistrationGuest nrg = new NoRegistrationGuest();
                 nrg = nrg.Registration();
                 objectOutputStream.writeObject(nrg);
                 break;
@@ -54,18 +54,8 @@ public class Main {
                     {
                     case 0:
                         BusinessManager bm =new BusinessManager();
-                        bm.Registration();
-                        String tempUsername = bm.getUsername();
-                        String tempPwd = bm.getPassword();
-                        String tempFName = bm.getFirstName();
-                        String tempLName = bm.getLastName();
-                        String tempCName = bm.getCorporationName();
-                        String tempEmail = bm.getEmail();
-                        String registrationDate = bm.getRegistrationDate();
-                       
-                        bm = new BusinessManager(tempUsername, tempPwd, tempFName, tempLName, tempCName, tempEmail, registrationDate);
-                        
-                        objectOutputStream.writeObject(bm);      
+                        bm = bm.Registration();                        
+                        objectOutputStream.writeObject(new BusinessManager(bm.getUsername(),bm.getPassword(),bm.getFirstName(),bm.getLastName(),bm.getCorporationName(),bm.getEmail(),bm.getRegistrationDate()));      
         {
             try {
                 sleep(2000);

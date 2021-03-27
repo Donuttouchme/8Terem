@@ -106,7 +106,7 @@ public class BusinessManager implements Users, Serializable{
     }
     
     @Override
-    public void Registration() {
+    public BusinessManager Registration() {
     System.out.println("Enter email: ");                        //EMAIL
         email=input.nextLine();
     System.out.println("Enter username: ");                     //USERNAME
@@ -133,7 +133,7 @@ public class BusinessManager implements Users, Serializable{
     System.out.println("Enter your Corporation's Name: ");      //CORPORATION NAME
        corporationName = input.nextLine();
     registrationDate=formatter.format(new Date(System.currentTimeMillis()));    //REGISTRATION DATE 
-         new BusinessManager(username,password,firstName,lastName,corporationName,email,registrationDate);
+         return new BusinessManager(username,password,firstName,lastName,corporationName,email,registrationDate);
     }
 
     @Override

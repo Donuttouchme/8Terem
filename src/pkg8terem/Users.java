@@ -15,6 +15,6 @@ import javax.xml.bind.annotation.XmlElement;
 
 public interface Users
 {  
-    void Registration();
+    Users Registration();
     Users Login();
 }

@@ -31,6 +31,11 @@ public class NoRegistrationGuest implements Serializable{
     return new NoRegistrationGuest(firstName,lastName,guestAddress,phoneNumber,registrationDate);
     }
     
+    public NoRegistrationGuest()
+    {
+        
+    }
+    
     public NoRegistrationGuest(String _firstName,String _lastName,String _guestAddress, String _phoneNumber, String _registrationDate)
     {
         this.firstName = _firstName;
