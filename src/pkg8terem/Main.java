@@ -9,8 +9,11 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import static java.lang.Thread.sleep;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -59,9 +62,18 @@ public class Main {
                         String tempCName = bm.getCorporationName();
                         String tempEmail = bm.getEmail();
                         String registrationDate = bm.getRegistrationDate();
+                       
                         bm = new BusinessManager(tempUsername, tempPwd, tempFName, tempLName, tempCName, tempEmail, registrationDate);
-                        objectOutputStream.writeObject(bm);        
-                        break;        
+                        
+                        objectOutputStream.writeObject(bm);      
+        {
+            try {
+                sleep(2000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+                        break;                
                     case 1:  
                         
                         break;       

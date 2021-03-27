@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import pkg8terem.Restaurant;
+import pkg8terem.Users;
 /**
  *
  * @author polgar
@@ -87,7 +89,7 @@ public class BusinessManager implements Users, Serializable{
     private String registrationDate;
     private Restaurant managedRestaurant;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-    Scanner input = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
     
     //functions
     //
