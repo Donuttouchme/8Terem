@@ -50,7 +50,7 @@ public class Main {
                 switch(decisionInputForRegistration)        
                     {
                     case 0:
-                        BusinessManager bm =null;
+                        BusinessManager bm =new BusinessManager();
                         bm.Registration();
                         String tempUsername = bm.getUsername();
                         String tempPwd = bm.getPassword();

@@ -5,6 +5,7 @@
  */
 package pkg8terem;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Scanner;
  */
 
 
-public class BusinessManager implements Users {
+public class BusinessManager implements Users, Serializable{
 
     public String getUsername() {
         return username;
@@ -68,7 +69,10 @@ public class BusinessManager implements Users {
     public String getRegistrationDate() {
         return registrationDate;
     }
-
+    public BusinessManager()
+    {
+        
+    }
     //variables
     public void setRegistrationDate(String registrationDate) {
         this.registrationDate = registrationDate;

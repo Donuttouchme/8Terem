@@ -5,6 +5,7 @@
  */
 package pkg8terem;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlElement;
 
 /**

@@ -1,13 +1,14 @@
 
 package pkg8terem;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 
-public class Guest implements Users {
+public class Guest implements Users, Serializable {
     private String username = null, password = null, passwordCheck = null;
     private String firstName = null, lastName = null, guestAddress = null, phoneNumber = null;
 

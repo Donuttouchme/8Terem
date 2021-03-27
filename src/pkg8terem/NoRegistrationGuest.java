@@ -5,11 +5,12 @@
  */
 package pkg8terem;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class NoRegistrationGuest {
+public class NoRegistrationGuest implements Serializable{
     private String firstName = null, lastName = null, guestAddress = null, phoneNumber = null;
     
     String registrationDate;

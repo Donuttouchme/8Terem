@@ -5,10 +5,12 @@
  */
 package pkg8terem;
 
+import java.io.Serializable;
+
 /**
  *
  * @author polga
  */
-public class Discount {
+public class Discount implements Serializable{
     
 }
