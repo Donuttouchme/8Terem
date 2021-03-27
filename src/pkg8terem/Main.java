@@ -57,8 +57,9 @@ public class Main {
                         String tempFName = bm.getFirstName();
                         String tempLName = bm.getLastName();
                         String tempCName = bm.getCorporationName();
+                        String tempEmail = bm.getEmail();
                         String registrationDate = bm.getRegistrationDate();
-                        bm = new BusinessManager(tempUsername, tempPwd, tempCName, tempCName, registrationDate, tempPwd, registrationDate);
+                        bm = new BusinessManager(tempUsername, tempPwd, tempFName, tempLName, tempCName, tempEmail, registrationDate);
                         objectOutputStream.writeObject(bm);        
                         break;        
                     case 1:  
