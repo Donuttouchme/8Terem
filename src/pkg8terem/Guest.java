@@ -57,11 +57,12 @@ public class Guest implements Users {
     }
 
     @Override
-    public void Login() {
+    public Guest Login() {
         System.out.println("Enter username: ");
         username = input.nextLine();
         System.out.println("Enter password: ");
         password = input.nextLine();
+        return new Guest("user","password","firstname","lastname", "666 Hell shit street 666", "06206666666","2021-03-20 'at' 18:00:00 z");
     }
     
     public void makeOrder() {

@@ -6,6 +6,9 @@
 package pkg8terem;
 
 import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -18,40 +21,60 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
+        ObjectOutputStream objectOutputStream = null;
         try{      
-Socket s=new Socket("localhost",6666);  
-DataOutputStream dout=new DataOutputStream(s.getOutputStream());  
-dout.writeUTF("Hello Server");  
-dout.flush();  
-dout.close();  
-s.close();  
-}catch(Exception e){System.out.println(e);}  
-        // TODO code application logic here
-        Scanner input = new Scanner(System.in);
-        System.out.println("Would you like to registrate? \n 0- if yes\n 1- if no \n 2 - to login");
-        int decisionInput =input.nextInt();
-        
-        switch (decisionInput)
+        Socket socket=new Socket("localhost",7777);  
+        System.out.println("Connected!");
+        OutputStream outputStream = socket.getOutputStream();
+         objectOutputStream= new ObjectOutputStream(outputStream);
+        }catch(Exception e)
         {
+            System.out.println(e);
+        }  
+                // TODO code application logic here
+        Scanner input = new Scanner(System.in);
+        System.out.println("Would you like to registrate? \n 1- if yes\n 0- if no \n 2 - to login");
+        int decisionInput =input.nextInt();
+
+        switch (decisionInput)
+            {
             case 0:
+                NoRegistrationGuest nrg = null;
+                nrg = nrg.Registration();
+                objectOutputStream.writeObject(nrg);
+                break;
+            case 1:
                 System.out.println("How would you like to registrate?\n 0 - as Business Manager\n 1 - as Courier\n 2 - as a Guest");
-                int decisionInput2 = input.nextInt();
-                switch(decisionInput2)
-                {
+                int decisionInputForRegistration = input.nextInt();        
+                switch(decisionInputForRegistration)        
+                    {
                     case 0:
                         BusinessManager bm=null;
-                        bm=bm.Registration();
-                        break;
-                    case 1:
-                        break;
+                        bm=bm.Registration();        
+                        objectOutputStream.writeObject(bm);        
+                        break;        
+                    case 1:  
+                        
+                        break;       
                     case 2:
+                        
+                        break;
+                        }    
+                break; 
+            case 2:
+                System.out.println("How would you like to login? \n 0 - as Business Manager\n 1 - as Courier\n 2 - as a Guest");
+                int decisionInputForLogin = input.nextInt();
+                switch(decisionInputForLogin)
+                {
+                    case 0:
+                        BusinessManager bm = null;
+                        bm.Login();
                         break;
                 }
-           
-                
                 break;
-        }
+                
+            }    
     }
     
 }

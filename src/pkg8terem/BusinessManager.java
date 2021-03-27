@@ -75,7 +75,7 @@ public class BusinessManager implements Users {
     }
 
     @Override
-    public void Login() {
+    public BusinessManager Login() {
         System.out.println("Enter username: ");
             username = input.nextLine();
             //TO-DO CHECK WITH THE SERVER
@@ -86,6 +86,7 @@ public class BusinessManager implements Users {
             //TO-DO CHECK WITH THE SERVER
             //
             //
+            return new BusinessManager("user","password","firstname","lastname", "corporation", "emal@email.email","2021-03-20 'at' 18:00:00 z");
     }
     
     Restaurant RestaurantRegistration()
