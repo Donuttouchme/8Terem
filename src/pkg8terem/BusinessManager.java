@@ -100,7 +100,7 @@ public class BusinessManager implements Users {
     }
     
     @Override
-    public BusinessManager Registration() {
+    public void Registration() {
     System.out.println("Enter email: ");                        //EMAIL
         email=input.nextLine();
     System.out.println("Enter username: ");                     //USERNAME
@@ -127,7 +127,7 @@ public class BusinessManager implements Users {
     System.out.println("Enter your Corporation's Name: ");      //CORPORATION NAME
        corporationName = input.nextLine();
     registrationDate=formatter.format(new Date(System.currentTimeMillis()));    //REGISTRATION DATE 
-        return new BusinessManager(username,password,firstName,lastName,corporationName,email,registrationDate);
+         new BusinessManager(username,password,firstName,lastName,corporationName,email,registrationDate);
     }
 
     @Override

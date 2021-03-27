@@ -50,8 +50,15 @@ public class Main {
                 switch(decisionInputForRegistration)        
                     {
                     case 0:
-                        BusinessManager bm=null;
-                        bm=bm.Registration();        
+                        BusinessManager bm =null;
+                        bm.Registration();
+                        String tempUsername = bm.getUsername();
+                        String tempPwd = bm.getPassword();
+                        String tempFName = bm.getFirstName();
+                        String tempLName = bm.getLastName();
+                        String tempCName = bm.getCorporationName();
+                        String registrationDate = bm.getRegistrationDate();
+                        bm = new BusinessManager(tempUsername, tempPwd, tempCName, tempCName, registrationDate, tempPwd, registrationDate);
                         objectOutputStream.writeObject(bm);        
                         break;        
                     case 1:  

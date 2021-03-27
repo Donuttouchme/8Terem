@@ -16,7 +16,7 @@ public class Guest implements Users {
     Scanner input = new Scanner(System.in);
 
     @Override
-    public Guest Registration() {
+    public void Registration() {
         System.out.println("Enter username: ");
          username = input.nextLine();
     //TO-DO check with the server
@@ -43,7 +43,7 @@ public class Guest implements Users {
         phoneNumber = input.nextLine();               
     registrationDate = formatter.format(new Date(System.currentTimeMillis()));  //REGISTRATION DATE
     
-    return new Guest(username,password,firstName,lastName,guestAddress,phoneNumber,registrationDate);
+     new Guest(username,password,firstName,lastName,guestAddress,phoneNumber,registrationDate);
     }
     
     public Guest(String _username,String _password, String _firstName,String _lastName,String _guestAddress, String _phoneNumber, String _registrationDate)
