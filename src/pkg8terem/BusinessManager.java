@@ -5,11 +5,14 @@
  */
 package pkg8terem;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import javafx.util.Pair;
 import pkg8terem.Restaurant;
 import pkg8terem.Users;
 /**
@@ -20,65 +23,6 @@ import pkg8terem.Users;
 
 public class BusinessManager implements Users, Serializable{
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getCorporationName() {
-        return corporationName;
-    }
-
-    public void setCorporationName(String corporationName) {
-        this.corporationName = corporationName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getRegistrationDate() {
-        return registrationDate;
-    }
-    public BusinessManager()
-    {
-        
-    }
-    //variables
-    public void setRegistrationDate(String registrationDate) {
-        this.registrationDate = registrationDate;
-    }
     private String username = null;
     private String password=null;
     private String passwordCheck=null;
@@ -90,9 +34,14 @@ public class BusinessManager implements Users, Serializable{
     private Restaurant managedRestaurant;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     static Scanner input = new Scanner(System.in);
-    
+    Pair<Object, Integer>datas;
+     ObjectOutputStream objectOutputStream = null;
     //functions
     //
+        public BusinessManager()
+    {
+        
+    }
     
         public BusinessManager(String _username,String _password,String _firstName,String _lastName,String _corporationName,String _email,String _registrationDate)
     {
@@ -106,14 +55,14 @@ public class BusinessManager implements Users, Serializable{
     }
     
     @Override
-    public BusinessManager Registration() {
+    public BusinessManager Registration() throws IOException {
     System.out.println("Enter email: ");                        //EMAIL
         email=input.nextLine();
     System.out.println("Enter username: ");                     //USERNAME
         username = input.nextLine();
     //TO-DO check with the server
-    //
-    //
+    datas = new Pair<>(new BusinessManager(),0);
+    objectOutputStream.writeObject(datas);
     
     System.out.println("Enter password: ");                      //PASSWORD
         password = input.nextLine();
@@ -239,5 +188,60 @@ public class BusinessManager implements Users, Serializable{
         //TO-DO
         //
         // 
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getCorporationName() {
+        return corporationName;
+    }
+
+    public void setCorporationName(String corporationName) {
+        this.corporationName = corporationName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getRegistrationDate() {
+        return registrationDate;
+    }
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
     }
 }

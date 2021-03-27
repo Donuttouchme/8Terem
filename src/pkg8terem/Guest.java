@@ -1,6 +1,7 @@
 
 package pkg8terem;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,15 +10,20 @@ import java.util.Scanner;
 
 
 public class Guest implements Users, Serializable {
-    private String username = null, password = null, passwordCheck = null;
-    private String firstName = null, lastName = null, guestAddress = null, phoneNumber = null;
+    private String username = null;
+    private String password = null;
+    private String passwordCheck = null;
+    private String firstName = null;
+    private String lastName = null;
+    private String guestAddress = null;
+    private String phoneNumber = null;
+    private String registrationDate = null;
 
-    private String registrationDate;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-    Scanner input = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
 
     @Override
-    public Guest Registration() {
+    public Guest Registration() throws IOException {
         System.out.println("Enter username: ");
          username = input.nextLine();
     //TO-DO check with the server
@@ -45,6 +51,11 @@ public class Guest implements Users, Serializable {
     registrationDate = formatter.format(new Date(System.currentTimeMillis()));  //REGISTRATION DATE
     
      return new Guest(username,password,firstName,lastName,guestAddress,phoneNumber,registrationDate);
+    }
+    
+    public Guest()
+    {
+        
     }
     
     public Guest(String _username,String _password, String _firstName,String _lastName,String _guestAddress, String _phoneNumber, String _registrationDate)
@@ -94,4 +105,59 @@ public class Guest implements Users, Serializable {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.      
     }
     
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getGuestAddress() {
+        return guestAddress;
+    }
+
+    public void setGuestAddress(String guestAddress) {
+        this.guestAddress = guestAddress;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
+    }
 }

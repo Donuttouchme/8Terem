@@ -15,7 +15,7 @@ public class NoRegistrationGuest implements Serializable{
     
     String registrationDate;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-    Scanner input = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
 
     public NoRegistrationGuest Registration() {
     System.out.println("Enter your first name: ");                      //NAME

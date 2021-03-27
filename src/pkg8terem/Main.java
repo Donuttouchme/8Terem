@@ -14,6 +14,7 @@ import java.net.Socket;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.util.Pair;
 
 /**
  *
@@ -26,6 +27,8 @@ public class Main {
      */
     public static void main(String[] args) throws IOException{
         ObjectOutputStream objectOutputStream = null;
+        Pair<Object,Integer> datas;
+        
         try{      
         Socket socket=new Socket("localhost",7777);  
         System.out.println("Connected!");
@@ -56,19 +59,16 @@ public class Main {
                         BusinessManager bm =new BusinessManager();
                         bm = bm.Registration();                        
                         objectOutputStream.writeObject(new BusinessManager(bm.getUsername(),bm.getPassword(),bm.getFirstName(),bm.getLastName(),bm.getCorporationName(),bm.getEmail(),bm.getRegistrationDate()));      
-        {
-            try {
-                sleep(2000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
                         break;                
                     case 1:  
-                        
+                        Courier c = new Courier();
+                        c = c.Registration();
+                        objectOutputStream.writeObject(new Guest());
                         break;       
                     case 2:
-                        
+                        Guest g = new Guest();
+                        g =g.Registration();
+                        objectOutputStream.writeObject(new Guest(g.getUsername(),g.getPassword(),g.getFirstName(),g.getLastName(),g.getGuestAddress(),g.getPhoneNumber(),g.getRegistrationDate()));
                         break;
                         }    
                 break; 
@@ -78,13 +78,26 @@ public class Main {
                 switch(decisionInputForLogin)
                 {
                     case 0:
-                        BusinessManager bm = null;
-                        bm.Login();
+                        BusinessManager bm = new BusinessManager();
+                        bm =bm.Login();
+                        break;
+                    case 1:
+                        Courier c = new Courier();
+                        c = c.Login();
+                        break;
+                    case 2: 
+                        Guest g = new Guest();
+                        g = g.Login();
                         break;
                 }
                 break;
                 
-            }    
+            }
+                    try {
+                sleep(2000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
     
 }

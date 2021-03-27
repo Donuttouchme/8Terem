@@ -5,6 +5,7 @@
  */
 package pkg8terem;
 
+import java.io.IOException;
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlElement;
 
@@ -15,6 +16,6 @@ import javax.xml.bind.annotation.XmlElement;
 
 public interface Users
 {  
-    Users Registration();
+    Users Registration()throws IOException;
     Users Login();
 }
