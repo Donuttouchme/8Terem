@@ -38,12 +38,12 @@ public class BusinessManager implements Users, Serializable{
      ObjectOutputStream objectOutputStream = null;
     //functions
     //
-        public BusinessManager()
+    public BusinessManager()
     {
         
     }
     
-        public BusinessManager(String _username,String _password,String _firstName,String _lastName,String _corporationName,String _email,String _registrationDate)
+    public BusinessManager(String _username,String _password,String _firstName,String _lastName,String _corporationName,String _email,String _registrationDate)
     {
         this.username = _username;
         this.password = _password;

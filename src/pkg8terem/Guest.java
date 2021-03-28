@@ -22,6 +22,78 @@ public class Guest implements Users, Serializable {
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     static Scanner input = new Scanner(System.in);
 
+    public Guest()
+    {  
+    }
+    
+    public Guest(String _username,String _password, String _firstName,String _lastName,String _guestAddress, String _phoneNumber, String _registrationDate)
+    {
+        this.username = _username;
+        this.password = _password;
+        this.firstName = _firstName;
+        this.lastName = _lastName;
+        this.guestAddress = _guestAddress;
+        this.phoneNumber = _phoneNumber;
+        this.registrationDate = _registrationDate;
+    }
+      
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String _username) {
+        this.username = _username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String _password) {
+        this.password = _password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String _firstName) {
+        this.firstName = _firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String _lastName) {
+        this.lastName = _lastName;
+    }
+
+    public String getGuestAddress() {
+        return guestAddress;
+    }
+
+    public void setGuestAddress(String _guestAddress) {
+        this.guestAddress = _guestAddress;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String _phoneNumber) {
+        this.phoneNumber = _phoneNumber;
+    }
+
+    public String getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(String _registrationDate) {
+        this.registrationDate = _registrationDate;
+    }
+    
+    
     @Override
     public Guest Registration() throws IOException {
         System.out.println("Enter username: ");
@@ -53,20 +125,7 @@ public class Guest implements Users, Serializable {
      return new Guest(username,password,firstName,lastName,guestAddress,phoneNumber,registrationDate);
     }
     
-    public Guest()
-    {
-        
-    }
-    
-    public Guest(String _username,String _password, String _firstName,String _lastName,String _guestAddress, String _phoneNumber, String _registrationDate)
-    {
-        this.username = _username;
-        this.password = _password;
-        this.firstName = _firstName;
-        this.lastName = _lastName;
-        this.guestAddress = _phoneNumber;
-        this.registrationDate = _registrationDate;
-    }
+
 
     @Override
     public Guest Login() {
@@ -105,59 +164,5 @@ public class Guest implements Users, Serializable {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.      
     }
     
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getGuestAddress() {
-        return guestAddress;
-    }
-
-    public void setGuestAddress(String guestAddress) {
-        this.guestAddress = guestAddress;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(String registrationDate) {
-        this.registrationDate = registrationDate;
-    }
 }

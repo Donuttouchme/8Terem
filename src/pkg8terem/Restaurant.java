@@ -14,19 +14,24 @@ import java.util.Scanner;
  * @author polga
  */
 public class Restaurant implements Serializable{
-    private int id, managerID;
-    private String restaurantName, address, openHours, authorisationNumber;
+    private int restaurantID = 0;
+    private int managerID = 0;
+    private String restaurantName = null;
+    private String restaurantAddress = null;
+    private String openHours = null;
+    private String authorisationNumber = null;
+    
     Menu menu;
     Scanner input = new Scanner(System.in);
 
-        public Restaurant(int id, String restaurantName, String address, String openHours, String authorisationNumber, int managerID)
+    public Restaurant(int _restaurantID, String _restaurantName, String _restaurantAddress, String _openHours, String _authorisationNumber, int _managerID)
     {
-        this.id=id;
-        this.restaurantName=restaurantName;
-        this.address=address;
-        this.openHours=openHours;
-        this.authorisationNumber=authorisationNumber;
-        this.managerID=managerID;
+        this.restaurantID = _restaurantID;
+        this.restaurantName = _restaurantName;
+        this.restaurantAddress = _restaurantAddress;
+        this.openHours = _openHours;
+        this.authorisationNumber = _authorisationNumber;
+        this.managerID = _managerID;
     }
     
     public Menu getMenu() {

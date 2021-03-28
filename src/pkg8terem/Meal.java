@@ -17,6 +17,10 @@ public class Meal implements Serializable{
     private String name;
     private List<String> allergens;
     
+    public Meal()
+        {             
+        }
+    
     public Meal(int _id, String _name, int _cost, List<String> _allergens)
     {
         this.id = _id;

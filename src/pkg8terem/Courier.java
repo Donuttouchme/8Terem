@@ -26,14 +26,14 @@ public class Courier implements Users{
         
     }
     
-    public Courier(String usrnm, String pwd, String fname, String lname, String pnmbr, int slry)
+    public Courier(String _username, String _password, String _firstname, String _lastname, String _phonenumber, int _salary)
     {
-        this.username = usrnm;
-        this.password=pwd;
-        this.firstName = fname;
-        this.lastName = lname;
-        this.phoneNumber = pnmbr;
-        this.salary = slry;
+        this.username = _username;
+        this.password= _password;
+        this.firstName = _firstname;
+        this.lastName = _lastname;
+        this.phoneNumber = _phonenumber;
+        this.salary = _salary;
     }
     
     @Override
