@@ -6,6 +6,7 @@
 package pkg8terem;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -36,6 +37,7 @@ public class BusinessManager implements Users, Serializable{
     static Scanner input = new Scanner(System.in);
     Pair<Object, Integer>datas;
     ObjectOutputStream objectOutputStream = null;
+    ObjectInputStream objectInputStream = null; 
     //functions
     //
     public BusinessManager()
@@ -56,39 +58,47 @@ public class BusinessManager implements Users, Serializable{
     
     @Override
     public BusinessManager Registration() throws IOException {
-    System.out.println("Enter email: ");                        //EMAIL
-        email=input.nextLine();
-    System.out.println("Enter username: ");                     //USERNAME
-        username = input.nextLine();
-    //TO-DO check with the server
-    datas = new Pair<>(username,0);
-    objectOutputStream.writeObject(datas);
-    
-    System.out.println("Enter password: ");                      //PASSWORD
-        password = input.nextLine();
-    System.out.println("Enter password again: ");   
-        passwordCheck = input.nextLine();
-    while(!password.equals(passwordCheck))                      //PASSWORD CHECK
-    {
-    System.out.println("Passwords are not matching, please enter them again: ");
-        password = input.nextLine();
-    System.out.println("Enter password again: ");
-        passwordCheck = input.nextLine();
-    }
-    System.out.println("Enter your first name: ");              //NAME
-        firstName = input.nextLine();
-    System.out.println("Enter your last name: ");
-        lastName = input.nextLine();
-    System.out.println("Enter your Corporation's Name: ");      //CORPORATION NAME
-       corporationName = input.nextLine();
-    registrationDate=formatter.format(new Date(System.currentTimeMillis()));    //REGISTRATION DATE 
-         return new BusinessManager(username,password,firstName,lastName,corporationName,email,registrationDate);
+       
+        System.out.println("Enter email: ");                        //EMAIL
+            email=input.nextLine();
+        boolean usedUsername = true;
+        while(usedUsername){
+        System.out.println("Enter username: ");                     //USERNAME
+            username = input.nextLine();
+        datas = new Pair<>(username,5);
+        objectOutputStream.writeObject(datas);
+        usedUsername=objectInputStream.readBoolean();
+        if(usedUsername)
+        {
+                System.out.println("Oops! Looks like your entered username is taken, please enter another! :");
+                username=input.nextLine();
+        }
+        }
+        System.out.println("Enter password: ");                      //PASSWORD
+            password = input.nextLine();
+        System.out.println("Enter password again: ");   
+            passwordCheck = input.nextLine();
+        while(!password.equals(passwordCheck))                      //PASSWORD CHECK
+        {
+        System.out.println("Passwords are not matching, please enter them again: ");
+            password = input.nextLine();
+        System.out.println("Enter password again: ");
+            passwordCheck = input.nextLine();
+        }
+        System.out.println("Enter your first name: ");              //NAME
+            firstName = input.nextLine();
+        System.out.println("Enter your last name: ");
+            lastName = input.nextLine();
+        System.out.println("Enter your Corporation's Name: ");      //CORPORATION NAME
+           corporationName = input.nextLine();
+        registrationDate=formatter.format(new Date(System.currentTimeMillis()));    //REGISTRATION DATE 
+             return new BusinessManager(username,password,firstName,lastName,corporationName,email,registrationDate);
     }
 
     @Override
     public BusinessManager Login() {
         boolean correct = false;
-        while(correct!=true){
+        while(!correct){
         System.out.println("Enter username: ");
             username = input.nextLine();
         System.out.println("Enter password: ");
