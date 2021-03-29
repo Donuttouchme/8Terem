@@ -61,7 +61,7 @@ public class BusinessManager implements Users, Serializable{
     System.out.println("Enter username: ");                     //USERNAME
         username = input.nextLine();
     //TO-DO check with the server
-    datas = new Pair<>(new BusinessManager(),0);
+    datas = new Pair<>(username,0);
     objectOutputStream.writeObject(datas);
     
     System.out.println("Enter password: ");                      //PASSWORD
@@ -87,20 +87,28 @@ public class BusinessManager implements Users, Serializable{
 
     @Override
     public BusinessManager Login() {
+        boolean correct = false;
+        while(correct!=true){
         System.out.println("Enter username: ");
             username = input.nextLine();
-            //TO-DO CHECK WITH THE SERVER
-            //
-            //
         System.out.println("Enter password: ");
             password = input.nextLine();
-            //TO-DO CHECK WITH THE SERVER
-            //
-            //
+            datas = new Pair<>(new Pair<>(username,password), 0);
+//            if()
+//            {
+//            correct = true;
+//            }
+//            else
+//            {
+//                System.out.println("Incorrect password or username, please enter them again: ");
+//            }
+//            
+        }
+            
             return new BusinessManager("user","password","firstname","lastname", "corporation", "emal@email.email","2021-03-20 'at' 18:00:00 z");
     }
     
-    Restaurant RestaurantRegistration()
+    void RestaurantRegistration() throws IOException
     {
         int id,managerID;
         String restaurantName, address, openHours, authorisationNumber;
@@ -115,7 +123,20 @@ public class BusinessManager implements Users, Serializable{
             openHours = input.nextLine();
         System.out.println("Enter your restaurant's authorisation number: ");
             authorisationNumber = input.nextLine();
-            return new Restaurant(id,restaurantName, address, openHours, authorisationNumber, managerID);
+            objectOutputStream.writeObject(new Restaurant(id,restaurantName, address, openHours, authorisationNumber, managerID));
+    }
+    
+        void addMealToMenu() throws IOException
+    {
+        managedRestaurant.menu.addMealToMenu();
+        datas = new Pair<>(managedRestaurant.getMenu(),1);
+        try {
+            objectOutputStream.writeObject(datas); 
+        } catch (Exception e) {
+            System.out.println("Something happened, so we couldn't add your meals to your menu, please try again later! ");
+        }
+        System.out.println("You've successfully added meals to your menu! ");
+
     }
     
     void checkOrders()
@@ -142,10 +163,6 @@ public class BusinessManager implements Users, Serializable{
         //TO-DO
         //
         // 
-    }
-    void addMealToMenu()
-    {
-        managedRestaurant.menu.addMealToMenu();
     }
     void editMealProperties()
     {
@@ -244,4 +261,4 @@ public class BusinessManager implements Users, Serializable{
     public void setRegistrationDate(String registrationDate) {
         this.registrationDate = registrationDate;
     }
-}
+} 

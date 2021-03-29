@@ -22,8 +22,13 @@ public class Restaurant implements Serializable{
     private String authorisationNumber = null;
     
     Menu menu;
-    Scanner input = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
 
+    public Restaurant()
+    {
+        
+    }
+    
     public Restaurant(int _restaurantID, String _restaurantName, String _restaurantAddress, String _openHours, String _authorisationNumber, int _managerID)
     {
         this.restaurantID = _restaurantID;
@@ -34,7 +39,64 @@ public class Restaurant implements Serializable{
         this.managerID = _managerID;
     }
     
+    
+    public String getRestaurantAddress() {
+        return restaurantAddress;
+    }
+
+    public void setRestaurantAddress(String restaurantAddress) {
+        this.restaurantAddress = restaurantAddress;
+    }
     public Menu getMenu() {
         return menu;
-    }        
+    }
+    
+    public int getRestaurantId() {
+        return restaurantID;
+    }
+
+    public void setRestaurantId(int id) {
+        this.restaurantID = restaurantID;
+    }
+
+    public int getManagerID() {
+        return managerID;
+    }
+
+    public void setManagerID(int managerID) {
+        this.managerID = managerID;
+    }
+
+    public String getRestaurantName() {
+        return restaurantName;
+    }
+
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
+    }
+
+    public String getOpenHours() {
+        return openHours;
+    }
+
+    public void setOpenHours(String openHours) {
+        this.openHours = openHours;
+    }
+
+    public String getAuthorisationNumber() {
+        return authorisationNumber;
+    }
+
+    public void setAuthorisationNumber(String authorisationNumber) {
+        this.authorisationNumber = authorisationNumber;
+    }
+
+    public Scanner getInput() {
+        return input;
+    }
+
+    public void setInput(Scanner input) {
+        this.input = input;
+    }
+    
 }
