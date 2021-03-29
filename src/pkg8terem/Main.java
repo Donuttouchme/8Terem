@@ -72,17 +72,16 @@ public class Main {
                         datas = new Pair<>(username,5);
                         objectOutputStream.writeObject(datas);
                         objectOutputStream.flush();
-                           
                         usedUsername=objectInputStream.readBoolean();
-                            System.out.println("saaajt");
                         if(usedUsername)
                         {
                                
                                 System.out.println("Oops! Looks like your entered username is taken, please enter another! :");
                         }
                         }
+                        bm.setUsername(username);
                         bm = bm.Registration();                        
-                        objectOutputStream.writeObject(new BusinessManager(username,bm.getPassword(),bm.getFirstName(),bm.getLastName(),bm.getCorporationName(),bm.getEmail(),bm.getRegistrationDate()));      
+                        objectOutputStream.writeObject(new BusinessManager(bm.getUsername(),bm.getPassword(),bm.getFirstName(),bm.getLastName(),bm.getCorporationName(),bm.getEmail(),bm.getRegistrationDate()));      
                         break;                
                     case 1:  
                         Courier c = new Courier();
