@@ -30,6 +30,7 @@ public class Main {
     public static void main(String[] args) throws IOException{
         ObjectOutputStream objectOutputStream = null;
         ObjectInputStream objectInputStream = null;
+        InputStream inputStream = null;
         Pair<Object,Integer> datas;
         
         try{      
@@ -37,8 +38,7 @@ public class Main {
         System.out.println("Connected!");
         OutputStream outputStream = socket.getOutputStream();
         objectOutputStream= new ObjectOutputStream(outputStream);
-        InputStream inputStream = socket.getInputStream();
-        objectInputStream = new ObjectInputStream(inputStream);    
+        inputStream = socket.getInputStream(); 
         }catch(Exception e)
         {
             System.out.println(e);
@@ -69,6 +69,7 @@ public class Main {
                             username = input.nextLine();
                         datas = new Pair<>(username,5);
                         objectOutputStream.writeObject(datas);
+                        objectInputStream = new ObjectInputStream(inputStream);   
                         usedUsername=objectInputStream.readBoolean();
                         if(usedUsername)
                         {
