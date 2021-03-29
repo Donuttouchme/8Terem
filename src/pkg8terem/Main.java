@@ -85,12 +85,29 @@ public class Main {
                     case 1:  
                         Courier c = new Courier();
                         c = c.Registration("asd");
-                        objectOutputStream.writeObject(new Guest());
+                        objectOutputStream.writeObject(new Courier());
                         break;       
                     case 2:
+                        input.nextLine();
                         Guest g = new Guest();
-                        g =g.Registration("asd");
-                        objectOutputStream.writeObject(new Guest(g.getUsername(),g.getPassword(),g.getFirstName(),g.getLastName(),g.getGuestAddress(),g.getPhoneNumber(),g.getRegistrationDate()));
+                        usedUsername = true;
+                        username = null;
+                        while(usedUsername)
+                        {
+                            System.out.println("Enter username: ");
+                            username = input.nextLine();
+                            datas = new Pair<>(username,6);
+                            objectOutputStream.writeObject(datas);
+                            objectOutputStream.flush();
+                            usedUsername=objectInputStream.readBoolean();
+                            if(usedUsername)
+                            {
+
+                                    System.out.println("Oops! Looks like your entered username is taken, please enter another! :");
+                            }
+                        }
+                        g =g.Registration(username);
+                        objectOutputStream.writeObject(g);
                         break;
                         }    
                 break; 
