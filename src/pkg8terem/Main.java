@@ -80,7 +80,7 @@ public class Main {
                         }
                         }
                         bm = bm.Registration(username);                        
-                        objectOutputStream.writeObject(new BusinessManager(bm.getUsername(),bm.getPassword(),bm.getFirstName(),bm.getLastName(),bm.getCorporationName(),bm.getEmail(),bm.getRegistrationDate()));      
+                        objectOutputStream.writeObject(new Pair<>(bm,1));      
                         break;                
                     case 1:  
                         Courier c = new Courier();
