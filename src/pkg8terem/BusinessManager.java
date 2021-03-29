@@ -61,19 +61,6 @@ public class BusinessManager implements Users, Serializable{
        
         System.out.println("Enter email: ");                        //EMAIL
             email=input.nextLine();
-        boolean usedUsername = true;
-        while(usedUsername){
-        System.out.println("Enter username: ");                     //USERNAME
-            username = input.nextLine();
-        datas = new Pair<>(username,5);
-        objectOutputStream.writeObject(datas);
-        usedUsername=objectInputStream.readBoolean();
-        if(usedUsername)
-        {
-                System.out.println("Oops! Looks like your entered username is taken, please enter another! :");
-                username=input.nextLine();
-        }
-        }
         System.out.println("Enter password: ");                      //PASSWORD
             password = input.nextLine();
         System.out.println("Enter password again: ");   

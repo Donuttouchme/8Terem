@@ -7,6 +7,8 @@ package pkg8terem;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import static java.lang.Thread.sleep;
@@ -27,13 +29,16 @@ public class Main {
      */
     public static void main(String[] args) throws IOException{
         ObjectOutputStream objectOutputStream = null;
+        ObjectInputStream objectInputStream = null;
         Pair<Object,Integer> datas;
         
         try{      
         Socket socket=new Socket("localhost",7777);  
         System.out.println("Connected!");
         OutputStream outputStream = socket.getOutputStream();
-         objectOutputStream= new ObjectOutputStream(outputStream);
+        objectOutputStream= new ObjectOutputStream(outputStream);
+        InputStream inputStream = socket.getInputStream();
+        objectInputStream = new ObjectInputStream(inputStream);    
         }catch(Exception e)
         {
             System.out.println(e);
@@ -57,8 +62,22 @@ public class Main {
                     {
                     case 0:
                         BusinessManager bm =new BusinessManager();
+                        boolean usedUsername = true;
+                        String username=null;
+                        while(usedUsername){
+                        System.out.println("Enter username: ");                     //USERNAME
+                            username = input.nextLine();
+                        datas = new Pair<>(username,5);
+                        objectOutputStream.writeObject(datas);
+                        usedUsername=objectInputStream.readBoolean();
+                        if(usedUsername)
+                        {
+                                System.out.println("Oops! Looks like your entered username is taken, please enter another! :");
+                                username=input.nextLine();
+                        }
+                        }
                         bm = bm.Registration();                        
-                        objectOutputStream.writeObject(new BusinessManager(bm.getUsername(),bm.getPassword(),bm.getFirstName(),bm.getLastName(),bm.getCorporationName(),bm.getEmail(),bm.getRegistrationDate()));      
+                        objectOutputStream.writeObject(new BusinessManager(username,bm.getPassword(),bm.getFirstName(),bm.getLastName(),bm.getCorporationName(),bm.getEmail(),bm.getRegistrationDate()));      
                         break;                
                     case 1:  
                         Courier c = new Courier();
