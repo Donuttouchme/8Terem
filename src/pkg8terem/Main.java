@@ -23,7 +23,8 @@ import javafx.util.Pair;
  * @author polga
  */
 public class Main {
-
+    
+     static Scanner input = new Scanner(System.in);
     /**
      * @param args the command line arguments
      */
@@ -44,7 +45,6 @@ public class Main {
             System.out.println(e);
         }  
                 // TODO code application logic here
-        Scanner input = new Scanner(System.in);
         System.out.println("Would you like to registrate? \n 1- if yes\n 0- if no \n 2 - to login");
         int decisionInput =input.nextInt();
 
