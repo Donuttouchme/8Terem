@@ -238,7 +238,7 @@ public class RegisztracioVendeg extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void RegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrationActionPerformed
 
         if(!PhonenumberInput.getText().isEmpty()&&!AdressInput.getText().isEmpty()&&!FirstnameInput.getText().isEmpty()

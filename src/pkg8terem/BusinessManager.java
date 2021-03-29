@@ -24,6 +24,7 @@ import pkg8terem.Users;
 
 public class BusinessManager implements Users, Serializable{
 
+    private int managerID;
     private String username = null;
     private String password=null;
     private String passwordCheck=null;
@@ -32,6 +33,14 @@ public class BusinessManager implements Users, Serializable{
     private String corporationName=null;
     private String email;
     private String registrationDate;
+
+    public Restaurant getManagedRestaurant() {
+        return managedRestaurant;
+    }
+
+    public void setManagedRestaurant(Restaurant managedRestaurant) {
+        this.managedRestaurant = managedRestaurant;
+    }
     private Restaurant managedRestaurant;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     static Scanner input = new Scanner(System.in);
@@ -106,20 +115,20 @@ public class BusinessManager implements Users, Serializable{
     
     void RestaurantRegistration() throws IOException
     {
-        int id,managerID;
-        String restaurantName, address, openHours, authorisationNumber;
-        System.out.println("");
-        id=0;
-        managerID=0;
-        System.out.println("Enter your restaurant's name: ");
-            restaurantName = input.nextLine();
-        System.out.println("Enter your restaurant's address: ");
-            address = input.nextLine();
-        System.out.println("Enter your restaurant's open hours: ");
-            openHours = input.nextLine();
-        System.out.println("Enter your restaurant's authorisation number: ");
-            authorisationNumber = input.nextLine();
-            objectOutputStream.writeObject(new Restaurant(id,restaurantName, address, openHours, authorisationNumber, managerID));
+//        int id,managerID;
+//        String restaurantName, address, openHours, authorisationNumber;
+//        System.out.println("");
+//        id=0;
+//        managerID=0;
+//        System.out.println("Enter your restaurant's name: ");
+//            restaurantName = input.nextLine();
+//        System.out.println("Enter your restaurant's address: ");
+//            address = input.nextLine();
+//        System.out.println("Enter your restaurant's open hours: ");
+//            openHours = input.nextLine();
+//        System.out.println("Enter your restaurant's authorisation number: ");
+//            authorisationNumber = input.nextLine();
+//            objectOutputStream.writeObject(new Restaurant(id,restaurantName, address, openHours, authorisationNumber, managerID));
     }
     
         void addMealToMenu() throws IOException
@@ -256,5 +265,13 @@ public class BusinessManager implements Users, Serializable{
     }
     public void setRegistrationDate(String registrationDate) {
         this.registrationDate = registrationDate;
+    }
+    
+        public int getManagerID() {
+        return managerID;
+    }
+
+    public void setManagerID(int managerID) {
+        this.managerID = managerID;
     }
 } 

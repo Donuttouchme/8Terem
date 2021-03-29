@@ -4,14 +4,21 @@
  * and open the template in the editor.
  */
 package pkg8terem;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Enumeration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.AbstractButton;
 import javax.swing.ButtonModel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author tobak
  */
 public class Login extends javax.swing.JFrame {
-
+    Main m = new Main();
     /**
      * Creates new form Login
      */
@@ -221,30 +228,96 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
         Foablak EttermekListazasaAblak =null;
+        ManagerLoggedIn managerloggedin = null;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        boolean loginSuccess=true;
+        int response = -1;
+        String qwe="";
+        for (Enumeration<AbstractButton> buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+            if (button.isSelected()) {
+               qwe= button.getText();
+               if(qwe=="Vendég"){
+                   response=1;
+               }
+               else if(qwe=="Étteremvezető"){
+                   response=0;
+               }
+               else{
+               response=2;
+                       }
+            }
+        }
         String name=NameLabel.getText();
         String password=Password.getText();
-        System.out.println(password);
-        System.out.println(name+" "+password);
-        ButtonModel selectedButton=buttonGroup1.getSelection();
-        System.out.println(selectedButton);
-        if(loginSuccess){
-            if(EttermekListazasaAblak==null){
-            EttermekListazasaAblak = new Foablak();
+        boolean loginSuccess;
+        try {
+            loginSuccess = m.login(name,password,response);
+            if(loginSuccess){
+                System.out.println(qwe);
+                if(EttermekListazasaAblak==null && response==1){
+                EttermekListazasaAblak = new Foablak();
+                }
+                else if(EttermekListazasaAblak==null && response==0){
+                    managerloggedin = new ManagerLoggedIn();
+                }
+                else if(EttermekListazasaAblak==null && response==2){
+                    System.out.println("Futár ablak");
+                    EttermekListazasaAblak = new Foablak();
             }
             EttermekListazasaAblak.setVisible(true);
             this.setVisible(false);
         }
+            else
+            {
+              JOptionPane.showMessageDialog(null, "Helytelen felhasználónév/jelszó!");  
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {
+        EttermekListazasaAblak=null;
+    }
+    
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         int response=1;
+        String qwe="";
+        for (Enumeration<AbstractButton> buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+            if (button.isSelected()) {
+               qwe= button.getText();
+               if(qwe=="Vendég"){
+                   response=1;
+               }
+               else if(qwe=="Étteremvezető"){
+                   response=0;
+               }
+               else{
+               response=2;
+                       }
+            }
+        }
+        if(response==0){
         new RegisztracioManager().setVisible(true);
         this.setVisible(false);
+        }
+        if(response==1){
+        new RegisztracioVendeg().setVisible(true);
+        this.setVisible(false);
+        }
+        if(response==2){
+        new RegisztracioManager().setVisible(true);
+        this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

@@ -13,6 +13,8 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import static java.lang.Thread.sleep;
 import java.net.Socket;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,25 +31,98 @@ public class Main {
     static ObjectInputStream objectInputStream = null;
     static InputStream inputStream = null;
     static Pair<Object,Integer> datas;
+    BusinessManager businessManager;
+    Guest guest;
+    
     /**
      * @param args the command line arguments
      */
     
-    public boolean registration(String username, String password, String fName, String lName,String corporationName,String email) throws IOException
+    public boolean registration(String username, String password, String fName, String lName,String corporationName,String email, int switchCase) throws IOException
     {
         objectInputStream = new ObjectInputStream(inputStream);
-        boolean usedUsername;
-        datas = new Pair<>(username,5);
-        objectOutputStream.writeObject(datas);
-        objectOutputStream.flush();
-        usedUsername=objectInputStream.readBoolean();
-        if(!usedUsername)
+        switch (switchCase)
         {
-            objectOutputStream.writeObject(new Pair<>(new BusinessManager(username,password,fName,lName,corporationName,email),1)); 
-        }
-        return usedUsername; 
-                                
+                case 0://BM
+                    datas = new Pair<>(username,5);
+                    objectOutputStream.writeObject(datas);
+                    objectOutputStream.flush();
+                    objectOutputStream.reset();
+                    if(!objectInputStream.readBoolean())
+                    {
+                         objectOutputStream.writeObject(new Pair<>(new BusinessManager(username,password,fName,lName,corporationName,email),1));
+                    }
+                    return objectInputStream.readBoolean();
+                case 1://Guest
+                    datas = new Pair<>(username,6);
+                    objectOutputStream.writeObject(datas);
+                    objectOutputStream.flush();
+                    objectOutputStream.reset();
+                    if(!objectInputStream.readBoolean())
+                    {
+                         objectOutputStream.writeObject(new Pair<>(new Guest(username,password,fName,lName,corporationName,email),1));
+                    }
+                    return objectInputStream.readBoolean();
+                case 2://Courier
+                    datas = new Pair<>(username,7);
+                    objectOutputStream.writeObject(datas);
+                    objectOutputStream.flush();
+                    objectOutputStream.reset();
+                    if(!objectInputStream.readBoolean())
+                    {
+                         objectOutputStream.writeObject(new Pair<>(new Courier(username,password,fName,lName,corporationName,Integer.parseInt(email)),1));
+                    }
+                    return objectInputStream.readBoolean();
+                default:
+                    return true;
+        }                         
     }
+    
+    public boolean login(String username, String password, int switchCase) throws IOException, ClassNotFoundException, SQLException
+    {
+        objectInputStream =new ObjectInputStream(inputStream);
+        switch (switchCase)
+        {
+                case 0://BM
+                    datas = new Pair<>(new Pair<>(username,password),2);
+                    objectOutputStream.writeObject(datas);
+                    objectOutputStream.flush();
+                    objectOutputStream.reset();
+                    ResultSet rs =(ResultSet)objectInputStream.readObject();
+                    if(rs.next())
+                    { 
+                        businessManager = new BusinessManager(username,password,rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+                        businessManager.setManagedRestaurant(new Restaurant(rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
+                        businessManager.setManagerID(rs.getInt(1));
+                        return true;
+                    }
+                    return false;
+                case 1://Guest
+                    datas = new Pair<>(new Pair<>(username,password),3);
+                    objectOutputStream.writeObject(datas);
+                    objectOutputStream.flush();
+                    objectOutputStream.reset();
+                    rs =(ResultSet)objectInputStream.readObject();
+                   if(rs.next())
+                    {                      
+                        guest = new Guest(username,password,rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+                        businessManager.setManagedRestaurant(new Restaurant(rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
+                        businessManager.setManagerID(rs.getInt(1));
+                        return true;
+                    }
+                    return false;
+                case 2://Courier
+                    datas = new Pair<>(new Pair<>(username,password),4);
+                    objectOutputStream.writeObject(datas);
+                    objectOutputStream.flush();
+                    objectOutputStream.reset();
+                    return objectInputStream.readBoolean();
+                default:
+                    return false;
+        }
+    }
+    
+    
     public static void main(String[] args) throws IOException{
         try{      
         Socket socket=new Socket("localhost",7777);  
@@ -61,7 +136,6 @@ public class Main {
         }  
         login = new Login();
         login.setVisible(true);
-        
         
 //            {
 //            case 0:

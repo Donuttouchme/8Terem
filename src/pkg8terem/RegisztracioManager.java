@@ -248,7 +248,7 @@ public class RegisztracioManager extends javax.swing.JFrame {
         if((PasswordInput.getText()).equals(PasswordCheckInput.getText())){
                 BusinessManager bm =null;
             try {
-                reg = m.registration(UsernameInput.getText(),PasswordInput.getText(),FirstnameInput.getText(), SurenameInput.getText(),CorporationInput.getText(),EmailInput.getText());
+                reg = m.registration(UsernameInput.getText(),PasswordInput.getText(),FirstnameInput.getText(), SurenameInput.getText(),CorporationInput.getText(),EmailInput.getText(),0);
             } catch (IOException ex) {
                 Logger.getLogger(RegisztracioManager.class.getName()).log(Level.SEVERE, null, ex);
             }
