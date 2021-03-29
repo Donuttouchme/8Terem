@@ -89,14 +89,5 @@ public class Restaurant implements Serializable{
 
     public void setAuthorisationNumber(String authorisationNumber) {
         this.authorisationNumber = authorisationNumber;
-    }
-
-    public Scanner getInput() {
-        return input;
-    }
-
-    public void setInput(Scanner input) {
-        this.input = input;
-    }
-    
+    }    
 }

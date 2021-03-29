@@ -35,7 +35,7 @@ public class BusinessManager implements Users, Serializable{
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     static Scanner input = new Scanner(System.in);
     Pair<Object, Integer>datas;
-     ObjectOutputStream objectOutputStream = null;
+    ObjectOutputStream objectOutputStream = null;
     //functions
     //
     public BusinessManager()
