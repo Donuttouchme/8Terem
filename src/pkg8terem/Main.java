@@ -79,18 +79,17 @@ public class Main {
                                 System.out.println("Oops! Looks like your entered username is taken, please enter another! :");
                         }
                         }
-                        bm.setUsername(username);
-                        bm = bm.Registration();                        
+                        bm = bm.Registration(username);                        
                         objectOutputStream.writeObject(new BusinessManager(bm.getUsername(),bm.getPassword(),bm.getFirstName(),bm.getLastName(),bm.getCorporationName(),bm.getEmail(),bm.getRegistrationDate()));      
                         break;                
                     case 1:  
                         Courier c = new Courier();
-                        c = c.Registration();
+                        c = c.Registration("asd");
                         objectOutputStream.writeObject(new Guest());
                         break;       
                     case 2:
                         Guest g = new Guest();
-                        g =g.Registration();
+                        g =g.Registration("asd");
                         objectOutputStream.writeObject(new Guest(g.getUsername(),g.getPassword(),g.getFirstName(),g.getLastName(),g.getGuestAddress(),g.getPhoneNumber(),g.getRegistrationDate()));
                         break;
                         }    

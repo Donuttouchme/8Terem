@@ -57,7 +57,8 @@ public class BusinessManager implements Users, Serializable{
     }
     
     @Override
-    public BusinessManager Registration() throws IOException {
+    public BusinessManager Registration(String __username) throws IOException {
+        username=__username;
         System.out.println("Email:");
             email=input.nextLine();
             System.out.println("password");
