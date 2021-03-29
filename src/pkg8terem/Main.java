@@ -65,17 +65,20 @@ public class Main {
                         BusinessManager bm =new BusinessManager();
                         boolean usedUsername = true;
                         String username=null;
+                        objectInputStream = new ObjectInputStream(inputStream);
                         while(usedUsername){
                         System.out.println("Enter username: ");                     //USERNAME
                             username = input.nextLine();
                         datas = new Pair<>(username,5);
                         objectOutputStream.writeObject(datas);
-                        objectInputStream = new ObjectInputStream(inputStream);   
+                        objectOutputStream.flush();
+                           
                         usedUsername=objectInputStream.readBoolean();
+                            System.out.println("saaajt");
                         if(usedUsername)
                         {
+                               
                                 System.out.println("Oops! Looks like your entered username is taken, please enter another! :");
-                                username=input.nextLine();
                         }
                         }
                         bm = bm.Registration();                        
