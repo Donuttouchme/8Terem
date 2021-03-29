@@ -61,6 +61,7 @@ public class Main {
                 switch(decisionInputForRegistration)        
                     {
                     case 0:
+                        input.nextLine();
                         BusinessManager bm =new BusinessManager();
                         boolean usedUsername = true;
                         String username=null;
