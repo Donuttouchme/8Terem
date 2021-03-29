@@ -45,7 +45,7 @@ public class BusinessManager implements Users, Serializable{
         
     }
     
-    public BusinessManager(String _username,String _password,String _firstName,String _lastName,String _corporationName,String _email,String _registrationDate)
+    public BusinessManager(String _username,String _password,String _firstName,String _lastName,String _corporationName,String _email)
     {
         this.username = _username;
         this.password = _password;
@@ -53,7 +53,6 @@ public class BusinessManager implements Users, Serializable{
         this.lastName = _lastName;
         this.corporationName = _corporationName;
         this.email = _email;
-        this.registrationDate = _registrationDate;
     }
     
     @Override
@@ -79,7 +78,7 @@ public class BusinessManager implements Users, Serializable{
         System.out.println("Enter your Corporation's Name: ");      //CORPORATION NAME
            corporationName = input.nextLine();
         registrationDate=formatter.format(new Date(System.currentTimeMillis()));    //REGISTRATION DATE 
-             return new BusinessManager(username,password,firstName,lastName,corporationName,email,registrationDate);
+             return new BusinessManager(username,password,firstName,lastName,corporationName,email);
     }
 
     @Override
@@ -102,7 +101,7 @@ public class BusinessManager implements Users, Serializable{
 //            
         }
             
-            return new BusinessManager("user","password","firstname","lastname", "corporation", "emal@email.email","2021-03-20 'at' 18:00:00 z");
+            return new BusinessManager();
     }
     
     void RestaurantRegistration() throws IOException
