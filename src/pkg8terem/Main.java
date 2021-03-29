@@ -33,9 +33,8 @@ public class Main {
      * @param args the command line arguments
      */
     
-    boolean registration(String username, String password, String fName, String lName,String corporationName,String email) throws IOException
+    public boolean registration(String username, String password, String fName, String lName,String corporationName,String email) throws IOException
     {
-        BusinessManager bm =new BusinessManager();
         objectInputStream = new ObjectInputStream(inputStream);
         boolean usedUsername;
         datas = new Pair<>(username,5);
@@ -44,7 +43,7 @@ public class Main {
         usedUsername=objectInputStream.readBoolean();
         if(!usedUsername)
         {
-            objectOutputStream.writeObject(new Pair<>(bm,1)); 
+            objectOutputStream.writeObject(new Pair<>(new BusinessManager(username,password,fName,lName,corporationName,email),1)); 
         }
         return usedUsername; 
                                 

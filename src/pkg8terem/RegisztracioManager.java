@@ -25,7 +25,7 @@ public class RegisztracioManager extends javax.swing.JFrame {
         ObjectInputStream objectInputStream = null;
         InputStream inputStream = null;
         Pair<Object,Integer> datas;
-        Main m;
+        Main m=new Main();
     /**
      * Creates new form RegisztracioManager
      */
