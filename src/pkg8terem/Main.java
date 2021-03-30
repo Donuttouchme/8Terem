@@ -110,8 +110,10 @@ public class Main implements Serializable {
                     objectOutputStream.flush();
                     objectOutputStream.reset();
                     try {
-                        guest =(Guest) objectInputStream.readObject();
-                        restaurants = (LinkedList)objectInputStream.readObject();
+                        Object object=objectInputStream.readObject();
+                        Pair pairObj=(Pair)object;                        
+                        guest =(Guest) pairObj.getKey();
+                        restaurants = (LinkedList)pairObj.getValue();
                         return true;
                     } catch (Exception e) {
                         e.getMessage();
