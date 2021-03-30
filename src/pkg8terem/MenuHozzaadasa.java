@@ -10,6 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.JList;
 import java.awt.*;  
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 /**
  *
  * @author tobak
@@ -22,7 +23,6 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     public MenuHozzaadasa() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -210,13 +210,14 @@ DefaultListModel mod=new DefaultListModel();
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // ETTERMEKKEL FELTÖLTÉSE A LISTÁNAK
     }//GEN-LAST:event_formWindowActivated
-
+    
     private void NevInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NevInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NevInputActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
+
+         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }//GEN-LAST:event_formWindowClosing
 
     private void ArInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArInputActionPerformed
@@ -224,7 +225,7 @@ DefaultListModel mod=new DefaultListModel();
     }//GEN-LAST:event_ArInputActionPerformed
 
     private void VisszaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisszaActionPerformed
-        // TODO add your handling code here:
+      this.setVisible(true);
     }//GEN-LAST:event_VisszaActionPerformed
 
 
