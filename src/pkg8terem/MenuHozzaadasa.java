@@ -9,14 +9,18 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import java.awt.*;  
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import static pkg8terem.Main.*;
 /**
  *
  * @author tobak
  */
 public class MenuHozzaadasa extends javax.swing.JFrame {
-
+    DefaultListModel mod=new DefaultListModel();
     /**
      * Creates new form MenuHozzaadasa
      */
@@ -211,9 +215,11 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-DefaultListModel mod=new DefaultListModel();
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // ETTERMEKKEL FELTÖLTÉSE A LISTÁNAK
+        EtteremLista.setModel(mod);
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().getMeals().size();i++){
+            mod.addElement(businessManager.getManagedRestaurant().getMenu().getMeals().get(i));
+        }
     }//GEN-LAST:event_formWindowActivated
     
     private void NevInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NevInputActionPerformed
@@ -234,7 +240,17 @@ DefaultListModel mod=new DefaultListModel();
     }//GEN-LAST:event_VisszaActionPerformed
 
     private void HozzaadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadActionPerformed
-        // TODO add your handling code here:
+        if(!NevInput.getText().isEmpty()&&!ArInput.getText().isEmpty()&&!OsszetevokInput.getText().isEmpty()&&!AllergenekInput.getText().isEmpty()){
+        String mealName = NevInput.getText();
+        int mealPrice = Integer.parseInt(ArInput.getText());
+        String mealIngredients = OsszetevokInput.getText();
+        String mealAllergens = AllergenekInput.getText();
+        try {
+            businessManager.addMealToMenu(mealName,mealPrice,mealIngredients,mealAllergens);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuHozzaadasa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     }//GEN-LAST:event_HozzaadActionPerformed
 
 

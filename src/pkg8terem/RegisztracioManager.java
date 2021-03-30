@@ -241,6 +241,8 @@ public class RegisztracioManager extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    ManagerLoggedIn managerloggedin = null;
+    
     private void RegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrationActionPerformed
         boolean reg = false;
         if(!CorporationInput.getText().isEmpty()&&!EmailInput.getText().isEmpty()&&!FirstnameInput.getText().isEmpty()
@@ -261,9 +263,20 @@ public class RegisztracioManager extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Már van ilyen név, találjon ki mást");
         }
         else
-        {
+        {             
             JOptionPane.showMessageDialog(null, "Sikeres regisztráció!");
             this.setVisible(false);
+            if(managerloggedin ==null)
+            {
+                managerloggedin = new ManagerLoggedIn();
+                managerloggedin.setVisible(true);
+                this.setVisible(false);
+            }
+            else
+            {
+                managerloggedin.setVisible(true);
+                this.setVisible(false);
+            }
         }
         }
     }//GEN-LAST:event_RegistrationActionPerformed

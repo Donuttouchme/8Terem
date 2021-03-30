@@ -199,6 +199,7 @@ public class EtteremHozzaadasa extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+        if(!EtteremNev.getText().isEmpty()&&!EtteremCim.getText().isEmpty()){
         String nev=EtteremNev.getText();
         String cim=EtteremCim.getText();
         String nyitva=Nyitva1.getValue()+"-"+Nyitva2.getValue();
@@ -215,6 +216,7 @@ public class EtteremHozzaadasa extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(EtteremHozzaadasa.class.getName()).log(Level.SEVERE, null, ex);
         } 
+        }
     }//GEN-LAST:event_AddActionPerformed
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
