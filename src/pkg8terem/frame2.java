@@ -241,8 +241,7 @@ public class frame2 extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 DefaultListModel mod=new DefaultListModel();
     private void HozzaadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadasActionPerformed
-        String selected = EtlapLista.getSelectedValue().toString();
-        RendelesLista.setModel(mod);
+        String selected = EtlapLista.getSelectedValue().toString();  
         mod.addElement(selected);
     }//GEN-LAST:event_HozzaadasActionPerformed
 
@@ -270,14 +269,14 @@ DefaultListModel mod=new DefaultListModel();
                 if(restaurant.getMenu().get(i).getMeals().get(j).getName().equals(selected))
                 {
                     osszefuzott="Allergének: "+restaurant.getMenu().get(i).getMeals().get(j).getAllergens()+"\n Összetevők:"+restaurant.getMenu().get(i).getMeals().get(j).getIngredients();
-                    mod.addElement(osszefuzott);
+                    OsszetevokLabel.setText(osszefuzott);
                 }
             }
         }
-        OsszetevokLabel.setText(osszefuzott);
     }//GEN-LAST:event_AllergenekListazasActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        RendelesLista.setModel(mod);
         EtlapLista.setModel(mod);
         String valami;
         for(int i=0;i<4;i++)
