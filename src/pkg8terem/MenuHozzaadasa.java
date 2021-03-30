@@ -324,33 +324,37 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
 
     private void FőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FőételActionPerformed
        mod.clear();
-        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(2).getMeals().size();i++)
+       int foetel=1;
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(foetel).getMeals().size();i++)
      {
-         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(2).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(2).getMeals().get(i).getCost());
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(foetel).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(foetel).getMeals().get(i).getCost());
      }
     }//GEN-LAST:event_FőételActionPerformed
 
     private void DesszertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesszertActionPerformed
      mod.clear();
-        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(3).getMeals().size();i++)
+     int desszert = 2;
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(desszert).getMeals().size();i++)
      {
-         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(3).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(3).getMeals().get(i).getCost());
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(desszert).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(desszert).getMeals().get(i).getCost());
      }
     }//GEN-LAST:event_DesszertActionPerformed
 
     private void ItalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItalActionPerformed
      mod.clear();
-        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(3).getMeals().size();i++)
+     int ital=3;
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(ital).getMeals().size();i++)
      {
-         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(3).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(3).getMeals().get(i).getCost());
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(ital).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(ital).getMeals().get(i).getCost());
      }
     }//GEN-LAST:event_ItalActionPerformed
 
     private void ElőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElőételActionPerformed
       mod.clear();
-        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(1).getMeals().size();i++)
+      int eloetel=0;
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(eloetel).getMeals().size();i++)
      {
-         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(1).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(1).getMeals().get(i).getCost());
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(eloetel).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(eloetel).getMeals().get(i).getCost());
      }
     }//GEN-LAST:event_ElőételActionPerformed
 
