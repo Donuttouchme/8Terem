@@ -31,7 +31,7 @@ public class Main {
     static ObjectInputStream objectInputStream = null;
     static InputStream inputStream = null;
     static Pair<Object,Integer> datas;
-    static BusinessManager businessManager;
+    static BusinessManager businessManager = new BusinessManager();
     static Guest guest;
     static Courier courier;
     
