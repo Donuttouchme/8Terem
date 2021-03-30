@@ -25,7 +25,7 @@ import pkg8terem.Users;
 
 
 public class BusinessManager implements Users, Serializable{
-
+    Main m= new Main();
     private int managerID;
     private String username = null;
     private String password=null;
@@ -108,7 +108,7 @@ public class BusinessManager implements Users, Serializable{
     void RestaurantRegistration(String restaurantName,String address,String openHours) throws IOException
     {
             datas = new Pair<>((new Restaurant(managedRestaurant.getRestaurantId(),restaurantName, address, openHours, managerID)),1);
-            objectOutputStream.writeObject(datas);
+            m.objectOutputStream.writeObject(datas);
     }
     
         void addMealToMenu() throws IOException
@@ -116,7 +116,7 @@ public class BusinessManager implements Users, Serializable{
         managedRestaurant.menu.addMealToMenu();
         datas = new Pair<>(managedRestaurant.getMenu(),1);
         try {
-            objectOutputStream.writeObject(datas); 
+            m.objectOutputStream.writeObject(datas); 
         } catch (Exception e) {
             System.out.println("Something happened, so we couldn't add your meals to your menu, please try again later! ");
         }
