@@ -18,6 +18,7 @@ import static pkg8terem.Main.*;
  */
 public class RegisztracioVendeg extends javax.swing.JFrame {
     Main m = new Main();
+    Foablak loggedinGuest = new Foablak();
     /**
      * Creates new form RegisztracioVendeg
      */
@@ -264,8 +265,19 @@ public class RegisztracioVendeg extends javax.swing.JFrame {
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "Sikeres regisztráció!");
+             JOptionPane.showMessageDialog(null, "Sikeres regisztráció!");
             this.setVisible(false);
+            if(loggedinGuest ==null)
+            {
+                loggedinGuest = new Foablak();
+                loggedinGuest.setVisible(true);
+                this.setVisible(false);
+            }
+            else
+            {
+                loggedinGuest.setVisible(true);
+                this.setVisible(false);
+            }
         }
         }
     }//GEN-LAST:event_RegistrationActionPerformed
