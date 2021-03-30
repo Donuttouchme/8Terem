@@ -91,6 +91,7 @@ public class Main {
                     objectOutputStream.reset();
                     try {
                          businessManager =(BusinessManager) objectInputStream.readObject();
+                         //System.out.println(businessManager.getManagerID()+" :" + businessManager.getManagedRestaurant().getRestaurantId());
                          return true;
                     } catch (Exception e) {
                         return false;

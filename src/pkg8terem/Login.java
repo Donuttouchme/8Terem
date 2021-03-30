@@ -264,8 +264,14 @@ public class Login extends javax.swing.JFrame {
                     System.out.println("Futár ablak");
                     EttermekListazasaAblak = new Foablak();
             }
+                if(response==2 || response == 1){
             EttermekListazasaAblak.setVisible(true);
+                }
+                else{
+                managerloggedin.setVisible(true);
+                }
             this.setVisible(false);
+            
         }
             else
             {
