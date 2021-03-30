@@ -5,6 +5,7 @@
  */
 package pkg8terem;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,6 +40,10 @@ public class Restaurant implements Serializable{
         this.managerID = _managerID;
     }
     
+    public void addMealToSpecifiedMenu(int category, Meal meal) throws IOException
+    {
+        menus.get(category).addMealToMenu(meal);
+    }
     
     public String getRestaurantAddress() {
         return restaurantAddress;
