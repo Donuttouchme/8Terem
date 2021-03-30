@@ -107,8 +107,7 @@ public class BusinessManager implements Users, Serializable{
     
     void RestaurantRegistration(String restaurantName,String address,String openHours) throws IOException
     {
-//            datas = new Pair<>();
-//            objectOutputStream.writeObject(new Restaurant(id,restaurantName, address, openHours, managerID));
+            objectOutputStream.writeObject(new Restaurant(managedRestaurant.getRestaurantId(),restaurantName, address, openHours, managerID));
     }
     
         void addMealToMenu() throws IOException

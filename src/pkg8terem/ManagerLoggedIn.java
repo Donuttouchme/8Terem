@@ -31,7 +31,7 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        EtteremHozzaAd = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
@@ -47,8 +47,13 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton2.setText("jButton2");
+        EtteremHozzaAd.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        EtteremHozzaAd.setText("Étterem hozzáadása");
+        EtteremHozzaAd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EtteremHozzaAdActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("jButton3");
@@ -64,10 +69,10 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(EtteremHozzaAd)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addContainerGap())
         );
@@ -77,7 +82,7 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EtteremHozzaAd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(156, Short.MAX_VALUE))
@@ -126,6 +131,13 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
             }
             menuHozzaA.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+        EtteremHozzaadasa EtteremHozza=null;
+    private void EtteremHozzaAdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EtteremHozzaAdActionPerformed
+        if(EtteremHozza==null){
+            EtteremHozza = new EtteremHozzaadasa();
+            }
+            EtteremHozza.setVisible(true);
+    }//GEN-LAST:event_EtteremHozzaAdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,8 +175,8 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton EtteremHozzaAd;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;

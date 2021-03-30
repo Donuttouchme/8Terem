@@ -31,9 +31,9 @@ public class Main {
     static ObjectInputStream objectInputStream = null;
     static InputStream inputStream = null;
     static Pair<Object,Integer> datas;
-    BusinessManager businessManager;
-    Guest guest;
-    Courier courier;
+    static BusinessManager businessManager;
+    static Guest guest;
+    static Courier courier;
     
     /**
      * @param args the command line arguments

@@ -5,6 +5,9 @@
  */
 package pkg8terem;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static pkg8terem.Main.login;
@@ -194,22 +197,26 @@ public class EtteremHozzaadasa extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_formWindowClosed
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         String nev=EtteremNev.getText();
         String cim=EtteremCim.getText();
         String nyitva=Nyitva1.getValue()+"-"+Nyitva2.getValue();
-        //System.out.println(nev+" "+cim+" "+nyitva);
-        if(nev.equals("")||cim.equals("")||nyitva.equals("")){
+        try {
+            Main.businessManager.RestaurantRegistration(nev,cim,nyitva);
+            if(nev.equals("")||cim.equals("")||nyitva.equals("")){
             JOptionPane.showMessageDialog(null, "Minden mezőt töltsön ki!");
         }
-        else
+        else{
             JOptionPane.showMessageDialog(null, "RegisztrálásFüggvény");
         this.setVisible(false);
         login.setVisible(true);
-               
+        }   
+        } catch (IOException ex) {
+            Logger.getLogger(EtteremHozzaadasa.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }//GEN-LAST:event_AddActionPerformed
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
@@ -217,9 +224,9 @@ public class EtteremHozzaadasa extends javax.swing.JFrame {
        login.setVisible(true);
     }//GEN-LAST:event_CancelActionPerformed
 private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
-
+        this.setVisible(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        login.setVisible(true);
+        
         
     }        
     /**
