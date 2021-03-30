@@ -75,11 +75,6 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
         jLabel1.setText("Jelenlegi menü:");
 
         EtteremLista.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        EtteremLista.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(EtteremLista);
 
         Hozzaad.setText("Hozáad");
@@ -273,25 +268,6 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         EtteremLista.setModel(mod);
-        businessManager.getManagedRestaurant().setMenu(new Menu());
-        
-        if(businessManager.getManagedRestaurant().getMenu().getCategory()==null)
-        {
-            
-        }
-        
-        if(businessManager.getManagedRestaurant().getMenu().getMeals().size()==0)
-        {
-            mod.addElement("Még nem adtál hozzá ételt!");
-        }
-        else
-        {
-            for(int i=0;i<businessManager.getManagedRestaurant().getMenu().getMeals().size();i++)
-            {
-                mod.addElement(businessManager.getManagedRestaurant().getMenu().getMeals().get(i));
-                mod.removeElement("Még nem adtál hozzá ételt!");
-            }
-        }          
     }//GEN-LAST:event_formWindowActivated
     
     private void NevInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NevInputActionPerformed
@@ -312,23 +288,23 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     }//GEN-LAST:event_VisszaActionPerformed
 
     private void HozzaadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadActionPerformed
-        String category;
+        int category=-1;
         String qwe="";
         for (Enumeration<AbstractButton> buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
             if (button.isSelected()) {
                qwe= button.getText();
                if(qwe=="Főétel"){
-                   category="Főétel";
+                   category=1;
                }
                else if(qwe=="Előétel"){
-                   category="Előétel";
+                   category=0;
                }
                else if(qwe=="Desszert"){
-                   category="Desszert";
+                   category=2;
                }
                else{
-                   category="Ital";
+                   category=3;
                        }
             }
         }
@@ -338,17 +314,17 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
         int mealPrice = Integer.parseInt(ArInput.getText());
         String mealIngredients = OsszetevokInput.getText();
         String mealAllergens = AllergenekInput.getText();
-        //try {
-           // businessManager.addMealToMenu(mealName,mealPrice,mealIngredients,mealAllergens,category);
-       // } catch (IOException ex) {
-         //   Logger.getLogger(MenuHozzaadasa.class.getName()).log(Level.SEVERE, null, ex);
-        //}
+        try {
+            businessManager.addMealToMenu(mealName,mealPrice,mealIngredients,mealAllergens,category);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuHozzaadasa.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     }//GEN-LAST:event_HozzaadActionPerformed
 
     private void FőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FőételActionPerformed
        for(int i =0;i<4;i++){
-           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory().equals("Főétel")){
+           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory()==1){
                mod.clear();
                for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
                    mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
@@ -359,7 +335,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
 
     private void DesszertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesszertActionPerformed
         for(int i =0;i<4;i++){
-           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory().equals("Desszert")){
+           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory()==2){
                mod.clear();
                for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
                    mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
@@ -370,7 +346,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
 
     private void ItalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItalActionPerformed
         for(int i =0;i<4;i++){
-           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory().equals("Ital")){
+           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory()==3){
                mod.clear();
                for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
                    mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
@@ -381,7 +357,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
 
     private void ElőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElőételActionPerformed
         for(int i =0;i<4;i++){
-           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory().equals("Előétel")){
+           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory()==0){
                mod.clear();
                for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
                    mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());

@@ -41,7 +41,7 @@ public class Menu implements Serializable{
         return meals;
     }
      public void addMealToMenu(int restaurantID, String mealName, int mealPrice,String mealIngredients,String mealAllergens, int categoryID) throws IOException {
-            datas = new Pair<>(new Meal(mealName,mealPrice,mealIngredients,mealAllergens),1);
+            datas = new Pair<>(new Meal(mealName,mealPrice,mealIngredients,mealAllergens,categoryID),1);
             meals.add(new Meal(mealName,mealPrice,mealIngredients,mealAllergens));
             objectOutputStream.writeObject(datas);
         }
