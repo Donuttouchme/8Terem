@@ -12,7 +12,7 @@ import javax.swing.JList;
 import java.awt.*;  
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
-import static pkg8terem.Main.login;
+import static pkg8terem.Main.*;
 /**
  *
  * @author tobak

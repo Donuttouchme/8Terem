@@ -284,7 +284,8 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     }//GEN-LAST:event_ArInputActionPerformed
 
     private void VisszaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisszaActionPerformed
-      this.setVisible(true);
+      this.setVisible(false);
+        login.setVisible(true);
     }//GEN-LAST:event_VisszaActionPerformed
 
     private void HozzaadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadActionPerformed
@@ -316,6 +317,11 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
         String mealAllergens = AllergenekInput.getText();
         try {
             businessManager.addMealToMenu(mealName,mealPrice,mealIngredients,mealAllergens,category);
+            NevInput.setText("");
+            ArInput.setText("");
+            OsszetevokInput.setText("");
+            AllergenekInput.setText("");
+            
         } catch (IOException ex) {
             Logger.getLogger(MenuHozzaadasa.class.getName()).log(Level.SEVERE, null, ex);
         }
