@@ -261,7 +261,7 @@ DefaultListModel mod=new DefaultListModel();
     }//GEN-LAST:event_RendelésActionPerformed
 
     private void AllergenekListazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllergenekListazasActionPerformed
-        String selected = RendelesLista.getSelectedValue().toString(); //valami lista vagy adattag i edik osszetevoit ebből lekérni
+        String selected = EtlapLista.getSelectedValue().toString(); //valami lista vagy adattag i edik osszetevoit ebből lekérni
         String osszefuzott="";
        for(int i=0;i<4;i++)
         {
@@ -284,19 +284,19 @@ DefaultListModel mod=new DefaultListModel();
         {
             if(i==0)
             {
-                mod.addElement("Előételek: ");
+                mod.addElement("Előételek: "+"\n");
             }
             else if(i==1)
             {
-                mod.addElement("Főételek: ");
+                mod.addElement("Főételek: "+"\n");
             }
             else if(i==3)
             {
-                mod.addElement("Desszertek: ");
+                mod.addElement("Desszertek: "+"\n");
             }
             else
             {
-                mod.addElement("Italok: ");
+                mod.addElement("Italok: "+"\n");
             }
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
             {
