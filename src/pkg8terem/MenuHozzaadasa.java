@@ -217,14 +217,14 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         EtteremLista.setModel(mod);
-        int finy = businessManager.getManagedRestaurant().getMenu().getMeals().size();
-        if(finy==0)
+         businessManager.getManagedRestaurant().getMenu().getMeals().size();
+        if(businessManager.getManagedRestaurant().getMenu().getMeals()==null)
         {
             mod.addElement("Még nem adtál hozzá ételt!");
         }
         else
         {
-            for(int i=0;i<finy;i++)
+            for(int i=0;i<businessManager.getManagedRestaurant().getMenu().getMeals().size();i++)
             {
                 mod.addElement(businessManager.getManagedRestaurant().getMenu().getMeals().get(i));
             }
