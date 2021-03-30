@@ -105,7 +105,7 @@ public class BusinessManager implements Users, Serializable{
     
         void addMealToMenu(String mealName, int mealPrice,String mealIngredients,String mealAllergens) throws IOException
     {
-        managedRestaurant.menu.addMealToMenu(mealName,mealPrice,mealIngredients,mealAllergens);
+        managedRestaurant.menu.addMealToMenu(managedRestaurant.getRestaurantId(),mealName,mealPrice,mealIngredients,mealAllergens);
     }
     
     void checkOrders()

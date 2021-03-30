@@ -20,6 +20,7 @@ import static pkg8terem.Main.*;
 public class Menu implements Serializable{
     private int id;
     private int restaurantID;
+    private String category;
     private List<Meal> meals = new LinkedList<Meal>();
     static Scanner input = new Scanner(System.in);
     
@@ -43,7 +44,7 @@ public class Menu implements Serializable{
     {
         return meals;
     }
-     public void addMealToMenu(String mealName, int mealPrice,String mealIngredients,String mealAllergens) throws IOException {
+     public void addMealToMenu(int restaurantID, String mealName, int mealPrice,String mealIngredients,String mealAllergens) throws IOException {
             datas = new Pair<>(new Meal(mealName,mealPrice,mealIngredients,mealAllergens),1);
             meals.add(new Meal(mealName,mealPrice,mealIngredients,mealAllergens));
             objectOutputStream.writeObject(datas);
@@ -77,5 +78,12 @@ public class Menu implements Serializable{
 
     public void setMeals(List<Meal> meals) {
         this.meals = meals;
+    }
+        public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 } 

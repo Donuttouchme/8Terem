@@ -218,7 +218,13 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         EtteremLista.setModel(mod);
         businessManager.getManagedRestaurant().setMenu(new Menu());
-        if(businessManager.getManagedRestaurant().getMenu().getMeals()==null)
+        
+        if(businessManager.getManagedRestaurant().getMenu().getCategory()==null)
+        {
+            
+        }
+        
+        if(businessManager.getManagedRestaurant().getMenu().getMeals().size()==0)
         {
             mod.addElement("Még nem adtál hozzá ételt!");
         }
@@ -227,6 +233,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
             for(int i=0;i<businessManager.getManagedRestaurant().getMenu().getMeals().size();i++)
             {
                 mod.addElement(businessManager.getManagedRestaurant().getMenu().getMeals().get(i));
+                mod.removeElement("Még nem adtál hozzá ételt!");
             }
         }          
     }//GEN-LAST:event_formWindowActivated
