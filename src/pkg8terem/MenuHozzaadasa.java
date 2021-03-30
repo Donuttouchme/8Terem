@@ -295,16 +295,16 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
             if (button.isSelected()) {
                qwe= button.getText();
                if(qwe=="Főétel"){
-                   category=2;
-               }
-               else if(qwe=="Előétel"){
                    category=1;
                }
+               else if(qwe=="Előétel"){
+                   category=0;
+               }
                else if(qwe=="Desszert"){
-                   category=3;
+                   category=2;
                }
                else if(qwe=="Ital"){
-                   category=4;
+                   category=3;
                        }
             }
         }
