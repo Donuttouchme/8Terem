@@ -6,6 +6,7 @@
 package pkg8terem;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,7 +20,9 @@ public class Restaurant implements Serializable{
     private String restaurantName = null;
     private String restaurantAddress = null;
     private String openHours = null;
-    Menu menu;
+    private List<Menu> menus=new LinkedList<Menu>();
+
+    
     static Scanner input = new Scanner(System.in);
 
     public Restaurant()
@@ -75,12 +78,21 @@ public class Restaurant implements Serializable{
 
     public void setOpenHours(String openHours) {
         this.openHours = openHours;
-    } 
-       public Menu getMenu() {
-        return menu;
+    }
+    
+    public int getRestaurantID() {
+        return restaurantID;
     }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
+    public void setRestaurantID(int restaurantID) {
+        this.restaurantID = restaurantID;
+    }
+
+    public List<Menu> getMenu() {
+        return menus;
+    }
+
+    public void setMenu(List<Menu> menus) {
+        this.menus = menus;
     }
 }

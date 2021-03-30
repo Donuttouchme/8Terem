@@ -10,8 +10,10 @@ import javax.swing.JComponent;
 import javax.swing.JList;
 import java.awt.*;  
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractButton;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import static pkg8terem.Main.*;
@@ -36,6 +38,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -51,6 +54,10 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Vissza = new javax.swing.JButton();
+        Főétel = new javax.swing.JRadioButton();
+        Előétel = new javax.swing.JRadioButton();
+        Desszert = new javax.swing.JRadioButton();
+        Ital = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -119,6 +126,38 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(Főétel);
+        Főétel.setText("Főétel");
+        Főétel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FőételActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(Előétel);
+        Előétel.setText("Előétel");
+        Előétel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ElőételActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(Desszert);
+        Desszert.setText("Desszert");
+        Desszert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DesszertActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(Ital);
+        Ital.setText("Ital");
+        Ital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -134,19 +173,30 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5))))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Főétel)
+                                .addComponent(jLabel5)))))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(AllergenekInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(Hozzaad)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Vissza))
                     .addComponent(OsszetevokInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ArInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NevInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(AllergenekInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(Hozzaad))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(Előétel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Desszert)
+                                .addGap(108, 108, 108)
+                                .addComponent(Ital)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Vissza)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -178,7 +228,13 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
                     .addComponent(Hozzaad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(Vissza, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Főétel)
+                    .addComponent(Előétel)
+                    .addComponent(Desszert)
+                    .addComponent(Ital))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -195,7 +251,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -256,18 +312,83 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     }//GEN-LAST:event_VisszaActionPerformed
 
     private void HozzaadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadActionPerformed
+        String category;
+        String qwe="";
+        for (Enumeration<AbstractButton> buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+            if (button.isSelected()) {
+               qwe= button.getText();
+               if(qwe=="Főétel"){
+                   category="Főétel";
+               }
+               else if(qwe=="Előétel"){
+                   category="Előétel";
+               }
+               else if(qwe=="Desszert"){
+                   category="Desszert";
+               }
+               else{
+                   category="Ital";
+                       }
+            }
+        }
+        
         if(!NevInput.getText().isEmpty()&&!ArInput.getText().isEmpty()&&!OsszetevokInput.getText().isEmpty()&&!AllergenekInput.getText().isEmpty()){
         String mealName = NevInput.getText();
         int mealPrice = Integer.parseInt(ArInput.getText());
         String mealIngredients = OsszetevokInput.getText();
         String mealAllergens = AllergenekInput.getText();
-        try {
-            businessManager.addMealToMenu(mealName,mealPrice,mealIngredients,mealAllergens);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuHozzaadasa.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //try {
+           // businessManager.addMealToMenu(mealName,mealPrice,mealIngredients,mealAllergens,category);
+       // } catch (IOException ex) {
+         //   Logger.getLogger(MenuHozzaadasa.class.getName()).log(Level.SEVERE, null, ex);
+        //}
     }
     }//GEN-LAST:event_HozzaadActionPerformed
+
+    private void FőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FőételActionPerformed
+       for(int i =0;i<4;i++){
+           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory().equals("Főétel")){
+               mod.clear();
+               for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
+                   mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
+               }
+           }
+       }
+    }//GEN-LAST:event_FőételActionPerformed
+
+    private void DesszertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesszertActionPerformed
+        for(int i =0;i<4;i++){
+           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory().equals("Desszert")){
+               mod.clear();
+               for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
+                   mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
+               }
+           }
+       }
+    }//GEN-LAST:event_DesszertActionPerformed
+
+    private void ItalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItalActionPerformed
+        for(int i =0;i<4;i++){
+           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory().equals("Ital")){
+               mod.clear();
+               for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
+                   mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
+               }
+           }
+       }
+    }//GEN-LAST:event_ItalActionPerformed
+
+    private void ElőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElőételActionPerformed
+        for(int i =0;i<4;i++){
+           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory().equals("Előétel")){
+               mod.clear();
+               for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
+                   mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
+               }
+           }
+       }
+    }//GEN-LAST:event_ElőételActionPerformed
 
 
     /**
@@ -308,11 +429,16 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AllergenekInput;
     private javax.swing.JTextField ArInput;
+    private javax.swing.JRadioButton Desszert;
+    private javax.swing.JRadioButton Előétel;
     private javax.swing.JList<String> EtteremLista;
+    private javax.swing.JRadioButton Főétel;
     private javax.swing.JButton Hozzaad;
+    private javax.swing.JRadioButton Ital;
     private javax.swing.JTextField NevInput;
     private javax.swing.JTextField OsszetevokInput;
     private javax.swing.JButton Vissza;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

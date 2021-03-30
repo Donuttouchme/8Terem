@@ -16,7 +16,7 @@ import java.util.Scanner;
 import javafx.util.Pair;
 import static pkg8terem.Main.objectOutputStream;
 import static pkg8terem.Main.objectInputStream;
-import pkg8terem.Restaurant;
+import pkg8terem.Restaurant.*;
 import pkg8terem.Users;
 /**
  *
@@ -103,9 +103,9 @@ public class BusinessManager implements Users, Serializable{
             m.objectOutputStream.writeObject(datas);
     }
     
-        void addMealToMenu(String mealName, int mealPrice,String mealIngredients,String mealAllergens) throws IOException
+        void addMealToMenu(String mealName, int mealPrice,String mealIngredients,String mealAllergens, int category) throws IOException
     {
-        managedRestaurant.menu.addMealToMenu(managedRestaurant.getRestaurantId(),mealName,mealPrice,mealIngredients,mealAllergens);
+        managedRestaurant.getMenu().get(category).addMealToMenu(managedRestaurant.getRestaurantId(),mealName,mealPrice,mealIngredients,mealAllergens, category);
     }
     
     void checkOrders()

@@ -20,31 +20,27 @@ import static pkg8terem.Main.*;
 public class Menu implements Serializable{
     private int id;
     private int restaurantID;
-    private String category;
+    private int category;
     private List<Meal> meals = new LinkedList<Meal>();
     static Scanner input = new Scanner(System.in);
     
-    public Menu(List<Meal> _meals)
+    public Menu(int _categoryID, int _restaurantID,List<Meal> _meals)
     {
+        this.category=_categoryID;
+        this.restaurantID = _restaurantID;
         this.meals=_meals;
     }
     
+    
     public Menu()
     {
-    }
-
-    public Menu(int _id, int _restID,List<Meal> _meals)
-    {
-        this.id=_id;
-        this.restaurantID = _restID;
-        this.meals=_meals;
     }
     
     List<Meal> getMenu()
     {
         return meals;
     }
-     public void addMealToMenu(int restaurantID, String mealName, int mealPrice,String mealIngredients,String mealAllergens) throws IOException {
+     public void addMealToMenu(int restaurantID, String mealName, int mealPrice,String mealIngredients,String mealAllergens, int categoryID) throws IOException {
             datas = new Pair<>(new Meal(mealName,mealPrice,mealIngredients,mealAllergens),1);
             meals.add(new Meal(mealName,mealPrice,mealIngredients,mealAllergens));
             objectOutputStream.writeObject(datas);
@@ -79,11 +75,11 @@ public class Menu implements Serializable{
     public void setMeals(List<Meal> meals) {
         this.meals = meals;
     }
-        public String getCategory() {
+        public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 } 
