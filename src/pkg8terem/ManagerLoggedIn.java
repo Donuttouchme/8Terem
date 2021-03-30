@@ -124,7 +124,7 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    MenuHozzaadasa menuHozzaA=new MenuHozzaadasa();
+    MenuHozzaadasa menuHozzaA=null;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(menuHozzaA==null){
             menuHozzaA = new MenuHozzaadasa();

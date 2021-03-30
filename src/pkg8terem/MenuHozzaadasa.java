@@ -53,7 +53,6 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        Vissza = new javax.swing.JButton();
         Főétel = new javax.swing.JRadioButton();
         Előétel = new javax.swing.JRadioButton();
         Desszert = new javax.swing.JRadioButton();
@@ -114,13 +113,6 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Allergének");
 
-        Vissza.setText("Vissza");
-        Vissza.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VisszaActionPerformed(evt);
-            }
-        });
-
         buttonGroup1.add(Főétel);
         Főétel.setText("Főétel");
         Főétel.addActionListener(new java.awt.event.ActionListener() {
@@ -177,22 +169,19 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
                     .addComponent(ArInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NevInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(AllergenekInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(Hozzaad))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(Előétel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Desszert)
-                                .addGap(108, 108, 108)
-                                .addComponent(Ital)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Vissza)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(AllergenekInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(40, 40, 40)
+                            .addComponent(Hozzaad))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(31, 31, 31)
+                            .addComponent(Előétel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Desszert)
+                            .addGap(108, 108, 108)
+                            .addComponent(Ital))))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,8 +210,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AllergenekInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Hozzaad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(Vissza, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Főétel)
@@ -282,11 +270,6 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     private void ArInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ArInputActionPerformed
-
-    private void VisszaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisszaActionPerformed
-      this.setVisible(false);
-        login.setVisible(true);
-    }//GEN-LAST:event_VisszaActionPerformed
 
     private void HozzaadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadActionPerformed
         int category=-1;
@@ -411,7 +394,6 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     private javax.swing.JRadioButton Ital;
     private javax.swing.JTextField NevInput;
     private javax.swing.JTextField OsszetevokInput;
-    private javax.swing.JButton Vissza;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
