@@ -54,8 +54,9 @@ public class Main implements Serializable {
                     if(!objectInputStream.readBoolean())
                     {
                          objectOutputStream.writeObject(new Pair<>(new BusinessManager(username,password,fName,lName,corporationName,email),1));
+                         return false;
                     }
-                    return objectInputStream.readBoolean();
+                    return true;
                 case 1://Guest
                     datas = new Pair<>(username,6);
                     objectOutputStream.writeObject(datas);
@@ -64,8 +65,9 @@ public class Main implements Serializable {
                     if(!objectInputStream.readBoolean())
                     {
                          objectOutputStream.writeObject(new Pair<>(new Guest(username,password,fName,lName,corporationName,email),1));
+                         return false;
                     }
-                    return objectInputStream.readBoolean();
+                    return true;
                 case 2://Courier
                     datas = new Pair<>(username,7);
                     objectOutputStream.writeObject(datas);
@@ -74,8 +76,9 @@ public class Main implements Serializable {
                     if(!objectInputStream.readBoolean())
                     {
                          objectOutputStream.writeObject(new Pair<>(new Courier(username,password,fName,lName,corporationName,Integer.parseInt(email)),1));
+                         return false;
                     }
-                    return objectInputStream.readBoolean();
+                    return true;
                 default:
                     return true;
         }                         
