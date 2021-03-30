@@ -246,7 +246,6 @@ public class RegisztracioManager extends javax.swing.JFrame {
         if(!CorporationInput.getText().isEmpty()&&!EmailInput.getText().isEmpty()&&!FirstnameInput.getText().isEmpty()
                 &&!SurenameInput.getText().isEmpty()&&!PasswordInput.getText().isEmpty()&&!PasswordCheckInput.getText().isEmpty()&&!UsernameInput.getText().isEmpty()){
         if((PasswordInput.getText()).equals(PasswordCheckInput.getText())){
-                BusinessManager bm =null;
             try {
                 reg = m.registration(UsernameInput.getText(),PasswordInput.getText(),FirstnameInput.getText(), SurenameInput.getText(),CorporationInput.getText(),EmailInput.getText(),0);
             } catch (IOException ex) {

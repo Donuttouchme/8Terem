@@ -107,15 +107,13 @@ public class Main implements Serializable {
                     objectOutputStream.writeObject(datas);
                     objectOutputStream.flush();
                     objectOutputStream.reset();
-//                    rs =(ResultSet)objectInputStream.readObject();
-//                   if(rs.next())
-//                    {                      
-//                        guest = new Guest(username,password,rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
-//                        businessManager.setManagedRestaurant(new Restaurant(rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
-//                        businessManager.setManagerID(rs.getInt(1));
-//                        return true;
-//                    }
-                    return false;
+                    try {
+                        guest =(Guest) objectInputStream.readObject();
+                        return true;
+                    } catch (Exception e) {
+                        e.getMessage();
+                        return false;
+                    }
                 case 2://Courier
                     datas = new Pair<>(new Pair<>(username,password),4);
                     objectOutputStream.writeObject(datas);

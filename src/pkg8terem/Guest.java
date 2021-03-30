@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 
 public class Guest implements Users, Serializable {
+    private int guestID = 0;
     private String username = null;
     private String password = null;
     private String passwordCheck = null;
@@ -92,6 +93,13 @@ public class Guest implements Users, Serializable {
         this.registrationDate = _registrationDate;
     }
     
+    public int getGuestID() {
+        return guestID;
+    }
+
+    public void setGuestID(int guestID) {
+        this.guestID = guestID;
+    }
     
     @Override
     public Guest Registration(String __username) throws IOException {

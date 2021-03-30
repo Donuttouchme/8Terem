@@ -5,15 +5,19 @@
  */
 package pkg8terem;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
-import static pkg8terem.Main.login;
+import javax.swing.JOptionPane;
+import static pkg8terem.Main.*;
 
 /**
  *
  * @author tobak
  */
 public class RegisztracioVendeg extends javax.swing.JFrame {
-
+    Main m = new Main();
     /**
      * Creates new form RegisztracioVendeg
      */
@@ -240,17 +244,29 @@ public class RegisztracioVendeg extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void RegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrationActionPerformed
-
+        boolean reg = false;
         if(!PhonenumberInput.getText().isEmpty()&&!AdressInput.getText().isEmpty()&&!FirstnameInput.getText().isEmpty()
             &&!SurenameInput.getText().isEmpty()&&!PasswordInput.getText().isEmpty()&&!PasswordCheckInput.getText().isEmpty()&&!UsernameInput.getText().isEmpty()){
             if((PasswordInput.getText()).equals(PasswordCheckInput.getText())){
-                System.out.println("Registration");
-                
+                try {
+                reg = m.registration(UsernameInput.getText(),PasswordInput.getText(),FirstnameInput.getText(), SurenameInput.getText(),AdressInput.getText(),PhonenumberInput.getText(),1);
+            } catch (IOException ex) {
+                    Logger.getLogger(RegisztracioManager.class.getName()).log(Level.SEVERE, null, ex);
+            }   
             }
             else{
                 System.out.println("Passwords dont match");
                 PasswordCheckInput.setText("");
             }
+                    if(reg)
+        {
+            JOptionPane.showMessageDialog(null, "Már van ilyen név, találjon ki mást");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Sikeres regisztráció!");
+            this.setVisible(false);
+        }
         }
     }//GEN-LAST:event_RegistrationActionPerformed
 

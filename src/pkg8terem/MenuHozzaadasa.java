@@ -72,6 +72,11 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
         jScrollPane1.setViewportView(EtteremLista);
 
         Hozzaad.setText("Hozáad");
+        Hozzaad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HozzaadActionPerformed(evt);
+            }
+        });
 
         NevInput.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         NevInput.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +232,10 @@ DefaultListModel mod=new DefaultListModel();
     private void VisszaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisszaActionPerformed
       this.setVisible(true);
     }//GEN-LAST:event_VisszaActionPerformed
+
+    private void HozzaadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HozzaadActionPerformed
 
 
     /**
