@@ -44,6 +44,7 @@ public class Foablak extends javax.swing.JFrame {
         etteremLista = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         EtteremInfok = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
@@ -83,6 +84,14 @@ public class Foablak extends javax.swing.JFrame {
         EtteremInfok.setRows(5);
         jScrollPane3.setViewportView(EtteremInfok);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton1.setText("Éttermek listázása");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Egyen mindig finomat, a Donát majd mosogat!");
@@ -99,11 +108,15 @@ public class Foablak extends javax.swing.JFrame {
                     .addGroup(EtteremListazasPanelLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(EtteremListazasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(EtteremListazasPanelLayout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(EtteremListazasPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(EtteremListazasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1))))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         EtteremListazasPanelLayout.setVerticalGroup(
@@ -115,9 +128,11 @@ public class Foablak extends javax.swing.JFrame {
                 .addGroup(EtteremListazasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,7 +155,19 @@ DefaultListModel mod=new DefaultListModel();
     
     
     private void etteremListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_etteremListaValueChanged
-   
+           Restaurant restaurant= new Restaurant();
+        String selected = etteremLista.getSelectedValue().toString();
+         for(int i=0;i<restaurants.size();i++)
+       {
+           if(restaurants.get(i).getRestaurantName().equals(selected))
+           {
+               restaurant=restaurants.get(i);
+           }
+       }
+        if (!evt.getValueIsAdjusting()) {//This line prevents double events
+            EtteremInfok.setText("");
+            EtteremInfok.append("Cím: "+restaurant.getRestaurantAddress()+"\n"+"Nyitvatartás: "+restaurant.getOpenHours());
+        }
         
     }//GEN-LAST:event_etteremListaValueChanged
 
@@ -158,22 +185,15 @@ DefaultListModel mod=new DefaultListModel();
          login.setVisible(true);
         
     }//GEN-LAST:event_formWindowClosing
-       
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {
-        Restaurant restaurant= new Restaurant();
-        String selected = etteremLista.getSelectedValue().toString();
-         for(int i=0;i<restaurants.size();i++)
-       {
-           if(restaurants.get(i).getRestaurantName().equals(selected))
-           {
-               restaurant=restaurants.get(i);
-           }
-       }
-        //if (!evt.getValueIsAdjusting()) {//This line prevents double events
-            EtteremInfok.setText("");
-            EtteremInfok.append("Cím: "+restaurant.getRestaurantAddress()+"\n"+"Nyitvatartás: "+restaurant.getOpenHours());
-        //}
-    }
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        etteremLista.setModel(mod);
+        for(int i=0;i<restaurants.size();i++)
+        {
+            mod.addElement(restaurants.get(i).getRestaurantName());
+        }
+        //List<String> ettermek= g.searchRestaurant();
+    }//GEN-LAST:event_jButton1ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -213,6 +233,7 @@ DefaultListModel mod=new DefaultListModel();
     private javax.swing.JTextArea EtteremInfok;
     private javax.swing.JPanel EtteremListazasPanel;
     private javax.swing.JList<String> etteremLista;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
