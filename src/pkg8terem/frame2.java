@@ -263,11 +263,13 @@ DefaultListModel etlapmod=new DefaultListModel();
     private void AllergenekListazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllergenekListazasActionPerformed
         String selected = EtlapLista.getSelectedValue().toString(); //valami lista vagy adattag i edik osszetevoit ebből lekérni
         String osszefuzott="";
+        String masikosszefuzott="";
        for(int i=0;i<4;i++)
         {
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
             {
-                if(restaurant.getMenu().get(i).getMeals().get(j).getName().equals(selected))
+                masikosszefuzott=restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+restaurant.getMenu().get(i).getMeals().get(j).getCost();
+                if(masikosszefuzott.equals(selected))
                 {
                     osszefuzott="Allergének: "+restaurant.getMenu().get(i).getMeals().get(j).getAllergens()+"\n Összetevők:"+restaurant.getMenu().get(i).getMeals().get(j).getIngredients();
                     OsszetevokLabel.setText(osszefuzott);
