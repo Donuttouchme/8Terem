@@ -72,11 +72,6 @@ public class Foablak extends javax.swing.JFrame {
         });
 
         etteremLista.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etteremLista.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         etteremLista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 etteremListaValueChanged(evt);
@@ -133,9 +128,9 @@ public class Foablak extends javax.swing.JFrame {
                 .addGroup(EtteremListazasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
         );
@@ -160,19 +155,28 @@ DefaultListModel mod=new DefaultListModel();
     
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Guest g=new Guest();
-        etteremLista.setModel(mod);
-        mod.addElement("asd");
-        mod.addElement("qwe");
+      etteremLista.setModel(mod);
+        for(int i=0;i<restaurants.size();i++)
+       {
+           mod.addElement(restaurants.get(i).getRestaurantName());
+       }
+        
+        
         //List<String> ettermek= g.searchRestaurant();       
     }//GEN-LAST:event_jButton1ActionPerformed
-String cim="Mónika utca";
     private void etteremListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_etteremListaValueChanged
-        
+        Restaurant restaurant= new Restaurant();
+        String selected = etteremLista.getSelectedValue().toString();
+         for(int i=0;i<restaurants.size();i++)
+       {
+           if(restaurants.get(i).getRestaurantName().equals(selected))
+           {
+               restaurant=restaurants.get(i);
+           }
+       }
         if (!evt.getValueIsAdjusting()) {//This line prevents double events
             EtteremInfok.setText("");
-            EtteremInfok.append(cim+"\n");
-            cim+="1";
+            EtteremInfok.append("Cím: "+restaurant.getRestaurantAddress()+"\n"+" Nyitvatartás: "+restaurant.getOpenHours());
         }
        
         

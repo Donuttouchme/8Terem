@@ -16,6 +16,8 @@ import static java.lang.Thread.sleep;
 import java.net.Socket;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,8 +35,9 @@ public class Main implements Serializable {
     static InputStream inputStream = null;
     static Pair<Object,Integer> datas;
     public static BusinessManager businessManager;
-    public Guest guest;
-    public Courier courier;
+    public static Guest guest;
+    public static Courier courier;
+    public static List<Restaurant> restaurants = new LinkedList<Restaurant>();
     private static final long serialVersionUID = 6529685098267757691L;
     
     /**
@@ -100,11 +103,7 @@ public class Main implements Serializable {
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                         return false;
-                    }
-                   
-//                        businessManager = new BusinessManager(username,password,rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
-//                        businessManager.setManagedRestaurant(new Restaurant(rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
-//                        businessManager.setManagerID(rs.getInt(1));
+                    }                  
                 case 1://Guest
                     datas = new Pair<>(new Pair<>(username,password),3);
                     objectOutputStream.writeObject(datas);
@@ -112,6 +111,7 @@ public class Main implements Serializable {
                     objectOutputStream.reset();
                     try {
                         guest =(Guest) objectInputStream.readObject();
+                        restaurants = (LinkedList)objectInputStream.readObject();
                         return true;
                     } catch (Exception e) {
                         e.getMessage();

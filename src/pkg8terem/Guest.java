@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import static pkg8terem.Main.*;
 
 
 public class Guest implements Users, Serializable {
@@ -19,7 +20,7 @@ public class Guest implements Users, Serializable {
     private String guestAddress = null;
     private String phoneNumber = null;
     private String registrationDate = null;
-
+    
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     static Scanner input = new Scanner(System.in);
 
