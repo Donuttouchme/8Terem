@@ -91,16 +91,14 @@ public class Main {
                     objectOutputStream.reset();
                     try {
                          businessManager =(BusinessManager) objectInputStream.readObject();
+                         return true;
                     } catch (Exception e) {
-                        return true;
+                        return false;
                     }
-                    businessManager =(BusinessManager) objectInputStream.readObject();
                    
 //                        businessManager = new BusinessManager(username,password,rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
 //                        businessManager.setManagedRestaurant(new Restaurant(rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
 //                        businessManager.setManagerID(rs.getInt(1));
-                        
-                    return false;
                 case 1://Guest
                     datas = new Pair<>(new Pair<>(username,password),3);
                     objectOutputStream.writeObject(datas);
