@@ -319,7 +319,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     private void FőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FőételActionPerformed
        mod.clear();
        int foetel=1;
-       if(businessManager.getManagedRestaurant().getMenu()!=null)
+       if(businessManager.getManagedRestaurant().getMenu().size()!=0)
        {
          for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(foetel).getMeals().size();i++)
      {
@@ -332,7 +332,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     private void DesszertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesszertActionPerformed
      mod.clear();
      int desszert = 2;
-     if(businessManager.getManagedRestaurant().getMenu()!=null)
+     if(businessManager.getManagedRestaurant().getMenu().size()!=0)
        {
         for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(desszert).getMeals().size();i++)
      {
@@ -344,7 +344,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     private void ItalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItalActionPerformed
      mod.clear();
      int ital=3;
-     if(businessManager.getManagedRestaurant().getMenu()!=null)
+    if(businessManager.getManagedRestaurant().getMenu().size()!=0)
        {
         for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(ital).getMeals().size();i++)
      {
@@ -356,7 +356,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     private void ElőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElőételActionPerformed
       mod.clear();
       int eloetel=0;
-      if(businessManager.getManagedRestaurant().getMenu()!=null)
+     if(businessManager.getManagedRestaurant().getMenu().size()!=0)
        {
         for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(eloetel).getMeals().size();i++)
      {
