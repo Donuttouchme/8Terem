@@ -12,6 +12,8 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import java.awt.*;  
+import static pkg8terem.Main.*;
+import static pkg8terem.Foablak.*;
 /**
  *
  * @author tobak
@@ -54,6 +56,9 @@ public class frame2 extends javax.swing.JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -188,8 +193,8 @@ public class frame2 extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Hozzaadas)
                             .addComponent(Eltavolitas, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 26, Short.MAX_VALUE)))
-                .addGap(47, 47, 47))
+                        .addGap(0, 38, Short.MAX_VALUE)))
+                .addGap(29, 29, 29))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,14 +220,17 @@ public class frame2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -253,11 +261,51 @@ DefaultListModel mod=new DefaultListModel();
     }//GEN-LAST:event_RendelésActionPerformed
 
     private void AllergenekListazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllergenekListazasActionPerformed
-        int selected = RendelesLista.getSelectedIndex(); //valami lista vagy adattag i edik osszetevoit ebből lekérni
-        String valtozo="asd: ";
-        String osszetevok=valtozo+"ez meg az"+"talán még ez is";
-        OsszetevokLabel.setText(osszetevok);
+        String selected = RendelesLista.getSelectedValue().toString(); //valami lista vagy adattag i edik osszetevoit ebből lekérni
+        String osszefuzott="";
+       for(int i=0;i<4;i++)
+        {
+            for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
+            {
+                if(restaurant.getMenu().get(i).getMeals().get(j).getName().equals(selected))
+                {
+                    osszefuzott="Allergének: "+restaurant.getMenu().get(i).getMeals().get(j).getAllergens()+"\n Összetevők:"+restaurant.getMenu().get(i).getMeals().get(j).getIngredients();
+                    mod.addElement(osszefuzott);
+                }
+            }
+        }
+        OsszetevokLabel.setText(osszefuzott);
     }//GEN-LAST:event_AllergenekListazasActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        EtlapLista.setModel(mod);
+        String valami;
+        for(int i=0;i<4;i++)
+        {
+            if(i==0)
+            {
+                mod.addElement("Előételek: ");
+            }
+            else if(i==1)
+            {
+                mod.addElement("Főételek: ");
+            }
+            else if(i==3)
+            {
+                mod.addElement("Desszertek: ");
+            }
+            else
+            {
+                mod.addElement("Italok: ");
+            }
+            for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
+            {
+                valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+restaurant.getMenu().get(i).getMeals().get(j).getCost();
+                mod.addElement(valami);
+            }
+        }
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

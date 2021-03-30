@@ -18,7 +18,7 @@ import static pkg8terem.Main.*;
  * @author tobak
  */
 public class Foablak extends javax.swing.JFrame {
-
+    static Restaurant restaurant = new Restaurant();
     /**
      * Creates new form Foablak
      */
@@ -155,7 +155,7 @@ DefaultListModel mod=new DefaultListModel();
     
     
     private void etteremListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_etteremListaValueChanged
-           Restaurant restaurant= new Restaurant();
+        restaurant= new Restaurant();
         String selected = etteremLista.getSelectedValue().toString();
          for(int i=0;i<restaurants.size();i++)
        {
