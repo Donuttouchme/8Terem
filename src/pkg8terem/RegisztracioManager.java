@@ -266,17 +266,7 @@ public class RegisztracioManager extends javax.swing.JFrame {
         {             
             JOptionPane.showMessageDialog(null, "Sikeres regisztráció!");
             this.setVisible(false);
-            if(managerloggedin ==null)
-            {
-                managerloggedin = new ManagerLoggedIn();
-                managerloggedin.setVisible(true);
-                this.setVisible(false);
-            }
-            else
-            {
-                managerloggedin.setVisible(true);
-                this.setVisible(false);
-            }
+            login.setVisible(true);
         }
         }
     }//GEN-LAST:event_RegistrationActionPerformed

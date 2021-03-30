@@ -267,17 +267,7 @@ public class RegisztracioVendeg extends javax.swing.JFrame {
         {
              JOptionPane.showMessageDialog(null, "Sikeres regisztráció!");
             this.setVisible(false);
-            if(loggedinGuest ==null)
-            {
-                loggedinGuest = new Foablak();
-                loggedinGuest.setVisible(true);
-                this.setVisible(false);
-            }
-            else
-            {
-                loggedinGuest.setVisible(true);
-                this.setVisible(false);
-            }
+            login.setVisible(true);
         }
         }
     }//GEN-LAST:event_RegistrationActionPerformed
