@@ -304,6 +304,11 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
             ArInput.setText("");
             OsszetevokInput.setText("");
             AllergenekInput.setText("");
+            mod.clear();
+            for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(category).getMeals().size();i++)
+            {
+              mod.addElement(businessManager.getManagedRestaurant().getMenu().get(category).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(category).getMeals().get(i).getCost());  
+            }
             
         } catch (IOException ex) {
             Logger.getLogger(MenuHozzaadasa.class.getName()).log(Level.SEVERE, null, ex);
