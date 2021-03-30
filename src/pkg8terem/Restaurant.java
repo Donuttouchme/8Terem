@@ -19,7 +19,6 @@ public class Restaurant implements Serializable{
     private String restaurantName = null;
     private String restaurantAddress = null;
     private String openHours = null;
-    
     Menu menu;
     static Scanner input = new Scanner(System.in);
 
@@ -44,9 +43,6 @@ public class Restaurant implements Serializable{
 
     public void setRestaurantAddress(String restaurantAddress) {
         this.restaurantAddress = restaurantAddress;
-    }
-    public Menu getMenu() {
-        return menu;
     }
     
     public int getRestaurantId() {
@@ -80,4 +76,11 @@ public class Restaurant implements Serializable{
     public void setOpenHours(String openHours) {
         this.openHours = openHours;
     } 
+       public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
 }

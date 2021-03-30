@@ -26,8 +26,18 @@ public class Menu implements Serializable{
     {
         this.meals=_meals;
     }
+    
+    public Menu()
+    {
+    }
 
-
+    public Menu(int _id, int _restID,List<Meal> _meals)
+    {
+        this.id=_id;
+        this.restaurantID = _restID;
+        this.meals=_meals;
+    }
+    
     List<Meal> getMenu()
     {
         return meals;

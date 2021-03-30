@@ -217,7 +217,8 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         EtteremLista.setModel(mod);
-        if(businessManager.getManagedRestaurant().getMenu().getMeals()==null)
+        businessManager.getManagedRestaurant().setMenu(new Menu());
+        if(businessManager.getManagedRestaurant().getMenu()==null)
         {
             mod.addElement("Még nem adtál hozzá ételt!");
         }
