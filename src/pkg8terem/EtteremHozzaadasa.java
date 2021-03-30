@@ -10,12 +10,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import static pkg8terem.Main.*;
 /**
  *
  * @author tobak
  */
 public class EtteremHozzaadasa extends javax.swing.JFrame {
-    Main m = new Main();
     /**
      * Creates new form EtteremHozzaadasa
      */
@@ -203,16 +203,14 @@ public class EtteremHozzaadasa extends javax.swing.JFrame {
         String cim=EtteremCim.getText();
         String nyitva=Nyitva1.getValue()+"-"+Nyitva2.getValue();
         try {
-            JOptionPane.showMessageDialog(null, "Ez még lefut");
-            JOptionPane.showMessageDialog(null, m.businessManager.getFirstName());
-            m.businessManager.RestaurantRegistration(nev,cim,nyitva);
+            businessManager.RestaurantRegistration(nev,cim,nyitva);
             if(nev.equals("")||cim.equals("")||nyitva.equals("")){
             JOptionPane.showMessageDialog(null, "Minden mezőt töltsön ki!");
         }
         else{
             JOptionPane.showMessageDialog(null, "RegisztrálásFüggvény");
         this.setVisible(false);
-        m.login.setVisible(true);
+        login.setVisible(true);
         }   
         } catch (IOException ex) {
             Logger.getLogger(EtteremHozzaadasa.class.getName()).log(Level.SEVERE, null, ex);
@@ -221,7 +219,7 @@ public class EtteremHozzaadasa extends javax.swing.JFrame {
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
        this.setVisible(false);
-       m.login.setVisible(true);
+       login.setVisible(true);
     }//GEN-LAST:event_CancelActionPerformed
 private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
         this.setVisible(false);
