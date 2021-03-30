@@ -65,7 +65,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(3, 41, 80));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Étterem kiválasztása");
+        jLabel1.setText("Jelenlegi menü:");
 
         EtteremLista.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         EtteremLista.setModel(new javax.swing.AbstractListModel<String>() {
@@ -147,7 +147,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
                     .addComponent(ArInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NevInput, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,9 +217,18 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         EtteremLista.setModel(mod);
-        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().getMeals().size();i++){
-            mod.addElement(businessManager.getManagedRestaurant().getMenu().getMeals().get(i));
+        int finy = businessManager.getManagedRestaurant().getMenu().getMeals().size();
+        if(finy==0)
+        {
+            mod.addElement("Még nem adtál hozzá ételt!");
         }
+        else
+        {
+            for(int i=0;i<finy;i++)
+            {
+                mod.addElement(businessManager.getManagedRestaurant().getMenu().getMeals().get(i));
+            }
+        }          
     }//GEN-LAST:event_formWindowActivated
     
     private void NevInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NevInputActionPerformed
