@@ -323,47 +323,35 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
     }//GEN-LAST:event_HozzaadActionPerformed
 
     private void FőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FőételActionPerformed
-       for(int i =0;i<4;i++){
-           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory()==1){
-               mod.clear();
-               for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
-                   mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
-               }
-           }
-       }
+       mod.clear();
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(1).getMeals().size();i++)
+     {
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(1).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(1).getMeals().get(i).getCost());
+     }
     }//GEN-LAST:event_FőételActionPerformed
 
     private void DesszertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesszertActionPerformed
-        for(int i =0;i<4;i++){
-           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory()==2){
-               mod.clear();
-               for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
-                   mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
-               }
-           }
-       }
+     mod.clear();
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(2).getMeals().size();i++)
+     {
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(2).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(2).getMeals().get(i).getCost());
+     }
     }//GEN-LAST:event_DesszertActionPerformed
 
     private void ItalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItalActionPerformed
-        for(int i =0;i<4;i++){
-           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory()==3){
-               mod.clear();
-               for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
-                   mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
-               }
-           }
-       }
+     mod.clear();
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(3).getMeals().size();i++)
+     {
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(3).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(3).getMeals().get(i).getCost());
+     }
     }//GEN-LAST:event_ItalActionPerformed
 
     private void ElőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElőételActionPerformed
-        for(int i =0;i<4;i++){
-           if(businessManager.getManagedRestaurant().getMenu().get(i).getCategory()==0){
-               mod.clear();
-               for(int j=0;i<businessManager.getManagedRestaurant().getMenu().get(j).getMeals().size();j++){
-                   mod.addElement(businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getName()+"  "+businessManager.getManagedRestaurant().getMenu().get(j).getMeals().get(j).getCost());
-               }
-           }
-       }
+      mod.clear();
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(0).getMeals().size();i++)
+     {
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(0).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(0).getMeals().get(i).getCost());
+     }
     }//GEN-LAST:event_ElőételActionPerformed
 
 
