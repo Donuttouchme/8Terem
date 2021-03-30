@@ -25,6 +25,7 @@ import pkg8terem.Users;
 
 
 public class BusinessManager implements Users, Serializable{
+    private static final long seralVersionID = 6529685098267757690L;
     Main m= new Main();
     private int managerID;
     private String username = null;
