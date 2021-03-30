@@ -203,6 +203,7 @@ public class EtteremHozzaadasa extends javax.swing.JFrame {
         String cim=EtteremCim.getText();
         String nyitva=Nyitva1.getValue()+"-"+Nyitva2.getValue();
         try {
+            
             JOptionPane.showMessageDialog(null, m.businessManager.getFirstName());
             m.businessManager.RestaurantRegistration(nev,cim,nyitva);
             if(nev.equals("")||cim.equals("")||nyitva.equals("")){
