@@ -242,7 +242,8 @@ public class frame2 extends javax.swing.JFrame {
 DefaultListModel rendelesmod=new DefaultListModel();
 DefaultListModel etlapmod=new DefaultListModel();
     private void HozzaadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadasActionPerformed
-        String selected = EtlapLista.getSelectedValue().toString();  
+        String selected = EtlapLista.getSelectedValue().toString();
+        if(selected=="Előételek: "||selected=="Főételek: "||selected=="Desszertek: "||selected=="Italok: ")
         rendelesmod.addElement(selected);
     }//GEN-LAST:event_HozzaadasActionPerformed
 
@@ -286,19 +287,19 @@ DefaultListModel etlapmod=new DefaultListModel();
         {
             if(i==0)
             {
-                etlapmod.addElement("Előételek: "+"\n");
+                etlapmod.addElement("Előételek: ");
             }
             else if(i==1)
             {
-                etlapmod.addElement("Főételek: "+"\n");
+                etlapmod.addElement("Főételek: ");
             }
             else if(i==3)
             {
-                etlapmod.addElement("Desszertek: "+"\n");
+                etlapmod.addElement("Desszertek: ");
             }
             else
             {
-                etlapmod.addElement("Italok: "+"\n");
+                etlapmod.addElement("Italok: ");
             }
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
             {
