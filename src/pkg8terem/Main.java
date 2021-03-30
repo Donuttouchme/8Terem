@@ -46,6 +46,7 @@ public class Main implements Serializable {
     
     public boolean registration(String username, String password, String fName, String lName,String corporationName,String email, int switchCase) throws IOException
     {
+        if(objectInputStream==null)
         objectInputStream = new ObjectInputStream(inputStream);
         switch (switchCase)
         {
@@ -89,6 +90,7 @@ public class Main implements Serializable {
     
     public boolean login(String username, String password, int switchCase) throws IOException, ClassNotFoundException, SQLException
     {
+        if(objectInputStream==null)
         objectInputStream =new ObjectInputStream(inputStream);
         switch (switchCase)
         {

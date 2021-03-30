@@ -259,7 +259,7 @@ public class RegisztracioVendeg extends javax.swing.JFrame {
                 System.out.println("Passwords dont match");
                 PasswordCheckInput.setText("");
             }
-                    if(reg)
+         if(reg)
         {
             JOptionPane.showMessageDialog(null, "Már van ilyen név, találjon ki mást");
         }
