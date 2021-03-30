@@ -239,10 +239,11 @@ public class frame2 extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }//GEN-LAST:event_formWindowClosing
-DefaultListModel mod=new DefaultListModel();
+DefaultListModel rendelesmod=new DefaultListModel();
+DefaultListModel etlapmod=new DefaultListModel();
     private void HozzaadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadasActionPerformed
         String selected = EtlapLista.getSelectedValue().toString();  
-        mod.addElement(selected);
+        rendelesmod.addElement(selected);
     }//GEN-LAST:event_HozzaadasActionPerformed
 
     private void EltavolitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EltavolitasActionPerformed
@@ -276,31 +277,31 @@ DefaultListModel mod=new DefaultListModel();
     }//GEN-LAST:event_AllergenekListazasActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        RendelesLista.setModel(mod);
-        EtlapLista.setModel(mod);
+        RendelesLista.setModel(rendelesmod);
+        EtlapLista.setModel(etlapmod);
         String valami;
         for(int i=0;i<4;i++)
         {
             if(i==0)
             {
-                mod.addElement("Előételek: "+"\n");
+                etlapmod.addElement("Előételek: "+"\n");
             }
             else if(i==1)
             {
-                mod.addElement("Főételek: "+"\n");
+                etlapmod.addElement("Főételek: "+"\n");
             }
             else if(i==3)
             {
-                mod.addElement("Desszertek: "+"\n");
+                etlapmod.addElement("Desszertek: "+"\n");
             }
             else
             {
-                mod.addElement("Italok: "+"\n");
+                etlapmod.addElement("Italok: "+"\n");
             }
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
             {
                 valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+restaurant.getMenu().get(i).getMeals().get(j).getCost();
-                mod.addElement(valami);
+                etlapmod.addElement(valami);
             }
         }
         
