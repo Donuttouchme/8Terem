@@ -93,7 +93,8 @@ public class Main implements Serializable {
                     objectOutputStream.reset();
                     try {
                          businessManager =(BusinessManager) objectInputStream.readObject();
-                         //System.out.println(businessManager.getManagerID()+" :" + businessManager.getManagedRestaurant().getRestaurantId());
+                         System.out.println(businessManager.getFirstName());
+                         System.out.println(businessManager.getManagedRestaurant().getRestaurantId());
                          return true;
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
