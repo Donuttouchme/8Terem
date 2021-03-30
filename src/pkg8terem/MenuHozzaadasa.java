@@ -295,16 +295,16 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
             if (button.isSelected()) {
                qwe= button.getText();
                if(qwe=="Főétel"){
-                   category=1;
-               }
-               else if(qwe=="Előétel"){
-                   category=0;
-               }
-               else if(qwe=="Desszert"){
                    category=2;
                }
-               else{
+               else if(qwe=="Előétel"){
+                   category=1;
+               }
+               else if(qwe=="Desszert"){
                    category=3;
+               }
+               else if(qwe=="Ital"){
+                   category=4;
                        }
             }
         }
@@ -324,17 +324,17 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
 
     private void FőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FőételActionPerformed
        mod.clear();
-        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(1).getMeals().size();i++)
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(2).getMeals().size();i++)
      {
-         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(1).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(1).getMeals().get(i).getCost());
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(2).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(2).getMeals().get(i).getCost());
      }
     }//GEN-LAST:event_FőételActionPerformed
 
     private void DesszertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesszertActionPerformed
      mod.clear();
-        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(2).getMeals().size();i++)
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(3).getMeals().size();i++)
      {
-         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(2).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(2).getMeals().get(i).getCost());
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(3).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(3).getMeals().get(i).getCost());
      }
     }//GEN-LAST:event_DesszertActionPerformed
 
@@ -348,9 +348,9 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
 
     private void ElőételActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElőételActionPerformed
       mod.clear();
-        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(0).getMeals().size();i++)
+        for(int i=0;i<businessManager.getManagedRestaurant().getMenu().get(1).getMeals().size();i++)
      {
-         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(0).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(0).getMeals().get(i).getCost());
+         mod.addElement(businessManager.getManagedRestaurant().getMenu().get(1).getMeals().get(i).getName()+" "+businessManager.getManagedRestaurant().getMenu().get(1).getMeals().get(i).getCost());
      }
     }//GEN-LAST:event_ElőételActionPerformed
 
