@@ -33,6 +33,7 @@ public class Main {
     static Pair<Object,Integer> datas;
     BusinessManager businessManager;
     Guest guest;
+    Courier courier;
     
     /**
      * @param args the command line arguments
@@ -88,28 +89,31 @@ public class Main {
                     objectOutputStream.writeObject(datas);
                     objectOutputStream.flush();
                     objectOutputStream.reset();
-                    ResultSet rs =(ResultSet)objectInputStream.readObject();
-                    if(rs.next())
-                    { 
-                        businessManager = new BusinessManager(username,password,rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
-                        businessManager.setManagedRestaurant(new Restaurant(rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
-                        businessManager.setManagerID(rs.getInt(1));
+                    try {
+                         businessManager =(BusinessManager) objectInputStream.readObject();
+                    } catch (Exception e) {
                         return true;
                     }
+                    businessManager =(BusinessManager) objectInputStream.readObject();
+                   
+//                        businessManager = new BusinessManager(username,password,rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+//                        businessManager.setManagedRestaurant(new Restaurant(rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
+//                        businessManager.setManagerID(rs.getInt(1));
+                        
                     return false;
                 case 1://Guest
                     datas = new Pair<>(new Pair<>(username,password),3);
                     objectOutputStream.writeObject(datas);
                     objectOutputStream.flush();
                     objectOutputStream.reset();
-                    rs =(ResultSet)objectInputStream.readObject();
-                   if(rs.next())
-                    {                      
-                        guest = new Guest(username,password,rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
-                        businessManager.setManagedRestaurant(new Restaurant(rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
-                        businessManager.setManagerID(rs.getInt(1));
-                        return true;
-                    }
+//                    rs =(ResultSet)objectInputStream.readObject();
+//                   if(rs.next())
+//                    {                      
+//                        guest = new Guest(username,password,rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+//                        businessManager.setManagedRestaurant(new Restaurant(rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
+//                        businessManager.setManagerID(rs.getInt(1));
+//                        return true;
+//                    }
                     return false;
                 case 2://Courier
                     datas = new Pair<>(new Pair<>(username,password),4);
