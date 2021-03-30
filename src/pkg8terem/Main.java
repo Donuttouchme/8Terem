@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.Serializable;
 import static java.lang.Thread.sleep;
 import java.net.Socket;
 import java.sql.ResultSet;
@@ -24,16 +25,17 @@ import javafx.util.Pair;
  *
  * @author polga
  */
-public class Main {
+public class Main implements Serializable {
     static Login login = null;
     static Scanner input = new Scanner(System.in);
     static ObjectOutputStream objectOutputStream = null;
     static ObjectInputStream objectInputStream = null;
     static InputStream inputStream = null;
     static Pair<Object,Integer> datas;
-    public BusinessManager businessManager = new BusinessManager();
+    public BusinessManager businessManager;
     public Guest guest;
     public Courier courier;
+    private static final long serialVersionUID = 6529685098267757691L;
     
     /**
      * @param args the command line arguments
@@ -94,6 +96,7 @@ public class Main {
                          //System.out.println(businessManager.getManagerID()+" :" + businessManager.getManagedRestaurant().getRestaurantId());
                          return true;
                     } catch (Exception e) {
+                        System.out.println(e.getMessage());
                         return false;
                     }
                    
