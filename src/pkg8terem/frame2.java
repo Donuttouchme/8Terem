@@ -243,7 +243,7 @@ DefaultListModel rendelesmod=new DefaultListModel();
 DefaultListModel etlapmod=new DefaultListModel();
     private void HozzaadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadasActionPerformed
         String selected = EtlapLista.getSelectedValue().toString();
-        if(selected=="Előételek: "||selected=="Főételek: "||selected=="Desszertek: "||selected=="Italok: ")
+        if(!(selected=="Előételek: "||selected=="Főételek: "||selected=="Desszertek: "||selected=="Italok: "))
         rendelesmod.addElement(selected);
     }//GEN-LAST:event_HozzaadasActionPerformed
 
