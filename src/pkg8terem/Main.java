@@ -32,7 +32,7 @@ public class Main implements Serializable {
     static ObjectInputStream objectInputStream = null;
     static InputStream inputStream = null;
     static Pair<Object,Integer> datas;
-    public BusinessManager businessManager;
+    public static BusinessManager businessManager;
     public Guest guest;
     public Courier courier;
     private static final long serialVersionUID = 6529685098267757691L;
@@ -93,8 +93,6 @@ public class Main implements Serializable {
                     objectOutputStream.reset();
                     try {
                          businessManager =(BusinessManager) objectInputStream.readObject();
-                         System.out.println(businessManager.getFirstName());
-                         System.out.println(businessManager.getManagedRestaurant().getRestaurantId());
                          return true;
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
