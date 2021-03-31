@@ -293,7 +293,7 @@ DefaultListModel etlapmod=new DefaultListModel();
             {
                 etlapmod.addElement("Főételek: ");
             }
-            else if(i==3)
+            else if(i==2)
             {
                 etlapmod.addElement("Desszertek: ");
             }
