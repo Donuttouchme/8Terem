@@ -40,9 +40,10 @@ public class Menu implements Serializable{
     {
         return meals;
     }
-     public void addMealToMenu(Meal meal) throws IOException {
+     public void addMealToMenu(Meal meal, int resID) throws IOException {
+            setRestaurantID(resID);
             meal.setMenuID(meal.getMenuID()+1);
-            datas = new Pair<>(meal,1);
+            datas = new Pair<>(new Pair<>(meal,resID),1);
             meals.add(meal);
             objectOutputStream.writeObject(datas);
         }

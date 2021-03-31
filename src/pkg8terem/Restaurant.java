@@ -63,7 +63,7 @@ public class Restaurant implements Serializable{
             menus.add(new Menu(2,restaurantID,desszertek));
             menus.add(new Menu(4,restaurantID,italok));
         }
-        menus.get(category).addMealToMenu(meal);
+        menus.get(category).addMealToMenu(meal, restaurantID);
        
     }
     
