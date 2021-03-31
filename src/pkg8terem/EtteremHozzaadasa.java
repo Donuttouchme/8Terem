@@ -209,7 +209,7 @@ public class EtteremHozzaadasa extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Minden mezőt töltsön ki!");
         }
         else{
-            JOptionPane.showMessageDialog(null, "RegisztrálásFüggvény");
+            JOptionPane.showMessageDialog(null, "Sikeres regisztráció!");
         this.setVisible(false);
         login.setVisible(true);
         }   
