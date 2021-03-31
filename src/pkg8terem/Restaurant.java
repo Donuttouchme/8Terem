@@ -7,6 +7,7 @@ package pkg8terem;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -21,7 +22,7 @@ public class Restaurant implements Serializable{
     private String restaurantName = null;
     private String restaurantAddress = null;
     private String openHours = null;
-    private List<Menu> menus=new LinkedList<Menu>();
+    private List<Menu> menus=new ArrayList<Menu>();
 
     
     static Scanner input = new Scanner(System.in);
@@ -42,7 +43,19 @@ public class Restaurant implements Serializable{
     
     public void addMealToSpecifiedMenu(int category, Meal meal) throws IOException
     {
+        List<Meal> eloetelek=new ArrayList<Meal>();
+        List<Meal> foetelek=new ArrayList<Meal>();
+        List<Meal> desszertek=new ArrayList<Meal>();
+        List<Meal> italok=new ArrayList<Meal>();
+        if(menus.size()==0)
+        {
+            menus.add(new Menu(0,restaurantID,eloetelek));
+            menus.add(new Menu(1,restaurantID,foetelek));
+            menus.add(new Menu(2,restaurantID,desszertek));
+            menus.add(new Menu(4,restaurantID,italok));
+        }
         menus.get(category).addMealToMenu(meal);
+       
     }
     
     public String getRestaurantAddress() {

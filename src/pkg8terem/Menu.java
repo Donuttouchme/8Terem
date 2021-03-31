@@ -7,7 +7,7 @@ package pkg8terem;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import javafx.util.Pair;
@@ -21,7 +21,7 @@ public class Menu implements Serializable{
     private int id;
     private int restaurantID;
     private int category;
-    private List<Meal> meals = new LinkedList<Meal>();
+    private List<Meal> meals = new ArrayList<Meal>();
     static Scanner input = new Scanner(System.in);
     
     public Menu(int _categoryID, int _restaurantID,List<Meal> _meals)

@@ -16,6 +16,7 @@ import static java.lang.Thread.sleep;
 import java.net.Socket;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -37,7 +38,7 @@ public class Main implements Serializable {
     public static BusinessManager businessManager;
     public static Guest guest;
     public static Courier courier;
-    public static List<Restaurant> restaurants = new LinkedList<Restaurant>();
+    public static List<Restaurant> restaurants = new ArrayList<Restaurant>();
     private static final long serialVersionUID = 6529685098267757691L;
     
     /**
@@ -115,7 +116,7 @@ public class Main implements Serializable {
                         Object object=objectInputStream.readObject();
                         Pair pairObj=(Pair)object;                        
                         guest =(Guest) pairObj.getKey();
-                        restaurants = (LinkedList)pairObj.getValue();
+                        restaurants = (ArrayList)pairObj.getValue();
                         return true;
                     } catch (Exception e) {
                         e.getMessage();
@@ -146,76 +147,5 @@ public class Main implements Serializable {
         }  
         login = new Login();
         login.setVisible(true);
-        
-//            {
-//            case 0:
-//                NoRegistrationGuest nrg = new NoRegistrationGuest();
-//                nrg = nrg.Registration();
-//                objectOutputStream.writeObject(nrg);
-//                break;
-//            case 1:
-//                System.out.println("How would you like to registrate?\n 0 - as Business Manager\n 1 - as Courier\n 2 - as a Guest");
-//                int decisionInputForRegistration = input.nextInt();        
-//                switch(decisionInputForRegistration)        
-//                    {
-//                    case 0:
-//                        
-//                        break;                
-//                    case 1:  
-//                        Courier c = new Courier();
-//                        c = c.Registration("asd");
-//                        objectOutputStream.writeObject(new Courier());
-//                        break;       
-//                    case 2:
-//                        input.nextLine();
-//                        Guest g = new Guest();
-//                        usedUsername = true;
-//                        username = null;
-//                        while(usedUsername)
-//                        {
-//                            System.out.println("Enter username: ");
-//                            username = input.nextLine();
-//                            datas = new Pair<>(username,6);
-//                            objectOutputStream.writeObject(datas);
-//                            objectOutputStream.flush();
-//                            usedUsername=objectInputStream.readBoolean();
-//                            if(usedUsername)
-//                            {
-//
-//                                    System.out.println("Oops! Looks like your entered username is taken, please enter another! :");
-//                            }
-//                        }
-//                        g =g.Registration(username);
-//                        objectOutputStream.writeObject(g);
-//                        break;
-//                        }    
-//                break; 
-//            case 2:
-//                System.out.println("How would you like to login? \n 0 - as Business Manager\n 1 - as Courier\n 2 - as a Guest");
-//                int decisionInputForLogin = input.nextInt();
-//                switch(decisionInputForLogin)
-//                {
-//                    case 0:
-//                        BusinessManager bm = new BusinessManager();
-//                        bm =bm.Login();
-//                        break;
-//                    case 1:
-//                        Courier c = new Courier();
-//                        c = c.Login();
-//                        break;
-//                    case 2: 
-//                        Guest g = new Guest();
-//                        g = g.Login();
-//                        break;
-//                }
-//                break;
-//                
-            }
-//                    try {
-//                sleep(2000);
-//            } catch (InterruptedException ex) {
-//                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//    }
-    
+    }    
 }
