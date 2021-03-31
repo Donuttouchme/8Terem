@@ -31,6 +31,13 @@ public class Menu implements Serializable{
         this.restaurantID = _restaurantID;
         this.meals=_meals;
     }
+        public Menu(int _categoryID, int _restaurantID,List<Meal> _meals)
+    {
+
+        this.category=_categoryID;
+        this.restaurantID = _restaurantID;
+        this.meals=_meals;
+    }
     
     public Menu()
     {
@@ -40,10 +47,9 @@ public class Menu implements Serializable{
     {
         return meals;
     }
-     public void addMealToMenu(Meal meal, int resID) throws IOException {
-            setRestaurantID(resID);
+     public void addMealToMenu(Meal meal) throws IOException {
             meal.setMenuID(meal.getMenuID()+1);
-            datas = new Pair<>(new Pair<>(meal,resID),1);
+            datas = new Pair<>(new Pair<>(meal,0),1);
             meals.add(meal);
             objectOutputStream.writeObject(datas);
         }
