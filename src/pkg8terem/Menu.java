@@ -48,7 +48,6 @@ public class Menu implements Serializable{
         return meals;
     }
      public void addMealToMenu(Meal meal) throws IOException {
-            meal.setMenuID(meal.getMenuID()+1);
             datas = new Pair<>(new Pair<>(meal,0),1);
             meals.add(meal);
             objectOutputStream.writeObject(datas);
