@@ -14,7 +14,16 @@ import java.util.List;
  */
 public class Meal implements Serializable{
     private int id, cost;
+
+    public int getCategoryID() {
+        return categoryID;
+    }
+
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
+    }
     private int categoryID;
+    private int menuID;
     private String name;
     private String ingredients;
     private String allergens;
@@ -23,13 +32,14 @@ public class Meal implements Serializable{
         {             
         }
 
-    public Meal(String elso,int masodik, String harmadik, String negyedik,int id2)
+    public Meal(String elso,int masodik, String harmadik, String negyedik,int id2, int _menuID)
     {
         this.name=elso;
         this.cost=masodik;
         this.ingredients=harmadik;
         this.allergens=negyedik;
         this.categoryID=id2;
+        this.menuID=_menuID;
     }
     
     public Meal( String _name, int _cost,String _ingredients, String _allergens)
@@ -73,11 +83,11 @@ public class Meal implements Serializable{
         this.allergens = allergens;
     }
      public int getMenuID() {
-        return categoryID;
+        return menuID;
     }
 
     public void setMenuID(int menuID) {
-        this.categoryID = menuID;
+        this.menuID = menuID;
     }
 
     public int getId() {

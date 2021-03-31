@@ -24,13 +24,13 @@ public class Menu implements Serializable{
     private List<Meal> meals = new ArrayList<Meal>();
     static Scanner input = new Scanner(System.in);
     
-    public Menu(int _categoryID, int _restaurantID,List<Meal> _meals)
+    public Menu(int _id, int _categoryID, int _restaurantID,List<Meal> _meals)
     {
+        this.id=_id;
         this.category=_categoryID;
         this.restaurantID = _restaurantID;
         this.meals=_meals;
     }
-    
     
     public Menu()
     {
