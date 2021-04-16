@@ -86,6 +86,11 @@ public class Login extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jRadioButton3.setText("Futár");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         Password.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
@@ -325,6 +330,10 @@ public class Login extends javax.swing.JFrame {
         this.setVisible(false);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     /**
      * @param args the command line arguments

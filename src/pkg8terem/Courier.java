@@ -21,6 +21,8 @@ public class Courier implements Users{
     private int salary = 0;
     static Scanner input = new Scanner(System.in);
     
+    private int courierID;
+    
     public Courier()
     {
         
@@ -120,5 +122,13 @@ public class Courier implements Users{
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+    
+        public int getCourierID() {
+        return courierID;
+    }
+
+    public void setCourierID(int courierID) {
+        this.courierID = courierID;
     }
 }

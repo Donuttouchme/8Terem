@@ -39,6 +39,7 @@ public class Main implements Serializable {
     public static Guest guest;
     public static Courier courier;
     public static List<Restaurant> restaurants = new ArrayList<Restaurant>();
+    public static List<Order> orders = new ArrayList<Order>();
     private static final long serialVersionUID = 6529685098267757691L;
     
     /**
@@ -127,7 +128,13 @@ public class Main implements Serializable {
                     objectOutputStream.writeObject(datas);
                     objectOutputStream.flush();
                     objectOutputStream.reset();
-                    return objectInputStream.readBoolean();
+                    try {
+                        courier = (Courier)objectInputStream.readObject();
+                        return true;
+                    } catch (Exception e) {
+                        e.getMessage();
+                        return false;
+                    }
                 default:
                     return false;
         }

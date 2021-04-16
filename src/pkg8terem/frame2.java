@@ -258,7 +258,8 @@ DefaultListModel etlapmod=new DefaultListModel();
     }//GEN-LAST:event_EltavolitasActionPerformed
 
     private void RendelésActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RendelésActionPerformed
-        
+
+        orders.add(new Order());
     }//GEN-LAST:event_RendelésActionPerformed
 
     private void AllergenekListazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllergenekListazasActionPerformed
