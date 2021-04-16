@@ -326,7 +326,7 @@ public class Login extends javax.swing.JFrame {
         this.setVisible(false);
         }
         if(response==2){
-        new RegisztracioManager().setVisible(true);
+        new RegisztracioFutar().setVisible(true);
         this.setVisible(false);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
