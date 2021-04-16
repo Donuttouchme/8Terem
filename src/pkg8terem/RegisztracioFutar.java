@@ -54,12 +54,12 @@ public class RegisztracioFutar extends javax.swing.JFrame {
         Registration = new javax.swing.JButton();
         Cancel = new javax.swing.JButton();
         UsernameInput = new javax.swing.JTextField();
-        passwordInput = new javax.swing.JTextField();
+        passwordInput = new javax.swing.JPasswordField();
         SurenameInput = new javax.swing.JTextField();
         phoneNumber = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         passwordCheck = new javax.swing.JPasswordField();
-        firstName = new javax.swing.JPasswordField();
+        firstName = new javax.swing.JTextField();
         munkaora1 = new javax.swing.JSpinner();
         munkaora2 = new javax.swing.JSpinner();
         jLabel9 = new javax.swing.JLabel();
@@ -127,6 +127,11 @@ public class RegisztracioFutar extends javax.swing.JFrame {
         jLabel8.setText("Regisztrálás futárként");
 
         passwordCheck.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        passwordCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordCheckActionPerformed(evt);
+            }
+        });
 
         firstName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
@@ -232,12 +237,12 @@ public class RegisztracioFutar extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(working))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(Registration, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -313,6 +318,10 @@ public class RegisztracioFutar extends javax.swing.JFrame {
     private void passwordInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordInputActionPerformed
+
+    private void passwordCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordCheckActionPerformed
     private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
 
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
