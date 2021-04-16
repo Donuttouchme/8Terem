@@ -18,6 +18,9 @@ public class Courier implements Users{
     private String firstName = null;
     private String lastName = null;
     private String phoneNumber = null;
+
+
+    private String workingHours = null;
     private int salary = 0;
     static Scanner input = new Scanner(System.in);
     
@@ -28,46 +31,22 @@ public class Courier implements Users{
         
     }
     
-    public Courier(String _username, String _password, String _firstname, String _lastname, String _phonenumber, int _salary)
+    public Courier(String _username, String _password, String _firstname, String _lastname, String _phonenumber, String _workingHours)
     {
         this.username = _username;
         this.password= _password;
         this.firstName = _firstname;
         this.lastName = _lastname;
         this.phoneNumber = _phonenumber;
-        this.salary = _salary;
+        this.workingHours = _workingHours;
+        String[] parts = _workingHours.split("-");
+        String part1 = parts[0]; 
+        String part2 = parts[1]; 
+        this.salary = 1100*(Integer.parseInt(part2)-Integer.parseInt(part1));
     }
     
     @Override
-    public Courier Registration(String __username) {
-//        System.out.println("Enter email: ");                        //EMAIL
-//        email=input.nextLine();
-//    System.out.println("Enter username: ");                     //USERNAME
-//        username = input.nextLine();
-//    //TO-DO check with the server
-//    //
-//    //
-//    
-//    System.out.println("Enter password: ");                      //PASSWORD
-//        password = input.nextLine();
-//    System.out.println("Enter password again: ");   
-//        passwordCheck = input.nextLine();
-//    while(!password.equals(passwordCheck))                      //PASSWORD CHECK
-//    {
-//    System.out.println("Passwords are not matching, please enter them again: ");
-//        password = input.nextLine();
-//    System.out.println("Enter password again: ");
-//        passwordCheck = input.nextLine();
-//    }
-//    System.out.println("Enter your first name: ");              //NAME
-//        firstName = input.nextLine();
-//    System.out.println("Enter your last name: ");
-//        lastName = input.nextLine();
-//    System.out.println("Enter your Corporation's Name: ");      //CORPORATION NAME
-//       corporationName = input.nextLine();
-//    registrationDate=formatter.format(new Date(System.currentTimeMillis()));    //REGISTRATION DATE 
-//         return new BusinessManager(username,password,firstName,lastName,corporationName,email,registrationDate);
-        
+    public Courier Registration(String __username) {        
        return new Courier(); 
     }
 
@@ -130,5 +109,12 @@ public class Courier implements Users{
 
     public void setCourierID(int courierID) {
         this.courierID = courierID;
+    }
+        public String getWorkingHours() {
+        return workingHours;
+    }
+
+    public void setWorkingHours(String workingHours) {
+        this.workingHours = workingHours;
     }
 }

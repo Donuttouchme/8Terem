@@ -81,7 +81,8 @@ public class Main implements Serializable {
                     objectOutputStream.reset();
                     if(!objectInputStream.readBoolean())
                     {
-                         objectOutputStream.writeObject(new Pair<>(new Courier(username,password,fName,lName,corporationName,Integer.parseInt(email)),1));
+                        Courier cTemp = new Courier(username,password,fName,lName,corporationName,email);
+                         objectOutputStream.writeObject(new Pair<>(cTemp,1));
                          return false;
                     }
                     return true;
