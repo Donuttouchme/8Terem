@@ -285,7 +285,7 @@ public class RegisztracioFutar extends javax.swing.JFrame {
                 &&!SurenameInput.getText().isEmpty()&&!passwordCheck.getText().isEmpty()&&!firstName.getText().isEmpty()&&!UsernameInput.getText().isEmpty()){
         if((passwordCheck.getText()).equals(firstName.getText())){
             try {
-                reg = m.registration(UsernameInput.getText(),passwordInput.getText(),firstName.getText(), SurenameInput.getText(),phoneNumber.getText(),workingHours,0);
+                reg = m.registration(UsernameInput.getText(),passwordInput.getText(),firstName.getText(), SurenameInput.getText(),phoneNumber.getText(),workingHours,2);
             } catch (IOException ex) {
                 Logger.getLogger(RegisztracioFutar.class.getName()).log(Level.SEVERE, null, ex);
             }
