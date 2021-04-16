@@ -59,11 +59,11 @@ public class RegisztracioFutar extends javax.swing.JFrame {
         phoneNumber = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         passwordCheck = new javax.swing.JPasswordField();
-        firstName = new javax.swing.JTextField();
         munkaora1 = new javax.swing.JSpinner();
         munkaora2 = new javax.swing.JSpinner();
         jLabel9 = new javax.swing.JLabel();
         working = new javax.swing.JLabel();
+        firstName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,8 +133,6 @@ public class RegisztracioFutar extends javax.swing.JFrame {
             }
         });
 
-        firstName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-
         munkaora1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         munkaora1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 24, 1));
 
@@ -147,6 +145,8 @@ public class RegisztracioFutar extends javax.swing.JFrame {
 
         working.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         working.setText("Vállalt munkaidő:");
+
+        firstName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -172,9 +172,9 @@ public class RegisztracioFutar extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SurenameInput, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(firstName)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SurenameInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(firstName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(anyád)
@@ -370,7 +370,7 @@ public class RegisztracioFutar extends javax.swing.JFrame {
     private javax.swing.JTextField SurenameInput;
     private javax.swing.JTextField UsernameInput;
     private javax.swing.JLabel anyád;
-    private javax.swing.JPasswordField firstName;
+    private javax.swing.JTextField firstName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
