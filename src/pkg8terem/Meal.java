@@ -32,7 +32,18 @@ public class Meal implements Serializable{
         {             
         }
 
-    public Meal(String elso,int masodik, String harmadik, String negyedik,int id2, int _menuID)
+    public Meal(String elso,int masodik, String harmadik, String negyedik,int id2, int _menuID, int _mealID)
+    {
+        this.name=elso;
+        this.cost=masodik;
+        this.ingredients=harmadik;
+        this.allergens=negyedik;
+        this.categoryID=id2;
+        this.menuID=_menuID;
+        this.id = _mealID;
+    }
+    
+        public Meal(String elso,int masodik, String harmadik, String negyedik,int id2, int _menuID)
     {
         this.name=elso;
         this.cost=masodik;

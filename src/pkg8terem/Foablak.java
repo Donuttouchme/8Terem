@@ -163,12 +163,6 @@ DefaultListModel mod=new DefaultListModel();
            {
                restaurant=restaurants.get(i);
                System.out.println(restaurant.getMenu().get(0).getMeals().get(0).getId());
-               System.out.println(restaurant.getMenu().get(0).getMeals().get(1).getId());
-               System.out.println(restaurant.getMenu().get(1).getMeals().get(0).getId());
-               System.out.println(restaurant.getMenu().get(1).getMeals().get(1).getId());
-               System.out.println(restaurant.getMenu().get(2).getMeals().get(0).getId());
-               System.out.println(restaurant.getMenu().get(2).getMeals().get(1).getId());
-
            }
        }
         if (!evt.getValueIsAdjusting()) {//This line prevents double events
