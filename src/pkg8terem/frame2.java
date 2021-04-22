@@ -12,6 +12,12 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import java.awt.*;  
+import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static pkg8terem.Main.*;
 import static pkg8terem.Foablak.*;
 /**
@@ -258,16 +264,33 @@ DefaultListModel etlapmod=new DefaultListModel();
     }//GEN-LAST:event_EltavolitasActionPerformed
 
     private void RendelésActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RendelésActionPerformed
-        int mealCounter =0;
+        Map<Meal,Integer> orderMap = new HashMap<Meal, Integer>();      
+        List orderedMealsList = new ArrayList(RendelesLista.getModel().getSize());
         for(int i=0;i<RendelesLista.getModel().getSize();i++)
         {
-            if(RendelesLista.getModel().getElementAt(i)==restaurant.getMenu().get(i).getMeals().get(i).getName())
+            orderedMealsList.add(RendelesLista.getModel().getElementAt(i));
+        }
+        for(int i=0;i<4;i++)
+        {
+            for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
             {
-                
+                for(int k=0;k<RendelesLista.getModel().getSize();k++)
+                {
+                    if(RendelesLista.getModel().getElementAt(k)==restaurant.getMenu().get(i).getMeals().get(j).getName())
+                    {
+                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j), Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));
+                       
+                       ;
+                    }
+                }
             }
         }
         
-        objectOutputStream.writeObject(new Order(restaurant.getRestaurantID(),guest.getGuestID(),));   
+        try {   
+            objectOutputStream.writeObject(new Order(restaurant.getRestaurantID(),guest.getGuestID(),orderMap,0));
+        } catch (IOException ex) {
+            Logger.getLogger(frame2.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_RendelésActionPerformed
 
     private void AllergenekListazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllergenekListazasActionPerformed

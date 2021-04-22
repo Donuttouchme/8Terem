@@ -35,11 +35,11 @@ public class Order {
     {
     }
     
-    public Order(int _restaurantID,int _guestID, Meal _meal, int _quantity, int _paymentMethod)
+    public Order(int _restaurantID,int _guestID, Map<Meal,Integer>_orderMap, int _paymentMethod)
     {
         this.restaurantID = _restaurantID;
         this.guestID = _guestID;
-        this.mealsOrdered.put(_meal,_quantity);
+        this.mealsOrdered=_orderMap;
         this.paymentMethod = _paymentMethod;
     }
     
