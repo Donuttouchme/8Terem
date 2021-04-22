@@ -288,6 +288,8 @@ DefaultListModel etlapmod=new DefaultListModel();
         
         try {   
             objectOutputStream.writeObject(new Order(restaurant.getRestaurantID(),guest.getGuestID(),orderMap,0));
+            objectOutputStream.flush();
+            objectOutputStream.reset();
         } catch (IOException ex) {
             Logger.getLogger(frame2.class.getName()).log(Level.SEVERE, null, ex);
         }
