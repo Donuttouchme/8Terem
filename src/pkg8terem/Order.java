@@ -6,6 +6,8 @@
 package pkg8terem;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -21,6 +23,7 @@ public class Order {
     private int subsum;
     private int mealID;
     private int quantity;
+    private Map<Integer, Integer> mealsOrdered= new HashMap<Integer,Integer>();
     private int restaurantID;
     private Date orderDate;
     private Date estimatedDeliveryDate;
@@ -30,6 +33,14 @@ public class Order {
     
     public Order()
     {
+    }
+    
+    public Order(int _restaurantID,int _guestID, int _mealID, int _quantity, int _paymentMethod)
+    {
+        this.restaurantID = _restaurantID;
+        this.guestID = _guestID;
+        this.mealsOrdered.put(_mealID,_quantity);
+        this.paymentMethod = _paymentMethod;
     }
     
     public int getOrderID() {

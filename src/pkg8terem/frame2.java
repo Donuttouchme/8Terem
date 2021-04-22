@@ -259,7 +259,10 @@ DefaultListModel etlapmod=new DefaultListModel();
 
     private void RendelésActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RendelésActionPerformed
 
-        orders.add(new Order());
+        orders.add(new Order(
+        //ide kellenek a listából kiszedett elemek
+                
+        ));
     }//GEN-LAST:event_RendelésActionPerformed
 
     private void AllergenekListazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllergenekListazasActionPerformed
