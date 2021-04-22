@@ -35,7 +35,7 @@ public class Main implements Serializable {
     public static Guest guest;
     public static Courier courier;
     public static List<Restaurant> restaurants = new ArrayList<Restaurant>();
-    public static Map<Meal,Integer> orders = new HashMap<>();
+    public static Order orders = new Order();
     private static final long serialVersionUID = 6529685098267757691L;
     
     /**
@@ -102,7 +102,7 @@ public class Main implements Serializable {
                         Object object = objectInputStream.readObject();
                         Pair pairObj=(Pair)object;                       
                         businessManager =(BusinessManager) pairObj.getKey();
-                        orders=(HashMap)pairObj.getValue();
+                        orders=(Order)pairObj.getValue();
                         return true;
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
