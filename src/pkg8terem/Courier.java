@@ -5,13 +5,14 @@
  */
 package pkg8terem;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author polga
  */
-public class Courier implements Users{
+public class Courier implements Users, Serializable{
 
     private String username = null;
     private String password = null;
