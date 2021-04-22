@@ -23,7 +23,7 @@ public class Order {
     private int subsum;
     private int mealID;
     private int quantity;
-    private Map<Integer, Integer> mealsOrdered= new HashMap<Integer,Integer>();
+    private Map<Meal, Integer> mealsOrdered= new HashMap<Meal,Integer>();
     private int restaurantID;
     private Date orderDate;
     private Date estimatedDeliveryDate;
@@ -35,11 +35,11 @@ public class Order {
     {
     }
     
-    public Order(int _restaurantID,int _guestID, int _mealID, int _quantity, int _paymentMethod)
+    public Order(int _restaurantID,int _guestID, Meal _meal, int _quantity, int _paymentMethod)
     {
         this.restaurantID = _restaurantID;
         this.guestID = _guestID;
-        this.mealsOrdered.put(_mealID,_quantity);
+        this.mealsOrdered.put(_meal,_quantity);
         this.paymentMethod = _paymentMethod;
     }
     
@@ -154,7 +154,13 @@ public class Order {
     public void setOrderDoneDate(Date orderDoneDate) {
         this.orderDoneDate = orderDoneDate;
     }
-    
+       public Map<Integer, Integer> getMealsOrdered() {
+        return mealsOrdered;
+    }
+
+    public void setMealsOrdered(Map<Integer, Integer> mealsOrdered) {
+        this.mealsOrdered = mealsOrdered;
+    }
     
     
     

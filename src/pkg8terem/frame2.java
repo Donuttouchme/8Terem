@@ -244,7 +244,7 @@ DefaultListModel etlapmod=new DefaultListModel();
     private void HozzaadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadasActionPerformed
         String selected = EtlapLista.getSelectedValue().toString();
         if(!(selected=="Előételek: "||selected=="Főételek: "||selected=="Desszertek: "||selected=="Italok: "))
-        rendelesmod.addElement(selected);
+        rendelesmod.addElement(selected);        
     }//GEN-LAST:event_HozzaadasActionPerformed
 
     private void EltavolitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EltavolitasActionPerformed
@@ -258,11 +258,16 @@ DefaultListModel etlapmod=new DefaultListModel();
     }//GEN-LAST:event_EltavolitasActionPerformed
 
     private void RendelésActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RendelésActionPerformed
-
-        orders.add(new Order(
-        //ide kellenek a listából kiszedett elemek
+        int mealCounter =0;
+        for(int i=0;i<RendelesLista.getModel().getSize();i++)
+        {
+            if(RendelesLista.getModel().getElementAt(i)==restaurant.getMenu().get(i).getMeals().get(i).getName())
+            {
                 
-        ));
+            }
+        }
+        
+        objectOutputStream.writeObject(new Order(restaurant.getRestaurantID(),guest.getGuestID(),));   
     }//GEN-LAST:event_RendelésActionPerformed
 
     private void AllergenekListazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllergenekListazasActionPerformed
