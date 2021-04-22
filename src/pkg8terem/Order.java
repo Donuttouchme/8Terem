@@ -5,6 +5,7 @@
  */
 package pkg8terem;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +14,7 @@ import java.util.Map;
  *
  * @author polga
  */
-public class Order {
+public class Order implements Serializable{
     
     private int orderID;
     private int batchID;
