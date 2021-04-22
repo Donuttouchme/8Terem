@@ -5,23 +5,19 @@
  */
 package pkg8terem;
 
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
-import static java.lang.Thread.sleep;
 import java.net.Socket;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.util.Pair;
 
 /**
@@ -39,7 +35,7 @@ public class Main implements Serializable {
     public static Guest guest;
     public static Courier courier;
     public static List<Restaurant> restaurants = new ArrayList<Restaurant>();
-    public static List<Order> orders = new ArrayList<Order>();
+    public static Map<Meal,Integer> orders = new HashMap<>();
     private static final long serialVersionUID = 6529685098267757691L;
     
     /**
@@ -103,8 +99,11 @@ public class Main implements Serializable {
                     objectOutputStream.flush();
                     objectOutputStream.reset();
                     try {
-                         businessManager =(BusinessManager) objectInputStream.readObject();
-                         return true;
+                        Object object = objectInputStream.readObject();
+                        Pair pairObj=(Pair)object;                       
+                        businessManager =(BusinessManager) pairObj.getKey();
+                        orders=(HashMap)pairObj.getValue();
+                        return true;
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                         return false;
