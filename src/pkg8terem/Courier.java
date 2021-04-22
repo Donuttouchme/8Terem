@@ -5,8 +5,10 @@
  */
 package pkg8terem;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Scanner;
+import javafx.util.Pair;
 
 /**
  *
@@ -19,8 +21,6 @@ public class Courier implements Users, Serializable{
     private String firstName = null;
     private String lastName = null;
     private String phoneNumber = null;
-
-
     private String workingHours = null;
     private int salary = 0;
     static Scanner input = new Scanner(System.in);
@@ -44,6 +44,20 @@ public class Courier implements Users, Serializable{
         String part1 = parts[0]; 
         String part2 = parts[1]; 
         this.salary = 1100*(Integer.parseInt(part2)-Integer.parseInt(part1));
+    }
+    
+    public void alterAvailability(String _phoneNumber, String _hours) throws IOException
+    {
+        this.phoneNumber=_phoneNumber;
+        this.workingHours=_hours;
+        update(new Courier(username,password,firstName,lastName,phoneNumber,workingHours));
+    }
+    
+    public void update(Courier c) throws IOException
+    {
+        Main.datas = new Pair<>(c,2);
+        Main.objectOutputStream.writeObject(Main.datas);
+        
     }
     
     @Override

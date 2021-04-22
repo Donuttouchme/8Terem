@@ -30,7 +30,7 @@ public class Main implements Serializable {
     static ObjectOutputStream objectOutputStream = null;
     static ObjectInputStream objectInputStream = null;
     static InputStream inputStream = null;
-    static Pair<Object,Integer> datas;
+    public static Pair<Object,Integer> datas;
     public static BusinessManager businessManager;
     public static Guest guest;
     public static Courier courier;
