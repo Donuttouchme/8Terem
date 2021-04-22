@@ -271,7 +271,8 @@ DefaultListModel etlapmod=new DefaultListModel();
         {
             String [] arrofStr =RendelesLista.getModel().getElementAt(i).split(" ");
             orderedMealsList.add(arrofStr[0]);
-        }
+        }      
+        
         for(int i=0;i<4;i++)
         {
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
