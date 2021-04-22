@@ -264,7 +264,8 @@ DefaultListModel etlapmod=new DefaultListModel();
     }//GEN-LAST:event_EltavolitasActionPerformed
 
     private void RendelésActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RendelésActionPerformed
-        Map<Meal,Integer> orderMap = new HashMap<Meal, Integer>();      
+        Map<Meal,Integer> orderMap;      
+        orderMap = new HashMap<>();
         List orderedMealsList = new ArrayList(RendelesLista.getModel().getSize());
         for(int i=0;i<RendelesLista.getModel().getSize();i++)
         {
@@ -276,11 +277,9 @@ DefaultListModel etlapmod=new DefaultListModel();
             {
                 for(int k=0;k<RendelesLista.getModel().getSize();k++)
                 {
-                    if(RendelesLista.getModel().getElementAt(k)==restaurant.getMenu().get(i).getMeals().get(j).getName())
+                    if(RendelesLista.getModel().getElementAt(k).equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
                     {
-                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j), Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));
-                       
-                       ;
+                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j), Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));                                             
                     }
                 }
             }
