@@ -154,11 +154,11 @@ public class Order {
     public void setOrderDoneDate(Date orderDoneDate) {
         this.orderDoneDate = orderDoneDate;
     }
-       public Map<Integer, Integer> getMealsOrdered() {
+       public Map<Meal, Integer> getMealsOrdered() {
         return mealsOrdered;
     }
 
-    public void setMealsOrdered(Map<Integer, Integer> mealsOrdered) {
+    public void setMealsOrdered(Map<Meal, Integer> mealsOrdered) {
         this.mealsOrdered = mealsOrdered;
     }
     
