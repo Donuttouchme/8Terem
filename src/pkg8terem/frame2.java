@@ -269,15 +269,16 @@ DefaultListModel etlapmod=new DefaultListModel();
         List orderedMealsList = new ArrayList(RendelesLista.getModel().getSize());
         for(int i=0;i<RendelesLista.getModel().getSize();i++)
         {
-            orderedMealsList.add(RendelesLista.getModel().getElementAt(i));
+            String [] arrofStr =RendelesLista.getModel().getElementAt(i).split(" ");
+            orderedMealsList.add(arrofStr[0]);
         }
         for(int i=0;i<4;i++)
         {
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
             {
-                for(int k=0;k<RendelesLista.getModel().getSize();k++)
+                for(int k=0;k<orderedMealsList.size();k++)
                 {
-                    if(RendelesLista.getModel().getElementAt(k).equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
+                    if(orderedMealsList.get(k).equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
                     {
                         orderMap.put(restaurant.getMenu().get(i).getMeals().get(j), Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));                                             
                     }
