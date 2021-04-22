@@ -28,8 +28,8 @@ public class Order implements Serializable{
     private int restaurantID;
     private Date orderDate;
     private Date estimatedDeliveryDate;
-    private int paymentMethod;
-    private boolean orderDone;
+    private int paymentMethod;  
+    private int orderStatus;
     private Date orderDoneDate;
     
     public Order()
@@ -140,14 +140,6 @@ public class Order implements Serializable{
         this.paymentMethod = paymentMethod;
     }
 
-    public boolean isOrderDone() {
-        return orderDone;
-    }
-
-    public void setOrderDone(boolean orderDone) {
-        this.orderDone = orderDone;
-    }
-
     public Date getOrderDoneDate() {
         return orderDoneDate;
     }
@@ -163,6 +155,12 @@ public class Order implements Serializable{
         this.mealsOrdered = mealsOrdered;
     }
     
-    
+    public int getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(int orderStatus) {
+        this.orderStatus = orderStatus;
+    }
     
 }
