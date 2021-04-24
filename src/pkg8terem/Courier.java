@@ -67,6 +67,8 @@ public class Courier implements Users, Serializable{
     {
         Main.datas = new Pair<>(c,2);
         Main.objectOutputStream.writeObject(Main.datas);
+        Main.objectOutputStream.flush();
+        Main.objectOutputStream.reset();
         
     }
     
