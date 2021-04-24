@@ -175,7 +175,6 @@ public class RendelesKezeles extends javax.swing.JFrame {
            {
                fizetesmod="SZÉP kártya";
            }       
-           rendeleslista.addElement(orders.get(i));
            rendeleslista.addElement("Rendelés azonosító: " + orders.get(i).getBatchID()+          
            " Étel: " + orders.get(i).getMealName()+
            " Darabszám: "+ orders.get(i).getQuantity()+
