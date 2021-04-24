@@ -60,7 +60,7 @@ public class Courier implements Users, Serializable{
     {
         this.phoneNumber=_phoneNumber;
         this.workingHours=_hours;
-        update(new Courier(username,password,firstName,lastName,phoneNumber,workingHours));
+        update(new Courier(courierID,username,password,firstName,lastName,phoneNumber,workingHours,salary));
     }
     
     public void update(Courier c) throws IOException
