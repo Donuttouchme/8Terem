@@ -277,7 +277,7 @@ public class Login extends javax.swing.JFrame {
                 if(response == 1){
                     EttermekListazasaAblak.setVisible(true);
                 }
-                else{
+                else if(response ==0){
                 managerloggedin.setVisible(true);
                 }
             this.setVisible(false);
