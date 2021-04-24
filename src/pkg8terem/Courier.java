@@ -23,13 +23,23 @@ public class Courier implements Users, Serializable{
     private String phoneNumber = null;
     private String workingHours = null;
     private int salary = 0;
-    static Scanner input = new Scanner(System.in);
-    
     private int courierID;
     
     public Courier()
     {
         
+    }
+    
+    public Courier(int _courierID,String _username,String _password,String _firstname,String _lastname,String _phoneNumber,String _workingHours, int _salary)
+    {
+        this.courierID=_courierID;
+        this.username = _username;
+        this.password= _password;
+        this.firstName = _firstname;
+        this.lastName = _lastname;
+        this.phoneNumber = _phoneNumber;
+        this.workingHours = _workingHours;
+        this.salary=_salary;
     }
     
     public Courier(String _username, String _password, String _firstname, String _lastname, String _phonenumber, String _workingHours)
