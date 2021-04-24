@@ -234,6 +234,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
         Foablak EttermekListazasaAblak =null;
         ManagerLoggedIn managerloggedin = null;
+        FutarLoggedIn futLog=null;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int response = -1;
         String qwe="";
@@ -267,7 +268,7 @@ public class Login extends javax.swing.JFrame {
                 }
                 else if(EttermekListazasaAblak==null && response==2){
                     System.out.println("Futár ablak");
-                    EttermekListazasaAblak = new Foablak();
+                    futLog = new FutarLoggedIn();
             }
                 if(response==2 || response == 1){
             EttermekListazasaAblak.setVisible(true);
