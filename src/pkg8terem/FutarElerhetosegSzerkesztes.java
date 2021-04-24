@@ -170,7 +170,7 @@ public class FutarElerhetosegSzerkesztes extends javax.swing.JFrame {
 
     private void MentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MentesActionPerformed
         if(phoneNumber.getText()!=""){
-        String asd = munkaora1.getValue().toString()+munkaora2.getValue().toString();
+        String asd = munkaora1.getValue().toString()+"-"+munkaora2.getValue().toString();
             try {
                 Main.courier.alterAvailability(phoneNumber.getText(),asd);
             } catch (IOException ex) {
