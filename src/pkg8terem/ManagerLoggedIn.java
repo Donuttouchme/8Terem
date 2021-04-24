@@ -143,9 +143,12 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
             }
             EtteremHozza.setVisible(true);
     }//GEN-LAST:event_EtteremHozzaAdActionPerformed
-
+    RendelesKezeles rendeleskezelesablak =null;
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        if(rendeleskezelesablak==null){
+            rendeleskezelesablak = new RendelesKezeles();
+            }
+            rendeleskezelesablak.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

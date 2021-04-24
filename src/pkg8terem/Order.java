@@ -25,6 +25,7 @@ public class Order implements Serializable{
     private int noregistrationGuestID;
     private int subsum;
     private int mealID;
+    private String mealName;
     private int quantity;
     private Map<Meal, Integer> mealsOrdered= new HashMap<Meal,Integer>();
     private int restaurantID;
@@ -38,7 +39,7 @@ public class Order implements Serializable{
     {
     }
     
-    public Order(int _orderID,int _batchID,int _courierID,int _guestID, int _subsum, int _foodID,
+    public Order(int _orderID,int _batchID,int _courierID,int _guestID, int _subsum, int _foodID, String _foodName,
             int _quantity, int _restaurantID, Timestamp _orderTime, Timestamp _estimatedDeliveryTime,
             int _paymentMethod, int _orderStatus,Timestamp _orderDoneTime)
     {
@@ -48,6 +49,7 @@ public class Order implements Serializable{
         this.guestID=_guestID;
         this.subsum=_subsum;
         this.mealID=_foodID;
+        this.mealName=_foodName;
         this.quantity=_quantity;
         this.restaurantID=_restaurantID;
         this.orderDate=_orderTime;
@@ -184,5 +186,11 @@ public class Order implements Serializable{
     public void setOrderStatus(int orderStatus) {
         this.orderStatus = orderStatus;
     }
-    
+        public String getMealName() {
+        return mealName;
+    }
+
+    public void setMealName(String mealName) {
+        this.mealName = mealName;
+    }
 }
