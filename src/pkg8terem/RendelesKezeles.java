@@ -146,7 +146,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
         // TODO add your handling code here:
        RendelesekMegjeleniteseLista.setModel(rendeleslista);
        String fizetesmod="", statusz="";
-      
+      if(orders==null){
        for(int i=0;i<Main.orders.size();i++)
        {
            if(orders.get(i).getOrderStatus()==0)
@@ -185,6 +185,11 @@ public class RendelesKezeles extends javax.swing.JFrame {
            " Rendelés státusza: " + statusz);
                    
        }
+      }
+      else
+      {
+          
+      }
     }//GEN-LAST:event_formWindowOpened
  private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
 
