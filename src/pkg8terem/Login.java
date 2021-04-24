@@ -270,8 +270,12 @@ public class Login extends javax.swing.JFrame {
                     System.out.println("Futár ablak");
                     futLog = new FutarLoggedIn();
             }
-                if(response==2 || response == 1){
-            EttermekListazasaAblak.setVisible(true);
+                if(response==2)
+                {
+                    futLog.setVisible(true);
+                }
+                if(response == 1){
+                    EttermekListazasaAblak.setVisible(true);
                 }
                 else{
                 managerloggedin.setVisible(true);
