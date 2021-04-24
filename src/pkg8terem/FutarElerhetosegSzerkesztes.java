@@ -190,8 +190,8 @@ public class FutarElerhetosegSzerkesztes extends javax.swing.JFrame {
  String[] parts = Main.courier.getWorkingHours().split("-");
         String part1 = parts[0]; 
         String part2 = parts[1];
- munkaora1.setValue(part1);
- munkaora2.setValue(part2);
+ munkaora1.setValue(Integer.parseInt(part1));
+ munkaora2.setValue(Integer.parseInt(part2));
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
