@@ -186,11 +186,12 @@ public class Order implements Serializable{
     public void setOrderStatus(int orderStatus) {
         this.orderStatus = orderStatus;
     }
-        public String getMealName() {
+    public String getMealName() {
         return mealName;
     }
 
     public void setMealName(String mealName) {
         this.mealName = mealName;
     }
+    
 }
