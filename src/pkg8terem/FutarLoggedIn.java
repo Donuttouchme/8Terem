@@ -76,7 +76,10 @@ public class FutarLoggedIn extends javax.swing.JFrame {
     private void ElerhetosegSzerkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElerhetosegSzerkActionPerformed
      if(futarSzerk==null){
         futarSzerk = new FutarElerhetosegSzerkesztes();
+        futarSzerk.setVisible(rootPaneCheckingEnabled);
         }
+     else
+         futarSzerk.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_ElerhetosegSzerkActionPerformed
 private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
