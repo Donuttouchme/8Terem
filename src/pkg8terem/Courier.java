@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Scanner;
 import javafx.util.Pair;
+import pkg8terem.Main.*;
 
 /**
  *
@@ -70,6 +71,15 @@ public class Courier implements Users, Serializable{
         Main.objectOutputStream.flush();
         Main.objectOutputStream.reset();
         
+    }
+    
+    public void orderDelivered(Order order) throws IOException
+    {
+        order.setOrderStatus(3);
+        Main.datas = new Pair<>(order,1);
+        Main.objectOutputStream.writeObject(Main.datas);
+        Main.objectOutputStream.flush();
+        Main.objectOutputStream.reset();
     }
     
     @Override

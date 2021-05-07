@@ -59,6 +59,11 @@ public class RendelesKezeles extends javax.swing.JFrame {
         jToggleButton1.setText("Futár hozzárendelés");
 
         jToggleButton2.setText("Elfogadás");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Beérkezett rendelések");
@@ -189,6 +194,11 @@ public class RendelesKezeles extends javax.swing.JFrame {
           
       }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        // TODO add your handling code here:
+        // a kiválasztottat kell majd elfogadni.
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
  private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
 
          this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

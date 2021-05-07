@@ -5,12 +5,16 @@
  */
 package pkg8terem;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javafx.util.Pair;
+import pkg8terem.Main.*;
 
 /**
  *
@@ -66,6 +70,24 @@ public class Order implements Serializable{
         this.guestID = _guestID;
         this.mealsOrdered=_orderMap;
         this.paymentMethod = _paymentMethod;
+    }
+    
+    public void orderAccepted(Order order) throws IOException
+    {
+        order.setOrderStatus(1);
+        Main.datas = new Pair<>(order,1);
+        Main.objectOutputStream.writeObject(Main.datas);
+        Main.objectOutputStream.flush();
+        Main.objectOutputStream.reset();
+    }
+    
+    public void underDelivery(Order order) throws IOException
+    {
+        order.setOrderStatus(2);
+        Main.datas = new Pair<>(order,1);
+        Main.objectOutputStream.writeObject(Main.datas);
+        Main.objectOutputStream.flush();
+        Main.objectOutputStream.reset();
     }
     
     public int getOrderID() {
