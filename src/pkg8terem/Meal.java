@@ -13,7 +13,7 @@ import java.util.List;
  * @author polga
  */
 public class Meal implements Serializable{
-    private int id, cost,discountAmount;
+    private int id, cost;
     private int categoryID;
     private int menuID;
     private String name;
@@ -24,10 +24,9 @@ public class Meal implements Serializable{
         {             
         }
 
-    public Meal(String elso,int masodik, String harmadik, String negyedik,int id2, int _menuID, int _mealID,int _discountAmount)
+    public Meal(String elso,int masodik, String harmadik, String negyedik,int id2, int _menuID, int _mealID)
     {
         this.name=elso;
-        this.discountAmount=_discountAmount;
         this.cost=masodik;
         this.ingredients=harmadik;
         this.allergens=negyedik;
