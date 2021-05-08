@@ -242,14 +242,16 @@ public class RendelesKezeles extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         int selected = RendelesekMegjeleniteseLista.getSelectedIndex();
+        int orderid=0;
         for(int i=0;i<orders.size();i++)
         {
             if(orders.get(i).getBatchID()==selected+1)
             {
                 orders.get(i).setOrderStatus(2);
+                orderid=i;
             }
         }
-        Main.datas= new Pair<>(orders,1);
+        Main.datas= new Pair<>(orders.get(orderid),1);
         try {
             Main.objectOutputStream.writeObject(Main.datas);
             System.out.println("kiirta az obj");
