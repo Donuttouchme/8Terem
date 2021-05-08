@@ -104,7 +104,7 @@ public class Main implements Serializable {
                         Pair pairObj=(Pair)object;
                         businessManager =(BusinessManager) pairObj.getKey();
                         orders=(ArrayList)pairObj.getValue();
-                        datas=new Pair(businessManager.getManagedRestaurant(),2);
+                        datas=new Pair<>(businessManager.getManagedRestaurant(),2);
                         objectOutputStream.writeObject(datas);                        
                         objectOutputStream.flush();
                         objectOutputStream.reset();
@@ -124,15 +124,11 @@ public class Main implements Serializable {
                         Pair pairObj=(Pair)object;                        
                         guest =(Guest) pairObj.getKey();
                         restaurants = (ArrayList)pairObj.getValue();
-                        System.out.println("Megkapta az éttermet és a guestet (MAIN)");
-                        datas=new Pair(businessManager.getManagedRestaurant(),2);
-                        System.out.println("Beállította a pair-t (MAIN)");
+                        datas=new Pair<>(businessManager.getManagedRestaurant(),2);
                         objectOutputStream.writeObject(datas);              
-                        System.out.println("Megkérte a szerverről (MAIN)");
                         objectOutputStream.flush();
                         objectOutputStream.reset();
                         discounts = (List<Discount>)objectInputStream.readObject();
-                        System.out.println("Megkapta a szerverről (MAIN)");
                         return true;
                     } catch (Exception e) {
                         e.getMessage();
@@ -145,7 +141,7 @@ public class Main implements Serializable {
                     objectOutputStream.reset();
                     try {
                         courier = (Courier)objectInputStream.readObject();
-                        datas=new Pair(businessManager.getManagedRestaurant(),2);
+                        datas=new Pair<>(businessManager.getManagedRestaurant(),2);
                         objectOutputStream.writeObject(datas);                        
                         objectOutputStream.flush();
                         objectOutputStream.reset();
