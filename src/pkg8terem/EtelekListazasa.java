@@ -397,6 +397,7 @@ DefaultListModel etlapmod=new DefaultListModel();
             Main.objectOutputStream.reset();
             Main.discounts=(List<Discount>)Main.objectInputStream.readObject();
             String valami;
+            List<Integer> dontShow= new ArrayList<>();
             for(int i=0;i<4;i++)
             {
                 switch (i) {
@@ -416,17 +417,31 @@ DefaultListModel etlapmod=new DefaultListModel();
                 
                 for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
                 {
-                    System.out.println("a 2. for fut");
                     System.out.println(Main.discounts.size());
                     for(int k=0;k<Main.discounts.size();k++){
                         if(Main.discounts.get(k).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId())
                         {
-                            System.out.println("Ifbe futott");
                             valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(k).getDiscountPercentage()/100)));
                             etlapmod.addElement(valami);
-                        }
-                        System.out.println("nem futott az ifbe");
+                            System.out.println(discounts.get(k).getDiscountPercentage());
+                            dontShow.add(Main.discounts.get(k).getFoodID());
+                        }                                       
                     }
+                    if(dontShow.size()==0)
+                        {
+                            
+                        }
+                        else
+                        {
+                            for(int l=0;l<dontShow.size();l++)
+                            {
+                                if(dontShow.get(l)!=restaurant.getMenu().get(i).getMeals().get(j).getId())
+                                {
+                                    valami=restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+restaurant.getMenu().get(i).getMeals().get(j).getCost();
+                                    etlapmod.addElement(valami);
+                                }
+                            }
+                        }    
                     
                 }
             }
