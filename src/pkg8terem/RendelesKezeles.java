@@ -215,6 +215,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
             System.out.println("updatelte a lsitát");
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(RendelesKezeles.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("baj van");
         }
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
