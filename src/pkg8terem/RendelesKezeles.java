@@ -206,10 +206,13 @@ public class RendelesKezeles extends javax.swing.JFrame {
         Main.datas= new Pair<>(orders,1);
         try {
             Main.objectOutputStream.writeObject(Main.datas);
+            System.out.println("Kiírta az obj");
             Main.objectOutputStream.flush();
             Main.objectOutputStream.reset();
             Main.orders =(List<Order>) Main.objectInputStream.readObject();
+            System.out.println("megkapta az obj");
             updateList(orders);
+            System.out.println("updatelte a lsitát");
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(RendelesKezeles.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -246,12 +249,16 @@ public class RendelesKezeles extends javax.swing.JFrame {
         Main.datas= new Pair<>(orders,1);
         try {
             Main.objectOutputStream.writeObject(Main.datas);
+            System.out.println("kiirta az obj");
             Main.objectOutputStream.flush();
             Main.objectOutputStream.reset();
             Main.orders =(List<Order>) Main.objectInputStream.readObject();
+            System.out.println("megkapta az orderst");
             updateList(orders);
+            System.out.println("updatelte a listát");
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(RendelesKezeles.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Hibába futott");
         }
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
