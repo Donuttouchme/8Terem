@@ -124,7 +124,9 @@ public class Main implements Serializable {
                         Pair pairObj=(Pair)object;                        
                         guest =(Guest) pairObj.getKey();
                         restaurants = (ArrayList)pairObj.getValue();
+                        System.out.println("Megkapta az éttermet és a guestet (MAIN)");
                         datas=new Pair(businessManager.getManagedRestaurant(),2);
+                        System.out.println("Beállította a pair-t (MAIN)");
                         objectOutputStream.writeObject(datas);              
                         System.out.println("Megkérte a szerverről (MAIN)");
                         objectOutputStream.flush();
