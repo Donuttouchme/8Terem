@@ -170,7 +170,9 @@ public class DiscountGui extends javax.swing.JFrame {
                    int sizeofDsc=Main.discounts.size()-1;
                    Discount newDiscount= new Discount(Main.discounts.get(sizeofDsc).getDiscountID()+1,kedvezmeny,Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId(),Main.businessManager.getManagedRestaurant().getRestaurantID());
                    Main.datas=new Pair<>(newDiscount,1);
+                   System.out.println("Discount küldés előtt");
                    Main.objectOutputStream.writeObject(Main.datas);
+                   System.out.println("Discount küldés után");
                    Main.objectOutputStream.flush();
                    Main.objectOutputStream.reset();
                    Main.discounts=(List<Discount>) Main.objectInputStream.readObject();
