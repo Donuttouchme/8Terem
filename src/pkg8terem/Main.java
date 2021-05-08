@@ -105,13 +105,10 @@ public class Main implements Serializable {
                         businessManager =(BusinessManager) pairObj.getKey();
                         orders=(ArrayList)pairObj.getValue();
                         datas=new Pair(businessManager.getManagedRestaurant(),2);
-                        objectOutputStream.writeObject(datas);
-                        System.out.println("Megkérte a szerverről a discount listát (MAIN)");
+                        objectOutputStream.writeObject(datas);                        
                         objectOutputStream.flush();
                         objectOutputStream.reset();
                         discounts = (List<Discount>)objectInputStream.readObject();
-                        System.out.println("megkapta a mainben a discount listát");
-                        System.out.println(discounts.size());
                         return true;
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -127,6 +124,11 @@ public class Main implements Serializable {
                         Pair pairObj=(Pair)object;                        
                         guest =(Guest) pairObj.getKey();
                         restaurants = (ArrayList)pairObj.getValue();
+                        datas=new Pair(businessManager.getManagedRestaurant(),2);
+                        objectOutputStream.writeObject(datas);                        
+                        objectOutputStream.flush();
+                        objectOutputStream.reset();
+                        discounts = (List<Discount>)objectInputStream.readObject();
                         return true;
                     } catch (Exception e) {
                         e.getMessage();
@@ -139,6 +141,11 @@ public class Main implements Serializable {
                     objectOutputStream.reset();
                     try {
                         courier = (Courier)objectInputStream.readObject();
+                        datas=new Pair(businessManager.getManagedRestaurant(),2);
+                        objectOutputStream.writeObject(datas);                        
+                        objectOutputStream.flush();
+                        objectOutputStream.reset();
+                        discounts = (List<Discount>)objectInputStream.readObject();
                         return true;
                     } catch (Exception e) {
                         e.getMessage();
