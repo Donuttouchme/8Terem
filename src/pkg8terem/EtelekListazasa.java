@@ -398,6 +398,23 @@ DefaultListModel etlapmod=new DefaultListModel();
             Main.discounts=(List<Discount>)Main.objectInputStream.readObject();
             String valami;
             List<Integer> dontShow= new ArrayList<>();
+            
+            for(int i=0;i<4;i++)
+            {
+                for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
+                {
+                    for(int k=0;k<Main.discounts.size();k++)
+                    {
+                        if(restaurant.getMenu().get(i).getMeals().get(j).getId()==Main.discounts.get(k).getFoodID())
+                        {
+                            restaurant.getMenu().get(i).getMeals().get(j).setDiscounted(true);
+                            restaurant.getMenu().get(i).getMeals().get(j).setDiscountAmount(Main.discounts.get(k).getDiscountPercentage());
+                        }           
+                    }
+                }
+            }
+            
+            
             for(int i=0;i<4;i++)
             {
                 switch (i) {
@@ -417,34 +434,18 @@ DefaultListModel etlapmod=new DefaultListModel();
                 
                 for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
                 {                   
-                    for(int k=0;k<Main.discounts.size();k++)
-                    {
-                        if(restaurant.getMenu().get(i).getMeals().get(j).getId()==Main.discounts.get(k).getFoodID())
-                        {
-                            restaurant.getMenu().get(i).getMeals().get(j).setDiscounted(true);
-                            dontShow.add(k);
-                        }           
-                    }
+   
                     if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
-                        {
-                            for(int l=0;l<dontShow.size();l++)
-                            {
-                                System.out.println(discounts.get(dontShow.get(l)).getDiscountPercentage());
-                                float d1 = (float) discounts.get(dontShow.get(l)).getDiscountPercentage()/100;
-                                float d2=1-d1;                               
-                                float discount=restaurant.getMenu().get(i).getMeals().get(j).getCost()*d2;
-                                System.out.println("d1: "+d1);
-                                System.out.println("d2: "+d2);
-                                System.out.println("discount teszt:" + discount);
-                                valami = (restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+discount);
-                                etlapmod.addElement(valami);
-                            }
-                        }
-                        else
-                        {
-                            valami = (restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+restaurant.getMenu().get(i).getMeals().get(j).getCost());
-                            etlapmod.addElement(valami);
-                        }
+                    {
+                        float dcam=(float) restaurant.getMenu().get(i).getMeals().get(j).getCost()*(float)(1-(restaurant.getMenu().get(i).getMeals().get(j).getDiscountAmount()/100));
+                        valami = (restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+ dcam);
+                        etlapmod.addElement(valami);
+                    }
+                    else
+                    {
+                        valami = (restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+ restaurant.getMenu().get(i).getMeals().get(j).getCost());
+                        etlapmod.addElement(valami);
+                    }
                 }
                 
             }

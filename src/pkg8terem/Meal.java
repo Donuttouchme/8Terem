@@ -20,7 +20,9 @@ public class Meal implements Serializable{
     private String ingredients;
     private String allergens;
     private boolean discounted=false;
-    
+    private int discountAmount;
+
+   
     public Meal()
         {             
         }
@@ -115,6 +117,14 @@ public class Meal implements Serializable{
 
     public void setDiscounted(boolean discounted) {
         this.discounted = discounted;
+    }
+    
+        public int getDiscountAmount() {
+        return discountAmount;
+    }
+
+    public void setDiscountAmount(int discountAmount) {
+        this.discountAmount = discountAmount;
     }
     
 }
