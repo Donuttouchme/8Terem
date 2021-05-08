@@ -112,13 +112,17 @@ public class Main implements Serializable {
                 case 1://Guest
                     datas = new Pair<>(new Pair<>(username,password),3);
                     objectOutputStream.writeObject(datas);
+                    System.out.println("Kiírja a pair-t guest main");
                     objectOutputStream.flush();
                     objectOutputStream.reset();
                     try {
                         Object object=objectInputStream.readObject();
+                        System.out.println("megkapja pair-t guest main");
                         Pair pairObj=(Pair)object;                        
                         guest =(Guest) pairObj.getKey();
+                        System.out.println("beállítja a guestet main");
                         restaurants = (ArrayList)pairObj.getValue();
+                        System.out.println("beállítja az éttermet main");
                         return true;
                     } catch (Exception e) {
                         e.getMessage();
