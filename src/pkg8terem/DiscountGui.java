@@ -163,6 +163,7 @@ public class DiscountGui extends javax.swing.JFrame {
         System.out.println("Gomb megnyomva");
         try {
             selected = selected.substring(0,selected.indexOf(","));
+            System.out.println("Nem ugrik fel semmi");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Nem választott ki semmit, sikertelen a kedvezmény alkalmazása!");
         }
@@ -186,6 +187,8 @@ public class DiscountGui extends javax.swing.JFrame {
                    Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
                }
            }
+           else
+               System.out.println("Nem futott az if-be");
        }
     }     
     }//GEN-LAST:event_jButton1ActionPerformed
