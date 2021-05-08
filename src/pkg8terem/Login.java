@@ -298,6 +298,8 @@ public class Login extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {
         EttermekListazasaAblak=null;
+        managerloggedin = null;
+        futLog=null;
     }
     
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed

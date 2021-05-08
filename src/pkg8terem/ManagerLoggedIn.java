@@ -5,6 +5,9 @@
  */
 package pkg8terem;
 
+import javax.swing.JFrame;
+import static pkg8terem.Main.login;
+
 /**
  *
  * @author tobak
@@ -163,7 +166,11 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
             }
             discountgui.setVisible(true);
     }//GEN-LAST:event_KedvezményekActionPerformed
+private void formWindowClosing(java.awt.event.WindowEvent evt) {
 
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        login.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
