@@ -109,6 +109,8 @@ public class Main implements Serializable {
                         objectOutputStream.flush();
                         objectOutputStream.reset();
                         discounts = (List<Discount>)objectInputStream.readObject();
+                        System.out.println("megkapta a mainben a discount listát");
+                        System.out.println(discounts.size());
                         return true;
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
