@@ -421,13 +421,31 @@ DefaultListModel etlapmod=new DefaultListModel();
                     for(int k=0;k<Main.discounts.size();k++){
                         if(Main.discounts.get(k).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId())
                         {
-                            valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(k).getDiscountPercentage()/100)));
+                            float dcCost = (restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(k).getDiscountPercentage()/100)));
+                            valami = (restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+dcCost);
                             etlapmod.addElement(valami);
                             System.out.println(discounts.get(k).getDiscountPercentage());
                             dontShow.add(Main.discounts.get(k).getFoodID());
                         }                                       
                     }
-                    if(dontShow.size()==0)
+//                    if(dontShow.size()==0)
+//                        {
+//                            
+//                        }
+//                        else
+//                        {
+//                            for(int l=0;l<dontShow.size();l++)
+//                            {
+//                                if(dontShow.get(l)!=restaurant.getMenu().get(i).getMeals().get(j).getId())
+//                                {
+//                                    valami=restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+restaurant.getMenu().get(i).getMeals().get(j).getCost();
+//                                    etlapmod.addElement(valami);
+//                                }
+//                            }
+//                        }    
+//                    
+//                }
+                   if(dontShow.size()==0)
                         {
                             
                         }
@@ -441,9 +459,9 @@ DefaultListModel etlapmod=new DefaultListModel();
                                     etlapmod.addElement(valami);
                                 }
                             }
-                        }    
-                    
-                }
+                        }  
+                
+            }
             }
         } catch (IOException ex) {
             Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
