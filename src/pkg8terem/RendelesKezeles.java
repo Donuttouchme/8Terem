@@ -5,6 +5,10 @@
  */
 package pkg8terem;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.util.Pair;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -64,6 +68,11 @@ public class RendelesKezeles extends javax.swing.JFrame {
         jScrollPane1.setViewportView(RendelesekMegjeleniteseLista);
 
         jToggleButton1.setText("Futár hozzárendelés");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton2.setText("Elfogadás");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -176,9 +185,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
                sum+=orders.get(i).getSubsum();
                sumbatchid++;
                
-           }           
-
-                   
+           }                              
        }
       }
       else
@@ -188,11 +195,29 @@ public class RendelesKezeles extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        
+        int selected = RendelesekMegjeleniteseLista.getSelectedIndex();
+        for(int i=0;i<orders.size();i++)
+        {
+            if(orders.get(i).getBatchID()==selected+1)
+            {
+                orders.get(i).setOrderStatus(1);
+            }
+        }
+        Main.datas= new Pair<>(orders,1);
+        try {
+            Main.objectOutputStream.writeObject(Main.datas);
+            Main.objectOutputStream.flush();
+            Main.objectOutputStream.reset();
+            Main.orders =(List<Order>) Main.objectInputStream.readObject();
+            updateList(orders);
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(RendelesKezeles.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void RendelesekMegjeleniteseListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_RendelesekMegjeleniteseListaValueChanged
         int selected = RendelesekMegjeleniteseLista.getSelectedIndex();
+        if(selected>=0){
         reszletekLista.clear();
         for(int i=0;i<orders.size();i++)
         {
@@ -204,9 +229,32 @@ public class RendelesKezeles extends javax.swing.JFrame {
            " Fizetési mód: " + statusCheck(orders.get(i)).getValue());
             }
         }
+        }
         
 //        RendelesekMegjeleniteseLista.getSelectedValue()
     }//GEN-LAST:event_RendelesekMegjeleniteseListaValueChanged
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        int selected = RendelesekMegjeleniteseLista.getSelectedIndex();
+        for(int i=0;i<orders.size();i++)
+        {
+            if(orders.get(i).getBatchID()==selected+1)
+            {
+                orders.get(i).setOrderStatus(2);
+            }
+        }
+        Main.datas= new Pair<>(orders,1);
+        try {
+            Main.objectOutputStream.writeObject(Main.datas);
+            Main.objectOutputStream.flush();
+            Main.objectOutputStream.reset();
+            Main.orders =(List<Order>) Main.objectInputStream.readObject();
+            updateList(orders);
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(RendelesKezeles.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
  private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
 
          this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -278,6 +326,37 @@ public class RendelesKezeles extends javax.swing.JFrame {
                fizetesmod="SZÉP kártya";
            }  
            return new Pair<String,String>(statusz, fizetesmod);
+    }
+    
+    public void updateList(List<Order> orders)
+    {
+        reszletekLista.clear();
+        rendeleslista.clear();
+       int sumbatchid=1;
+       int sum=0;
+      if(orders!=null){
+       for(int i=0;i<Main.orders.size();i++)
+       {           
+           if(sumbatchid==orders.get(i).getBatchID())
+           {
+               sum+=orders.get(i).getSubsum();
+           }
+           if((sumbatchid!=orders.get(i).getBatchID())|i==orders.size()-1){
+               rendeleslista.addElement("Rendelés azonosító: " + orders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(orders.get(i-1)).getKey());
+               sum=0;
+               sum+=orders.get(i).getSubsum();
+               sumbatchid++;
+               
+           }           
+
+                   
+       }
+      }
+      else
+      {
+          
+      }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
