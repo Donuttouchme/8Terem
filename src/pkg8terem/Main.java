@@ -106,6 +106,7 @@ public class Main implements Serializable {
                         orders=(ArrayList)pairObj.getValue();
                         datas=new Pair(businessManager.getManagedRestaurant(),2);
                         objectOutputStream.writeObject(datas);
+                        System.out.println("Megkérte a szerverről a discount listát (MAIN)");
                         objectOutputStream.flush();
                         objectOutputStream.reset();
                         discounts = (List<Discount>)objectInputStream.readObject();
