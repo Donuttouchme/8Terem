@@ -346,7 +346,14 @@ DefaultListModel etlapmod=new DefaultListModel();
                 {
                     if(orderedMealsList.get(k).equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
                     {
-                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j), Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));                                             
+                        for(int l=0;l<Main.discounts.size();l++){
+                            if(Main.discounts.get(l).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId()){
+                                int original=restaurant.getMenu().get(i).getMeals().get(j).getCost();
+                                restaurant.getMenu().get(i).getMeals().get(j).setCost(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(l).getDiscountPercentage()/100)));
+                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j), Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));   
+                                restaurant.getMenu().get(i).getMeals().get(j).setCost(original);
+                            }
+                        }
                     }
                 }
             }
@@ -403,8 +410,17 @@ DefaultListModel etlapmod=new DefaultListModel();
             }
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
             {
-                valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+restaurant.getMenu().get(i).getMeals().get(j).getCost();
+                for(int k=0;k<Main.discounts.size();k++){
+                    if(Main.discounts.get(k).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId()){
+                valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(k).getDiscountPercentage()/100)));
                 etlapmod.addElement(valami);
+                    }
+                    else
+                    {
+                       valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+restaurant.getMenu().get(i).getMeals().get(j).getCost();
+                etlapmod.addElement(valami); 
+                    }
+                }
             }
         }
         
