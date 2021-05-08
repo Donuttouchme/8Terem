@@ -108,6 +108,11 @@ public class DiscountGui extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton2.setText("Kedvezmény törlése");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -155,6 +160,7 @@ public class DiscountGui extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int kedvezmeny = (int) jSpinner1.getValue();
         String selected = jList1.getSelectedValue();
+        System.out.println("Gomb megnyomva");
         try {
             selected = selected.substring(0,selected.indexOf(","));
         } catch (Exception e) {
@@ -208,10 +214,15 @@ public class DiscountGui extends javax.swing.JFrame {
                     lista.addElement(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName()+","+ Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getCost());
                 }
             }
+            System.out.println("Végzett a kiíratással");
         } catch (IOException ex) {
             Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
