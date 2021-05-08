@@ -19,6 +19,7 @@ public class Meal implements Serializable{
     private String name;
     private String ingredients;
     private String allergens;
+    private boolean discounted=false;
     
     public Meal()
         {             
@@ -106,6 +107,14 @@ public class Meal implements Serializable{
 
     public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
+    }
+    
+        public boolean isDiscounted() {
+        return discounted;
+    }
+
+    public void setDiscounted(boolean discounted) {
+        this.discounted = discounted;
     }
     
 }
