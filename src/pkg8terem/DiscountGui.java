@@ -184,10 +184,12 @@ public class DiscountGui extends javax.swing.JFrame {
             jList1.setModel(lista);
             Main.datas=new Pair<>(Main.businessManager.getManagedRestaurant(),2);
             Main.objectOutputStream.writeObject(Main.datas);
+            System.out.println("Kiírta a rest obj-et");
             Main.objectOutputStream.flush();
             Main.objectOutputStream.reset();
             try {
                 Main.discounts=(ArrayList<Discount>)Main.objectInputStream.readObject();
+                System.out.println("megkapta discount listát");
             } catch (IOException | ClassNotFoundException ex) {
                 Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
             }
