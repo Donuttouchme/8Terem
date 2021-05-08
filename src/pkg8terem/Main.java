@@ -36,6 +36,7 @@ public class Main implements Serializable {
     public static Courier courier;
     public static List<Restaurant> restaurants = new ArrayList<Restaurant>();
     public static List<Order> orders = new ArrayList<>();
+    public static List<Discount> discounts = new ArrayList<>();
     private static final long serialVersionUID = 6529685098267757691L;
     
     /**

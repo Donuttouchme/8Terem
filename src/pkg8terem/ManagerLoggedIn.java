@@ -33,7 +33,7 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         EtteremHozzaAd = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        Kedvezmények = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,8 +63,13 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton4.setText("jButton4");
+        Kedvezmények.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Kedvezmények.setText("Kedvezmények");
+        Kedvezmények.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KedvezményekActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -78,7 +83,7 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(Kedvezmények)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -89,8 +94,8 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EtteremHozzaAd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(156, Short.MAX_VALUE))
+                    .addComponent(Kedvezmények, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -105,9 +110,9 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(344, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,6 +135,7 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     MenuHozzaadasa menuHozzaA=null;
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(menuHozzaA==null){
             menuHozzaA = new MenuHozzaadasa();
@@ -150,6 +156,13 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
             }
             rendeleskezelesablak.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+    DiscountGui discountgui=null;
+    private void KedvezményekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KedvezményekActionPerformed
+         if(discountgui==null){
+            discountgui = new DiscountGui();
+            }
+            discountgui.setVisible(true);
+    }//GEN-LAST:event_KedvezményekActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,9 +201,9 @@ public class ManagerLoggedIn extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EtteremHozzaAd;
+    private javax.swing.JButton Kedvezmények;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
