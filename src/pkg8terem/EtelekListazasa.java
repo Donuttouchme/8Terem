@@ -415,12 +415,7 @@ DefaultListModel etlapmod=new DefaultListModel();
                 valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(k).getDiscountPercentage()/100)));
                 etlapmod.addElement(valami);
                     }
-                    else
-                    {
-                       valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+restaurant.getMenu().get(i).getMeals().get(j).getCost();
-                etlapmod.addElement(valami); 
-                    }
-                }
+                }               
             }
         }
         
