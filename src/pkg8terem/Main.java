@@ -101,9 +101,14 @@ public class Main implements Serializable {
                     objectOutputStream.reset();
                     try {
                         Object object = objectInputStream.readObject();
-                        Pair pairObj=(Pair)object;                       
+                        Pair pairObj=(Pair)object;
                         businessManager =(BusinessManager) pairObj.getKey();
                         orders=(ArrayList)pairObj.getValue();
+                        datas=new Pair(businessManager.getManagedRestaurant(),2);
+                        objectOutputStream.writeObject(datas);
+                        objectOutputStream.flush();
+                        objectOutputStream.reset();
+                        discounts = (List<Discount>)objectInputStream.readObject();
                         return true;
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
