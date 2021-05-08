@@ -418,7 +418,8 @@ DefaultListModel etlapmod=new DefaultListModel();
                 for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
                 {
                     System.out.println(Main.discounts.size());
-                    for(int k=0;k<Main.discounts.size();k++){
+                    for(int k=0;k<Main.discounts.size();k++)
+                    {
                         if(Main.discounts.get(k).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId())
                         {
                             float dcCost = (restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(k).getDiscountPercentage()/100)));
