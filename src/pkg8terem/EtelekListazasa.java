@@ -412,6 +412,7 @@ DefaultListModel etlapmod=new DefaultListModel();
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
             {
                 System.out.println("a 2. for fut");
+                System.out.println(Main.discounts.size());
                 for(int k=0;k<Main.discounts.size();k++){
                     if(Main.discounts.get(k).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId())
                     {
