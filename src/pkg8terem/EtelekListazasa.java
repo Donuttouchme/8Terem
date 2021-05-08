@@ -408,8 +408,10 @@ DefaultListModel etlapmod=new DefaultListModel();
             {
                 etlapmod.addElement("Italok: ");
             }
+            
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
             {
+                System.out.println("a 2. for fut");
                 for(int k=0;k<Main.discounts.size();k++){
                     if(Main.discounts.get(k).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId())
                     {
