@@ -171,7 +171,7 @@ public class DiscountGui extends javax.swing.JFrame {
         for(int i=0;i<Main.businessManager.getManagedRestaurant().getMenu().size();i++)
        {
            for(int j=0;j<Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().size();j++){
-           if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).equals(selected))
+           if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName().equals(selected))
            {
                try {
                    int sizeofDsc=Main.discounts.size()-1;
