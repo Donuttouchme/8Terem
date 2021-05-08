@@ -266,7 +266,8 @@ public class RegisztracioManager extends javax.swing.JFrame {
         {             
             JOptionPane.showMessageDialog(null, "Sikeres regisztráció!");
             this.setVisible(false);
-            login.setVisible(true);
+            Login l = new Login();
+            l.setVisible(true);
         }
         }
     }//GEN-LAST:event_RegistrationActionPerformed
@@ -277,8 +278,9 @@ public class RegisztracioManager extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
 
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        login.setVisible(true);
         
+        Login l = new Login();
+        l.setVisible(true);
     }                                    
     /**
      * @param args the command line arguments

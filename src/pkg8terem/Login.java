@@ -255,7 +255,7 @@ public class Login extends javax.swing.JFrame {
         }
         String name=NameLabel.getText();
         String password=Password.getText();
-        boolean loginSuccess;
+        boolean loginSuccess=false;
         try {
             loginSuccess = m.login(name,password,response);
             if(loginSuccess){
@@ -263,10 +263,10 @@ public class Login extends javax.swing.JFrame {
                 if(EttermekListazasaAblak==null && response==1){
                 EttermekListazasaAblak = new Foablak();
                 }
-                else if(EttermekListazasaAblak==null && response==0){
+                else if(managerloggedin==null && response==0){
                     managerloggedin = new ManagerLoggedIn();
                 }
-                else if(EttermekListazasaAblak==null && response==2){
+                else if(futLog==null && response==2){
                     System.out.println("Futár ablak");
                     futLog = new FutarLoggedIn();
             }
