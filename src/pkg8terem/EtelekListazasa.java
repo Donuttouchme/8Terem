@@ -429,6 +429,7 @@ DefaultListModel etlapmod=new DefaultListModel();
                         {
                             for(int l=0;l<dontShow.size();l++)
                             {
+                                System.out.println(discounts.get(dontShow.get(l)).getDiscountPercentage());
                             float discount=restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(discounts.get(dontShow.get(l)).getDiscountPercentage()/100));
                             valami = (restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+discount);
                             etlapmod.addElement(valami);
