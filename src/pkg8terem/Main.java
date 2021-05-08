@@ -125,10 +125,12 @@ public class Main implements Serializable {
                         guest =(Guest) pairObj.getKey();
                         restaurants = (ArrayList)pairObj.getValue();
                         datas=new Pair(businessManager.getManagedRestaurant(),2);
-                        objectOutputStream.writeObject(datas);                        
+                        objectOutputStream.writeObject(datas);              
+                        System.out.println("Megkérte a szerverről (MAIN)");
                         objectOutputStream.flush();
                         objectOutputStream.reset();
                         discounts = (List<Discount>)objectInputStream.readObject();
+                        System.out.println("Megkapta a szerverről (MAIN)");
                         return true;
                     } catch (Exception e) {
                         e.getMessage();
