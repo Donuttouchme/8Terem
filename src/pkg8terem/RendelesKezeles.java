@@ -193,6 +193,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
 
     private void RendelesekMegjeleniteseListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_RendelesekMegjeleniteseListaValueChanged
         int selected = RendelesekMegjeleniteseLista.getSelectedIndex();
+        reszletekLista.clear();
         for(int i=0;i<orders.size();i++)
         {
             if(orders.get(i).getBatchID()==selected+1)
