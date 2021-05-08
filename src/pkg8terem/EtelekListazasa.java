@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.util.Pair;
 import javax.swing.AbstractButton;
 import static pkg8terem.Main.*;
 import static pkg8terem.Foablak.*;
@@ -387,43 +388,52 @@ DefaultListModel etlapmod=new DefaultListModel();
     }//GEN-LAST:event_AllergenekListazasActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        RendelesLista.setModel(rendelesmod);
-        EtlapLista.setModel(etlapmod);
-        String valami;
-        for(int i=0;i<4;i++)
-        {
-            if(i==0)
+        try {
+            RendelesLista.setModel(rendelesmod);
+            EtlapLista.setModel(etlapmod);
+            Main.datas= new Pair<>(restaurant,2);
+            Main.objectOutputStream.writeObject(Main.datas);
+            Main.objectOutputStream.flush();
+            Main.objectOutputStream.reset();
+            Main.discounts=(List<Discount>)Main.objectInputStream.readObject();
+            String valami;
+            for(int i=0;i<4;i++)
             {
-                etlapmod.addElement("Előételek: ");
-            }
-            else if(i==1)
-            {
-                etlapmod.addElement("Főételek: ");
-            }
-            else if(i==2)
-            {
-                etlapmod.addElement("Desszertek: ");
-            }
-            else
-            {
-                etlapmod.addElement("Italok: ");
-            }
-            
-            for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
-            {
-                System.out.println("a 2. for fut");
-                System.out.println(Main.discounts.size());
-                for(int k=0;k<Main.discounts.size();k++){
-                    if(Main.discounts.get(k).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId())
-                    {
-                        System.out.println("Ifbe futott");
-                        valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(k).getDiscountPercentage()/100)));
-                        etlapmod.addElement(valami);
-                    }
-                    System.out.println("nem futott az ifbe");
+                switch (i) {
+                    case 0:
+                        etlapmod.addElement("Előételek: ");
+                        break;
+                    case 1:
+                        etlapmod.addElement("Főételek: ");
+                        break;
+                    case 2:
+                        etlapmod.addElement("Desszertek: ");
+                        break;
+                    default:
+                        etlapmod.addElement("Italok: ");
+                        break;
                 }
                 
+                for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
+                {
+                    System.out.println("a 2. for fut");
+                    System.out.println(Main.discounts.size());
+                    for(int k=0;k<Main.discounts.size();k++){
+                        if(Main.discounts.get(k).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId())
+                        {
+                            System.out.println("Ifbe futott");
+                            valami = restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(k).getDiscountPercentage()/100)));
+                            etlapmod.addElement(valami);
+                        }
+                        System.out.println("nem futott az ifbe");
+                    }
+                    
+                }
             }
+        } catch (IOException ex) {
+            Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_formWindowOpened
