@@ -175,15 +175,18 @@ public class DiscountGui extends javax.swing.JFrame {
            {
                try {
                    int sizeofDsc;
+                   Discount newDiscount = new Discount();
                    if(Main.discounts.size()==0)
                    {
                        sizeofDsc = 0;
+                       newDiscount = new Discount(1,kedvezmeny,Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId(),Main.businessManager.getManagedRestaurant().getRestaurantID());
+                       
                    }
                    else
                    {
                    sizeofDsc=Main.discounts.size()-1;
                    }
-                   Discount newDiscount= new Discount(Main.discounts.get(sizeofDsc).getDiscountID()+1,kedvezmeny,Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId(),Main.businessManager.getManagedRestaurant().getRestaurantID());
+                   newDiscount= new Discount(Main.discounts.get(sizeofDsc).getDiscountID()+1,kedvezmeny,Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId(),Main.businessManager.getManagedRestaurant().getRestaurantID());
                    Main.datas=new Pair<>(newDiscount,1);
                    System.out.println("Discount küldés előtt");
                    Main.objectOutputStream.writeObject(Main.datas);
