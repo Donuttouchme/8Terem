@@ -5,6 +5,7 @@
  */
 package pkg8terem;
 
+import javafx.util.Pair;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import static pkg8terem.Main.*;
@@ -38,7 +39,8 @@ public class RendelesKezeles extends javax.swing.JFrame {
         jToggleButton2 = new javax.swing.JToggleButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jToggleButton4 = new javax.swing.JToggleButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        RendelesReszletek = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -53,6 +55,11 @@ public class RendelesKezeles extends javax.swing.JFrame {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        RendelesekMegjeleniteseLista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                RendelesekMegjeleniteseListaValueChanged(evt);
+            }
         });
         jScrollPane1.setViewportView(RendelesekMegjeleniteseLista);
 
@@ -73,7 +80,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -85,43 +92,50 @@ public class RendelesKezeles extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jToggleButton4.setText("Elutasítás");
-        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton4ActionPerformed(evt);
-            }
+        RendelesReszletek.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
         });
+        jScrollPane2.setViewportView(RendelesReszletek);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jToggleButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addComponent(jToggleButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton4))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jToggleButton2)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
+                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,52 +154,33 @@ public class RendelesKezeles extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton4ActionPerformed
-
     DefaultListModel rendeleslista= new DefaultListModel();
+    DefaultListModel reszletekLista= new DefaultListModel();
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
        RendelesekMegjeleniteseLista.setModel(rendeleslista);
+       RendelesReszletek.setModel(reszletekLista);
        String fizetesmod="", statusz="";
+       int sumbatchid=0;
+       int sum=0;
       if(orders!=null){
        for(int i=0;i<Main.orders.size();i++)
-       {
-           if(orders.get(i).getOrderStatus()==0)
+       {           
+           if(sumbatchid==orders.get(i).getBatchID())
            {
-               statusz ="Visszaigazolásra vár";
+               sum+=orders.get(i).getSubsum();
            }
-           if(orders.get(i).getOrderStatus()==1)
-           {
-               statusz ="Készítés alatt";
+           if(sumbatchid!=orders.get(i).getBatchID()){
+               rendeleslista.addElement("Rendelés azonosító: " + orders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(orders.get(i-1)).getKey());
+               sum=0;
+               sum+=orders.get(i).getSubsum();
+               
            }
-           if(orders.get(i).getOrderStatus()==2)
-           {
-               statusz ="Szállítás alatt";
-           }
-           if(orders.get(i).getOrderStatus()==3)
-           {
-               statusz ="Kiszállítva";
-           }
-           if(orders.get(i).getPaymentMethod()==0)
-           {
-               fizetesmod="Készpénz";
-           }
-           else if(orders.get(i).getPaymentMethod()==1)
-           {
-               fizetesmod="Bankkártya";
-           }
-           else
-           {
-               fizetesmod="SZÉP kártya";
-           }       
-           rendeleslista.addElement("Rendelés azonosító: " + orders.get(i).getBatchID()+          
-           " Étel: " + orders.get(i).getMealName()+
+           reszletekLista.addElement(" Étel: " + orders.get(i).getMealName()+
            " Darabszám: "+ orders.get(i).getQuantity()+
            " Összeg: " + orders.get(i).getSubsum()+
-           " Fizetés módja: "+ fizetesmod+
-           " Rendelés státusza: " + statusz);
+           " Fizetési mód: " + statusCheck(orders.get(i)).getValue());
+
                    
        }
       }
@@ -196,9 +191,13 @@ public class RendelesKezeles extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // TODO add your handling code here:
-        // a kiválasztottat kell majd elfogadni.
+        
     }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void RendelesekMegjeleniteseListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_RendelesekMegjeleniteseListaValueChanged
+        // TODO add your handling code here:
+//        RendelesekMegjeleniteseLista.getSelectedValue()
+    }//GEN-LAST:event_RendelesekMegjeleniteseListaValueChanged
  private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
 
          this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -237,15 +236,50 @@ public class RendelesKezeles extends javax.swing.JFrame {
             }
         });
     }
+    
+    public Pair statusCheck(Order order)
+    {
+        String statusz="",fizetesmod="";
+        if(order.getOrderStatus()==0)
+           {
+               statusz ="Visszaigazolásra vár";
+           }
+           if(order.getOrderStatus()==1)
+           {
+               statusz ="Készítés alatt";
+           }
+           if(order.getOrderStatus()==2)
+           {
+               statusz ="Szállítás alatt";
+           }
+           if(order.getOrderStatus()==3)
+           {
+               statusz ="Kiszállítva";
+           }
+           if(order.getPaymentMethod()==0)
+           {
+               fizetesmod="Készpénz";
+           }
+           else if(order.getPaymentMethod()==1)
+           {
+               fizetesmod="Bankkártya";
+           }
+           else
+           {
+               fizetesmod="SZÉP kártya";
+           }  
+           return new Pair<String,String>(statusz, fizetesmod);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> RendelesReszletek;
     private javax.swing.JList<String> RendelesekMegjeleniteseLista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton4;
     // End of variables declaration//GEN-END:variables
 }

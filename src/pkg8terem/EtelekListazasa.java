@@ -26,12 +26,12 @@ import static pkg8terem.Foablak.*;
  *
  * @author tobak
  */
-public class frame2 extends javax.swing.JFrame {
+public class EtelekListazasa extends javax.swing.JFrame {
 
     /**
      * Creates new form frame2
      */
-    public frame2() {
+    public EtelekListazasa() {
         initComponents();
     }
 
@@ -357,7 +357,7 @@ DefaultListModel etlapmod=new DefaultListModel();
             objectOutputStream.flush();
             objectOutputStream.reset();
         } catch (IOException ex) {
-            Logger.getLogger(frame2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_RendelésActionPerformed
 
@@ -435,20 +435,21 @@ DefaultListModel etlapmod=new DefaultListModel();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frame2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EtelekListazasa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frame2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EtelekListazasa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frame2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EtelekListazasa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frame2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EtelekListazasa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frame2().setVisible(true);
+                new EtelekListazasa().setVisible(true);
             }
         });
     }

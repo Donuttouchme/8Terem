@@ -177,7 +177,7 @@ DefaultListModel mod=new DefaultListModel();
         System.out.println(selected);
         //EtteremListazasPanel.setVisible(false);
         //this.setVisible(false);
-        new frame2().setVisible(true);
+        new EtelekListazasa().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
