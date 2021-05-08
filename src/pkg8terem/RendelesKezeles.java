@@ -170,17 +170,13 @@ public class RendelesKezeles extends javax.swing.JFrame {
            {
                sum+=orders.get(i).getSubsum();
            }
-           if(sumbatchid!=orders.get(i).getBatchID()){
+           if((sumbatchid!=orders.get(i).getBatchID())|i==orders.size()-1){
                rendeleslista.addElement("Rendelés azonosító: " + orders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(orders.get(i-1)).getKey());
                sum=0;
                sum+=orders.get(i).getSubsum();
                sumbatchid++;
                
-           }
-           reszletekLista.addElement(" Étel: " + orders.get(i).getMealName()+
-           " Darabszám: "+ orders.get(i).getQuantity()+
-           " Összeg: " + orders.get(i).getSubsum()+
-           " Fizetési mód: " + statusCheck(orders.get(i)).getValue());
+           }           
 
                    
        }
@@ -196,7 +192,18 @@ public class RendelesKezeles extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void RendelesekMegjeleniteseListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_RendelesekMegjeleniteseListaValueChanged
-        // TODO add your handling code here:
+        int selected = RendelesekMegjeleniteseLista.getSelectedIndex();
+        for(int i=0;i<orders.size();i++)
+        {
+            if(orders.get(i).getBatchID()==selected+1)
+            {
+             reszletekLista.addElement(" Étel: " + orders.get(i).getMealName()+
+           " Darabszám: "+ orders.get(i).getQuantity()+
+           " Összeg: " + orders.get(i).getSubsum()+
+           " Fizetési mód: " + statusCheck(orders.get(i)).getValue());
+            }
+        }
+        
 //        RendelesekMegjeleniteseLista.getSelectedValue()
     }//GEN-LAST:event_RendelesekMegjeleniteseListaValueChanged
  private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
