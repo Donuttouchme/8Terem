@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.util.Pair;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 public class DiscountGui extends javax.swing.JFrame {
 
@@ -154,7 +155,12 @@ public class DiscountGui extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int kedvezmeny = (int) jSpinner1.getValue();
         String selected = jList1.getSelectedValue();
-        selected = selected.substring(0,selected.indexOf(","));
+        try {
+            selected = selected.substring(0,selected.indexOf(","));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Nem választott ki semmit, sikertelen a kedvezmény alkalmazása!");
+        }
+        
         for(int i=0;i<Main.businessManager.getManagedRestaurant().getMenu().size();i++)
        {
            for(int j=0;j<Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().size();j++){
@@ -162,7 +168,8 @@ public class DiscountGui extends javax.swing.JFrame {
            {
                try {
                    int sizeofDsc=Main.discounts.size()-1;
-                   Main.datas=new Pair<>(new Discount(Main.discounts.get(sizeofDsc).getDiscountID()+1,kedvezmeny,Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId(),Main.businessManager.getManagedRestaurant().getRestaurantID()),1);
+                   Discount newDiscount= new Discount(Main.discounts.get(sizeofDsc).getDiscountID()+1,kedvezmeny,Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId(),Main.businessManager.getManagedRestaurant().getRestaurantID());
+                   Main.datas=new Pair<>(newDiscount,1);
                    Main.objectOutputStream.writeObject(Main.datas);
                    Main.objectOutputStream.flush();
                    Main.objectOutputStream.reset();
