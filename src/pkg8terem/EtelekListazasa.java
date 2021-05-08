@@ -437,7 +437,9 @@ DefaultListModel etlapmod=new DefaultListModel();
    
                     if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
                     {
-                        float dcam=(float) restaurant.getMenu().get(i).getMeals().get(j).getCost()*(float)(1-(restaurant.getMenu().get(i).getMeals().get(j).getDiscountAmount()/100));
+                        float d1 = (float) (restaurant.getMenu().get(i).getMeals().get(j).getDiscountAmount()/100);
+                        float d2 = (float) 1-d1;  
+                        float dcam=(float) (restaurant.getMenu().get(i).getMeals().get(j).getCost()*d2);
                         valami = (restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+ dcam);
                         etlapmod.addElement(valami);
                     }
