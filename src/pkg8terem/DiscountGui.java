@@ -338,6 +338,10 @@ public class DiscountGui extends javax.swing.JFrame {
                    Main.discounts=(List<Discount>) Main.objectInputStream.readObject();
                    System.out.println("megkapta az új discount listát");
                    updateDiscountList();
+                   for(int asd=0;asd<Main.discounts.size();asd++)
+                   {
+                       System.out.println(Main.discounts.get(asd).getDiscountID()+Main.discounts.get(asd).getDiscountPercentage()+Main.discounts.get(asd).getFoodID()+Main.discounts.get(asd).getRestaurantID());
+                   }
                    System.out.println("megvolt a lista frissítés");
                } catch (IOException | ClassNotFoundException ex) {
                    Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
