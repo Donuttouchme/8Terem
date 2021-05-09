@@ -323,12 +323,14 @@ public class DiscountGui extends javax.swing.JFrame {
                   {
                       
                       discountID=Main.discounts.get(k).getDiscountID();
+                      System.out.println(Main.discounts.get(k).getDiscountID());
                   }
                }
                try {
                    
                    Discount deleteDiscount = new Discount();
                    deleteDiscount= new Discount(discountID,Main.discounts.get(discountID).getDiscountPercentage(),Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId(),Main.businessManager.getManagedRestaurant().getRestaurantID());                                    
+                   System.out.println(discountID+" "+Main.discounts.get(discountID).getDiscountPercentage()+" "+ Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId()+" "+Main.businessManager.getManagedRestaurant().getRestaurantID());
                    Main.datas=new Pair<>(deleteDiscount,3);
                    Main.objectOutputStream.writeObject(Main.datas);
                    Main.objectOutputStream.flush();
