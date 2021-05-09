@@ -259,7 +259,7 @@ public class DiscountGui extends javax.swing.JFrame {
                         float d1 = (float) ((float)Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getDiscountAmount()/100);
                         float d2 = (float) 1-d1;  
                         float dcam=(float) ((float)Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getCost()*d2);
-                        valami = (Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName()+" "+ dcam+" Jelenlegi akció mértéke: "+Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getDiscountAmount());
+                        valami = (Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName()+" "+ dcam+" Akció: "+Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getDiscountAmount()+"%");
                         lista.addElement(valami);
                     }
                     else
