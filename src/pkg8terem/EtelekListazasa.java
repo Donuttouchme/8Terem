@@ -337,7 +337,22 @@ DefaultListModel etlapmod=new DefaultListModel();
         {
             String [] arrofStr =RendelesLista.getModel().getElementAt(i).split(" ");
             orderedMealsList.add(arrofStr[0]);
-        }      
+        }
+        for(int i=0;i<4;i++)
+            {
+                for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
+                {
+                    for(int k=0;k<Main.discounts.size();k++)
+                    {
+                        if(restaurant.getMenu().get(i).getMeals().get(j).getId()==Main.discounts.get(k).getFoodID())
+                        {
+                            restaurant.getMenu().get(i).getMeals().get(j).setDiscounted(true);
+                            restaurant.getMenu().get(i).getMeals().get(j).setDiscountAmount(Main.discounts.get(k).getDiscountPercentage());
+                        }           
+                    }
+                }
+            }
+        
         
         for(int i=0;i<4;i++)
         {
@@ -347,14 +362,26 @@ DefaultListModel etlapmod=new DefaultListModel();
                 {
                     if(orderedMealsList.get(k).equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
                     {
-                        for(int l=0;l<Main.discounts.size();l++){
-                            if(Main.discounts.get(l).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId()){
-                                int original=restaurant.getMenu().get(i).getMeals().get(j).getCost();
-                                restaurant.getMenu().get(i).getMeals().get(j).setCost(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(l).getDiscountPercentage()/100)));
-                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j), Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));   
-                                restaurant.getMenu().get(i).getMeals().get(j).setCost(original);
-                            }
-                        }
+                        if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
+                    {
+                        float d1 = (float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getDiscountAmount()/100);
+                        float d2 = (float) 1-d1;  
+                        float dcam=(float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getCost()*d2);
+                        restaurant.getMenu().get(i).getMeals().get(j).setCost((int) dcam);
+                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));
+                    }
+                    else
+                    {
+                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));
+                    }
+//                        for(int l=0;l<Main.discounts.size();l++){
+//                            if(Main.discounts.get(l).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId()){
+//                                int original=restaurant.getMenu().get(i).getMeals().get(j).getCost();
+//                                restaurant.getMenu().get(i).getMeals().get(j).setCost(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(l).getDiscountPercentage()/100)));
+//                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j), Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));   
+//                                restaurant.getMenu().get(i).getMeals().get(j).setCost(original);
+//                            }
+//                        }
                     }
                 }
             }
