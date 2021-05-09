@@ -162,21 +162,19 @@ public class DiscountGui extends javax.swing.JFrame {
         String selected = jList1.getSelectedValue();
         boolean dcavailable=false;
         System.out.println("Gomb megnyomva");
-            if(!selected.contains("%"))
+            if(!selected.contains("%")&&selected!=null)
             {
-              selected = selected.substring(0,selected.indexOf(" ")); 
-              if(selected==null)
-              {
-                  JOptionPane.showMessageDialog(null, "Nincs kiválasztva elem!");
-              }
-              else
-              {
+              selected = selected.substring(0,selected.indexOf(" "));                          
                   dcavailable=true;
-              }
+              
             }
             else if(selected.contains("%"))
             {
                 JOptionPane.showMessageDialog(null, "Ezen a terméken már szerepel akció!");
+            }
+            else
+            {                 
+                  JOptionPane.showMessageDialog(null, "Nincs kiválasztva elem!");              
             }
             
         
