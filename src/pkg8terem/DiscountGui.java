@@ -182,7 +182,7 @@ public class DiscountGui extends javax.swing.JFrame {
             
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
         
         for(int i=0;i<Main.businessManager.getManagedRestaurant().getMenu().size();i++)
