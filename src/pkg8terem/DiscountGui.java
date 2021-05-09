@@ -206,6 +206,7 @@ public class DiscountGui extends javax.swing.JFrame {
                    Main.objectOutputStream.reset();
                    Main.discounts=(List<Discount>) Main.objectInputStream.readObject();
                    System.out.println("Megkapta a frissített discount listát");
+                   updateDiscountList();
                } catch (IOException | ClassNotFoundException ex) {
                    Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
                }
@@ -295,6 +296,61 @@ public class DiscountGui extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    public void updateDiscountList() throws IOException
+    {
+        String valami = "";
+        for(int i=0;i<4;i++)
+        {
+            for(int j=0;j<Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().size();j++)
+            {
+                for(int k=0;k<Main.discounts.size();k++)
+                {
+                    if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId()==Main.discounts.get(k).getFoodID())
+                    {
+                        Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).setDiscounted(true);
+                        Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).setDiscountAmount(Main.discounts.get(k).getDiscountPercentage());           
+                    }
+                }
+            }
+        }
+        for(int i=0;i<4;i++)
+        {
+            switch (i) {
+                case 0:
+                    lista.addElement("Előételek: ");
+                    break;
+                case 1:
+                    lista.addElement("Főételek: ");
+                    break;
+                case 2:
+                    lista.addElement("Desszertek: ");
+                    break;
+                default:
+                    lista.addElement("Italok: ");
+                    break;
+            }
+            
+            for(int j=0;j<Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().size();j++)
+            {
+                
+                if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).isDiscounted())
+                {
+                    float d1 = (float) ((float)Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getDiscountAmount()/100);
+                    float d2 = (float) 1-d1;
+                    float dcam=(float) ((float)Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getCost()*d2);
+                    valami = (Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName()+" "+ dcam+" Akció: "+Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getDiscountAmount()+"%");
+                    lista.addElement(valami);
+                }
+                else                
+                {
+                    valami = (Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName()+" "+ Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getCost());
+                    lista.addElement(valami);
+                }
+            }
+
+        }
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
