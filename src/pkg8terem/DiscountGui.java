@@ -205,7 +205,6 @@ public class DiscountGui extends javax.swing.JFrame {
                    Main.objectOutputStream.flush();
                    Main.objectOutputStream.reset();
                    Main.discounts=(List<Discount>) Main.objectInputStream.readObject();
-                   System.out.println("Megkapta a frissített discount listát");
                    updateDiscountList();
                } catch (IOException | ClassNotFoundException ex) {
                    Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
