@@ -160,7 +160,6 @@ public class DiscountGui extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int kedvezmeny = (int) jSpinner1.getValue();
         String selected = jList1.getSelectedValue();
-        String kiiratas="";
         boolean dcavailable=false;
         System.out.println("Gomb megnyomva");
             if(!selected.contains("%"))
@@ -168,8 +167,7 @@ public class DiscountGui extends javax.swing.JFrame {
               selected = selected.substring(0,selected.indexOf(" ")); 
               if(selected==null)
               {
-                  kiiratas=("Nincs kiválasztva elem!");
-                  JOptionPane.showMessageDialog(null, kiiratas);
+                  JOptionPane.showMessageDialog(null, "Nincs kiválasztva elem!");
               }
               else
               {
@@ -178,8 +176,7 @@ public class DiscountGui extends javax.swing.JFrame {
             }
             else if(selected.contains("%"))
             {
-                kiiratas=("Ezen a terméken már szerepel akció!");
-                JOptionPane.showMessageDialog(null, kiiratas);
+                JOptionPane.showMessageDialog(null, "Ezen a terméken már szerepel akció!");
             }
             
         
