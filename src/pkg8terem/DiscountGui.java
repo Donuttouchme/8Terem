@@ -298,6 +298,7 @@ public class DiscountGui extends javax.swing.JFrame {
     
     public void updateDiscountList() throws IOException
     {
+        lista.clear();
         String valami = "";
         for(int i=0;i<4;i++)
         {
