@@ -162,7 +162,7 @@ public class DiscountGui extends javax.swing.JFrame {
         String selected = jList1.getSelectedValue();
         System.out.println("Gomb megnyomva");
         try {
-            selected = selected.substring(0,selected.indexOf(","));
+            selected = selected.substring(0,selected.indexOf(" "));
             System.out.println("Nem ugrik fel semmi");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Nem választott ki semmit, sikertelen a kedvezmény alkalmazása!");
