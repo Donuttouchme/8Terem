@@ -160,12 +160,24 @@ public class DiscountGui extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int kedvezmeny = (int) jSpinner1.getValue();
         String selected = jList1.getSelectedValue();
+        String selectedDiscount = jList1.getSelectedValue();
         System.out.println("Gomb megnyomva");
         try {
             selected = selected.substring(0,selected.indexOf(" "));
-            System.out.println("Nem ugrik fel semmi");
+            if(selectedDiscount.substring(3,selected.indexOf(" "))==null)
+            {              
+            }
+            else if(selectedDiscount.substring(3,selected.indexOf(" "))==null&&selected==null)
+            {
+                throw new Exception("Nem választott ki semmilyen elemet");
+            }
+            else if(selectedDiscount.equals("Akció"))
+            {
+                selectedDiscount=selected.substring(3,selected.indexOf(" "));
+                throw new Exception("Már aktív akció van ezen a terméken!");
+            }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Nem választott ki semmit, sikertelen a kedvezmény alkalmazása!");
+            JOptionPane.showMessageDialog(null,e.toString());
         }
         
         for(int i=0;i<Main.businessManager.getManagedRestaurant().getMenu().size();i++)
