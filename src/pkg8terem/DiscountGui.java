@@ -322,7 +322,7 @@ public class DiscountGui extends javax.swing.JFrame {
                   if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName().equals(selected))
                   {
                       
-                      discountID=k;
+                      discountID=Main.discounts.get(k).getDiscountID();
                   }
                }
                try {
