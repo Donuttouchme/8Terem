@@ -329,21 +329,28 @@ public class DiscountGui extends javax.swing.JFrame {
                    Discount deleteDiscount = new Discount();
                    System.out.println(Main.discounts.get(discountID).getDiscountID()+" "+Main.discounts.get(discountID).getDiscountPercentage()+" "+Main.discounts.get(discountID).getFoodID() +" "+Main.businessManager.getManagedRestaurant().getRestaurantID());                   
                    deleteDiscount= new Discount(Main.discounts.get(discountID).getDiscountID(),Main.discounts.get(discountID).getDiscountPercentage(),Main.discounts.get(discountID).getFoodID(),Main.businessManager.getManagedRestaurant().getRestaurantID());                                   
+                   if(Main.discounts.get(discountID).getFoodID()==Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId())
+                   {
+                       Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).setDiscounted(false);
+                   }
+                   {
+                       
+                   }
                    Main.datas=new Pair<>(deleteDiscount,3);
                    Main.objectOutputStream.writeObject(Main.datas);
                    Main.objectOutputStream.flush();
                    Main.objectOutputStream.reset();
                    Main.discounts=(List<Discount>) Main.objectInputStream.readObject();
                    System.out.println("megkapta az új discount listát amiben ezek vannak:");
-                    for(int asd=0;asd<Main.discounts.size();asd++)
-                   {
-                       System.out.println(Main.discounts.get(asd).getDiscountID()+" "+Main.discounts.get(asd).getDiscountPercentage()+" "+Main.discounts.get(asd).getFoodID()+" "+Main.discounts.get(asd).getRestaurantID());
-                   }
+//                    for(int asd=0;asd<Main.discounts.size();asd++)
+//                   {
+//                       System.out.println(Main.discounts.get(asd).getDiscountID()+" "+Main.discounts.get(asd).getDiscountPercentage()+" "+Main.discounts.get(asd).getFoodID()+" "+Main.discounts.get(asd).getRestaurantID());
+//                   }
                    updateDiscountList();
-                   for(int asd=0;asd<Main.discounts.size();asd++)
-                   {
-                       System.out.println(Main.discounts.get(asd).getDiscountID()+" "+Main.discounts.get(asd).getDiscountPercentage()+" "+Main.discounts.get(asd).getFoodID()+" "+Main.discounts.get(asd).getRestaurantID());
-                   }
+//                   for(int asd=0;asd<Main.discounts.size();asd++)
+//                   {
+//                       System.out.println(Main.discounts.get(asd).getDiscountID()+" "+Main.discounts.get(asd).getDiscountPercentage()+" "+Main.discounts.get(asd).getFoodID()+" "+Main.discounts.get(asd).getRestaurantID());
+//                   }
                    System.out.println("megvolt a lista frissítés");
                } catch (IOException | ClassNotFoundException ex) {
                    Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
