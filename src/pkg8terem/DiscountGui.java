@@ -327,17 +327,18 @@ public class DiscountGui extends javax.swing.JFrame {
                   }
                }
                try {
-                   System.out.println("discount létrehozása előtt");
                    Discount deleteDiscount = new Discount();
-                   System.out.println("Discount létrehozása után");
                    System.out.println(discountID+" "+Main.discounts.get(discountID).getDiscountPercentage()+" "+Main.discounts.get(discountID).getFoodID() +" "+Main.businessManager.getManagedRestaurant().getRestaurantID());                   
                    deleteDiscount= new Discount(discountID,Main.discounts.get(discountID).getDiscountPercentage(),Main.discounts.get(discountID).getFoodID(),Main.businessManager.getManagedRestaurant().getRestaurantID());                                   
                    Main.datas=new Pair<>(deleteDiscount,3);
                    Main.objectOutputStream.writeObject(Main.datas);
+                   System.out.println("elküldte a törlésre való discountot");
                    Main.objectOutputStream.flush();
                    Main.objectOutputStream.reset();
                    Main.discounts=(List<Discount>) Main.objectInputStream.readObject();
+                   System.out.println("megkapta az új discount listát");
                    updateDiscountList();
+                   System.out.println("megvolt a lista frissítés");
                } catch (IOException | ClassNotFoundException ex) {
                    Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
                }
