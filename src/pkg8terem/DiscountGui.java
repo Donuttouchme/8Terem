@@ -330,9 +330,8 @@ public class DiscountGui extends javax.swing.JFrame {
                    System.out.println("discount létrehozása előtt");
                    Discount deleteDiscount = new Discount();
                    System.out.println("Discount létrehozása után");
-                   System.out.println(discountID+" "+Main.discounts.get(discountID).getDiscountPercentage()+" "+ Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId()+" "+Main.businessManager.getManagedRestaurant().getRestaurantID());                   
-                   deleteDiscount= new Discount(discountID,Main.discounts.get(discountID).getDiscountPercentage(),Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId(),Main.businessManager.getManagedRestaurant().getRestaurantID());                                    
-                   System.out.println(discountID+" "+Main.discounts.get(discountID).getDiscountPercentage()+" "+ Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId()+" "+Main.businessManager.getManagedRestaurant().getRestaurantID());
+                   System.out.println(discountID+" "+Main.discounts.get(discountID).getDiscountPercentage()+" "+Main.discounts.get(discountID).getFoodID() +" "+Main.businessManager.getManagedRestaurant().getRestaurantID());                   
+                   deleteDiscount= new Discount(discountID,Main.discounts.get(discountID).getDiscountPercentage(),Main.discounts.get(discountID).getFoodID(),Main.businessManager.getManagedRestaurant().getRestaurantID());                                   
                    Main.datas=new Pair<>(deleteDiscount,3);
                    Main.objectOutputStream.writeObject(Main.datas);
                    Main.objectOutputStream.flush();
