@@ -160,6 +160,7 @@ public class DiscountGui extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int kedvezmeny = (int) jSpinner1.getValue();
         String selected = jList1.getSelectedValue();
+        boolean dcavailable=false;
         System.out.println("Gomb megnyomva");
         try {
             if(!selected.contains("%"))
@@ -167,7 +168,11 @@ public class DiscountGui extends javax.swing.JFrame {
               selected = selected.substring(0,selected.indexOf(" ")); 
               if(selected==null)
               {
-                  throw new Exception("Nincs kiválasztva elem!");
+                  throw new Exception("Nincs kiválasztva elem!");                 
+              }
+              else
+              {
+                  dcavailable=true;
               }
             }
             else if(selected.contains("%"))
@@ -183,7 +188,7 @@ public class DiscountGui extends javax.swing.JFrame {
         for(int i=0;i<Main.businessManager.getManagedRestaurant().getMenu().size();i++)
        {
            for(int j=0;j<Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().size();j++){
-           if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName().equals(selected))
+           if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName().equals(selected)&&dcavailable)
            {
                try {
                    int sizeofDsc;
