@@ -212,25 +212,67 @@ public class DiscountGui extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {                                  
             jList1.setModel(lista);
+            String valami = "";
             Main.datas=new Pair<>(Main.businessManager.getManagedRestaurant(),2);
             Main.objectOutputStream.writeObject(Main.datas);
-            System.out.println("Kiírta a rest obj-et");
             Main.objectOutputStream.flush();
             Main.objectOutputStream.reset();
-            try {
-                Main.discounts=(ArrayList<Discount>)Main.objectInputStream.readObject();
-                System.out.println("megkapta discount listát");
-            } catch (IOException | ClassNotFoundException ex) {
-                Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            for(int i=0;i<Main.businessManager.getManagedRestaurant().getMenu().size();i++)
+            Main.discounts=(List<Discount>) Main.objectInputStream.readObject();
+            for(int i=0;i<4;i++)
             {
-                for(int j=0;j<Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().size();j++){
-                    lista.addElement(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName()+","+ Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getCost());
+                for(int j=0;j<Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().size();j++)
+                {
+                    for(int k=0;k<Main.discounts.size();k++)
+                    {
+                        if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId()==Main.discounts.get(k).getFoodID())
+                        {
+                            Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).setDiscounted(true);
+                            Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).setDiscountAmount(Main.discounts.get(k).getDiscountPercentage());
+                        }           
+                    }
                 }
             }
-            System.out.println("Végzett a kiíratással");
+            
+            
+            for(int i=0;i<4;i++)
+            {
+                switch (i) {
+                    case 0:
+                        lista.addElement("Előételek: ");
+                        break;
+                    case 1:
+                        lista.addElement("Főételek: ");
+                        break;
+                    case 2:
+                        lista.addElement("Desszertek: ");
+                        break;
+                    default:
+                        lista.addElement("Italok: ");
+                        break;
+                }
+                
+                for(int j=0;j<Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().size();j++)
+                {                   
+   
+                    if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).isDiscounted())
+                    {
+                        float d1 = (float) ((float)Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getDiscountAmount()/100);
+                        float d2 = (float) 1-d1;  
+                        float dcam=(float) ((float)Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getCost()*d2);
+                        valami = (Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName()+" "+ dcam);
+                        lista.addElement(valami);
+                    }
+                    else
+                    {
+                        valami = (Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName()+" "+ Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getCost());
+                        lista.addElement(valami);
+                    }
+                }
+                
+            }
         } catch (IOException ex) {
+            Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
