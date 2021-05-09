@@ -370,6 +370,7 @@ public class DiscountGui extends javax.swing.JFrame {
     {
         lista.clear();
         String valami = "";
+        if(Main.discounts!=null){
         for(int i=0;i<4;i++)
         {
             for(int j=0;j<Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().size();j++)
@@ -419,6 +420,7 @@ public class DiscountGui extends javax.swing.JFrame {
                 }
             }
 
+        }
         }
     }
     
