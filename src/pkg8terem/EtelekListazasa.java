@@ -367,7 +367,8 @@ DefaultListModel etlapmod=new DefaultListModel();
                         float d1 = (float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getDiscountAmount()/100);
                         float d2 = (float) 1-d1;  
                         float dcam=(float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getCost()*d2);
-                        restaurant.getMenu().get(i).getMeals().get(j).setCost((int) dcam);
+                        int pez = Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName())*(int)dcam;
+                        restaurant.getMenu().get(i).getMeals().get(j).setCost(pez);
                         orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));
                     }
                     else
