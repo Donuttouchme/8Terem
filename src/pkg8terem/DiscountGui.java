@@ -289,7 +289,59 @@ public class DiscountGui extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        String selected = jList1.getSelectedValue();
+        boolean discounted = false;
+        int discountID=0;
+        System.out.println("Gomb megnyomva");
+        if(selected!=null)
+        {
+            if(selected.contains("%"))
+            {
+              selected = selected.substring(0,selected.indexOf(" "));                          
+                  discounted=true;
+              
+            }
+            else if(!selected.contains("%"))
+            {
+                JOptionPane.showMessageDialog(null, "Ezen a terméken nem szerepel akció!");
+            }
+        }            
+            else
+            {                 
+                  JOptionPane.showMessageDialog(null, "Nincs kiválasztva elem!");              
+            }
+            
+        
+        for(int i=0;i<Main.businessManager.getManagedRestaurant().getMenu().size();i++)
+       {
+           for(int j=0;j<Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().size();j++){
+           if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName().equals(selected)&&discounted)
+           {
+               for(int k=0;k<Main.discounts.size();k++)
+               {
+                  if(Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getName().equals(selected))
+                  {
+                      discountID=Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId();
+                  }
+               }
+               try {
+                   
+                   Discount deleteDiscount = new Discount();
+                   deleteDiscount= new Discount(discountID,Main.discounts.get(discountID).getDiscountPercentage(),Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId(),Main.businessManager.getManagedRestaurant().getRestaurantID());                                    
+                   Main.datas=new Pair<>(deleteDiscount,3);
+                   Main.objectOutputStream.writeObject(Main.datas);
+                   Main.objectOutputStream.flush();
+                   Main.objectOutputStream.reset();
+                   Main.discounts=(List<Discount>) Main.objectInputStream.readObject();
+                   updateDiscountList();
+               } catch (IOException | ClassNotFoundException ex) {
+                   Logger.getLogger(DiscountGui.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           }
+           else
+               System.out.println("Nem futott az if-be");
+       }
+    }     
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
