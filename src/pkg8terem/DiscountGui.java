@@ -160,24 +160,24 @@ public class DiscountGui extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int kedvezmeny = (int) jSpinner1.getValue();
         String selected = jList1.getSelectedValue();
-        String selectedDiscount = jList1.getSelectedValue();
         System.out.println("Gomb megnyomva");
         try {
-            selected = selected.substring(0,selected.indexOf(" "));
-            if(selectedDiscount.substring(3,selected.indexOf(" "))==null)
-            {              
-            }
-            else if(selectedDiscount.substring(3,selected.indexOf(" "))==null&&selected==null)
+            if(!selected.contains("%"))
             {
-                throw new Exception("Nem választott ki semmilyen elemet");
+              selected = selected.substring(0,selected.indexOf(" ")); 
+              if(selected==null)
+              {
+                  throw new Exception("Nincs kiválasztva elem!");
+              }
             }
-            else if(selectedDiscount.equals("Akció"))
+            else if(selected.contains("%"))
             {
-                selectedDiscount=selected.substring(3,selected.indexOf(" "));
-                throw new Exception("Már aktív akció van ezen a terméken!");
+                throw new Exception("Ezen a terméken már szerepel akció!");
             }
+            
+            
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e.toString());
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
         
         for(int i=0;i<Main.businessManager.getManagedRestaurant().getMenu().size();i++)
@@ -200,9 +200,7 @@ public class DiscountGui extends javax.swing.JFrame {
                    newDiscount= new Discount(Main.discounts.get(sizeofDsc).getDiscountID()+1,kedvezmeny,Main.businessManager.getManagedRestaurant().getMenu().get(i).getMeals().get(j).getId(),Main.businessManager.getManagedRestaurant().getRestaurantID());
                    }                  
                    Main.datas=new Pair<>(newDiscount,1);
-                   System.out.println("Discount küldés előtt");
                    Main.objectOutputStream.writeObject(Main.datas);
-                   System.out.println("Discount küldés után");
                    Main.objectOutputStream.flush();
                    Main.objectOutputStream.reset();
                    Main.discounts=(List<Discount>) Main.objectInputStream.readObject();
