@@ -37,6 +37,7 @@ public class Main implements Serializable {
     public static List<Restaurant> restaurants = new ArrayList<Restaurant>();
     public static List<Order> orders = new ArrayList<>();
     public static List<Discount> discounts = new ArrayList<>();
+    public static List<Guest> guests = new ArrayList<>();
     private static final long serialVersionUID = 6529685098267757691L;
     
     /**
@@ -134,7 +135,10 @@ public class Main implements Serializable {
                     objectOutputStream.flush();
                     objectOutputStream.reset();
                     try {
-                        courier = (Courier)objectInputStream.readObject();
+                        Object obj = objectInputStream.readObject();//Pair(Pair<restaurants lista, orders lista>,Pair<guest,courier>)
+                        Pair pairObj=(Pair)obj;                     
+                        orders=(List<Order>)pairObj.getKey();      
+                        courier = (Courier)pairObj.getValue();                                              
                         return true;
                     } catch (Exception e) {
                         e.getMessage();
