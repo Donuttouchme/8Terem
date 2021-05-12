@@ -416,13 +416,15 @@ DefaultListModel etlapmod=new DefaultListModel();
                         float d1 = (float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getDiscountAmount()/100);
                         float d2 = (float) 1-d1;  
                         float discountedPrice=(float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getCost()*d2);                        
-                        restaurant.getMenu().get(i).getMeals().get(j).setCost((int)discountedPrice);                      
-                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Integer.parseInt(iforderedMealslist[1]));
+                        restaurant.getMenu().get(i).getMeals().get(j).setCost((int)discountedPrice);
+                        float parseFloat = Float.parseFloat(iforderedMealslist[1]);
+                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),(int)parseFloat);
                         System.out.println("If ág teszt rendelésnél"+Integer.parseInt(iforderedMealslist[1]));
                     }
                     else
                     {
-                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Integer.parseInt(iforderedMealslist[1]));
+                        float parseFloat = Float.parseFloat(iforderedMealslist[1]);
+                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),(int)parseFloat);
                     }
 //                        for(int l=0;l<Main.discounts.size();l++){
 //                            if(Main.discounts.get(l).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId()){
