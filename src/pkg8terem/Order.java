@@ -98,6 +98,16 @@ public class Order implements Serializable{
         Main.objectOutputStream.reset();
     }
     
+    public void setDeliveryStatusToDelivered(Order order) throws IOException
+    {
+        order.setOrderStatus(3);
+        Main.datas=new Pair<>(order,11);
+        Main.objectOutputStream.writeObject(Main.datas);
+        Main.objectOutputStream.flush();
+        Main.objectOutputStream.reset();
+        
+    }
+    
     public void underDelivery(Order order) throws IOException
     {
         order.setOrderStatus(2);
