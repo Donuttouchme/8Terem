@@ -409,7 +409,6 @@ DefaultListModel etlapmod=new DefaultListModel();
                 for(int k=0;k<orderedMealsList.size();k++)
                 {
                     String [] iforderedMealslist=orderedMealsList.get(k).split(" ");
-                    String [] arrofStr =orderedMealsList.get(k).split(" ");
                     if(iforderedMealslist[0].equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
                     {
                         if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
@@ -418,12 +417,12 @@ DefaultListModel etlapmod=new DefaultListModel();
                         float d2 = (float) 1-d1;  
                         float discountedPrice=(float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getCost()*d2);                        
                         restaurant.getMenu().get(i).getMeals().get(j).setCost((int)discountedPrice);                      
-                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Integer.parseInt(arrofStr[1]));
-                        System.out.println("If ág teszt rendelésnél"+Integer.parseInt(arrofStr[1]));
+                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Integer.parseInt(iforderedMealslist[1]));
+                        System.out.println("If ág teszt rendelésnél"+Integer.parseInt(iforderedMealslist[1]));
                     }
                     else
                     {
-                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Integer.parseInt(arrofStr[1]));
+                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Integer.parseInt(iforderedMealslist[1]));
                     }
 //                        for(int l=0;l<Main.discounts.size();l++){
 //                            if(Main.discounts.get(l).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId()){
