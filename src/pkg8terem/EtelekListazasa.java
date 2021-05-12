@@ -409,7 +409,7 @@ DefaultListModel etlapmod=new DefaultListModel();
                 for(int k=0;k<orderedMealsList.size();k++)
                 {
                     String [] iforderedMealslist=orderedMealsList.get(k).split(" ");
-                    String [] arrofStr =orderedMealsList.get(k).split(" - ");
+                    String [] arrofStr =orderedMealsList.get(k).split(" ");
                     if(iforderedMealslist[0].equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
                     {
                         if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
