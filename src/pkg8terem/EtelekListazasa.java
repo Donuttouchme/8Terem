@@ -237,6 +237,7 @@ public class EtelekListazasa extends javax.swing.JFrame {
         });
 
         RendelesDarabszama.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        RendelesDarabszama.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("db");
@@ -407,20 +408,22 @@ DefaultListModel etlapmod=new DefaultListModel();
             {
                 for(int k=0;k<orderedMealsList.size();k++)
                 {
-                    if(orderedMealsList.get(k).equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
+                    String [] iforderedMealslist=orderedMealsList.get(k).split(" ");
+                    String [] arrofStr =orderedMealsList.get(k).split(" - ");
+                    if(iforderedMealslist[0].equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
                     {
                         if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
                     {
                         float d1 = (float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getDiscountAmount()/100);
                         float d2 = (float) 1-d1;  
                         float discountedPrice=(float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getCost()*d2);                        
-                        restaurant.getMenu().get(i).getMeals().get(j).setCost((int)discountedPrice);
-                        String [] arrofStr =orderedMealsList.get(k).split(" - ");
+                        restaurant.getMenu().get(i).getMeals().get(j).setCost((int)discountedPrice);                      
                         orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Integer.parseInt(arrofStr[1]));
+                        System.out.println("If ág teszt rendelésnél"+Integer.parseInt(arrofStr[1]));
                     }
                     else
                     {
-                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));
+                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),Integer.parseInt(arrofStr[1]));
                     }
 //                        for(int l=0;l<Main.discounts.size();l++){
 //                            if(Main.discounts.get(l).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId()){
