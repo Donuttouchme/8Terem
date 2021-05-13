@@ -5,6 +5,11 @@
  */
 package pkg8terem;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.util.Pair;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -156,11 +161,20 @@ DefaultListModel teljesitesLista=new DefaultListModel();
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String selected = felvevőLista.getSelectedValue();
          if(selected!=null){       
-            teljesitesLista.addElement(selected);
-            int selectedId=felvevőLista.getSelectedIndex();
-            felvevőLista.remove(selectedId);
-            
-        JOptionPane.showMessageDialog(null, "A rendelés kiszállítása önhöz lett rendelve");
+            try {
+                teljesitesLista.addElement(selected);
+                String []strArray = selected.split(" ");
+                
+                Main.datas=new Pair<>(new Pair<>(Main.courier.getCourierID(),Integer.parseInt(strArray[0])),5);
+                Main.objectOutputStream.writeObject(Main.datas);
+                Main.objectOutputStream.flush();
+                Main.objectOutputStream.reset();
+                Main.orders = (List<Order>) Main.objectInputStream.readObject();
+                updateLists();
+                JOptionPane.showMessageDialog(null, "A rendelés kiszállítása önhöz lett rendelve");
+            } catch (IOException | ClassNotFoundException ex) {
+                Logger.getLogger(FutarLoggedIn.class.getName()).log(Level.SEVERE, null, ex);
+            }
          }
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -168,9 +182,28 @@ DefaultListModel teljesitesLista=new DefaultListModel();
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String selected = teljesítőLista.getSelectedValue();
          if(selected!=null){
-        int selectedId=teljesítőLista.getSelectedIndex();
-        teljesítőLista.remove(selectedId);
-        JOptionPane.showMessageDialog(null, "A kiválasztott rendelés állapota teljesítetté változott,\nés a listából törlésre került");
+            try {
+                String[] strArray=selected.split(" ");
+                Order sendOrder = new Order();
+                for(int i=0;i<Main.orders.size();i++)
+                {
+                    if(Main.orders.get(i).getBatchID()==Integer.parseInt(strArray[0]))
+                    {
+                        sendOrder=Main.orders.get(i);
+                    }
+                }
+                Main.datas=new Pair<>(sendOrder,1);
+                Main.objectOutputStream.writeObject(Main.datas);
+                Main.objectOutputStream.flush();
+                Main.objectOutputStream.reset();
+                Main.orders = (List<Order>) Main.objectInputStream.readObject();
+                updateLists();
+                
+                
+                JOptionPane.showMessageDialog(null, "A kiválasztott rendelés állapota teljesítetté változott,\nés a listából törlésre került");
+            } catch (IOException | ClassNotFoundException ex) {
+                Logger.getLogger(FutarLoggedIn.class.getName()).log(Level.SEVERE, null, ex);
+            }
          }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -187,6 +220,7 @@ DefaultListModel teljesitesLista=new DefaultListModel();
         {
             if(Main.orders.get(i).getCourierID()==Main.courier.getCourierID())
             {
+                if(!(Main.orders.get(i).getOrderStatus()==3)){
                 switch(Main.orders.get(i).getPaymentMethod()){
                 case 0:
                 fizetesmodja="Készpénz";
@@ -203,9 +237,11 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                 String kiiratni=Main.orders.get(i).getBatchID()+" "+Main.orders.get(i).getRestaurantName()+" "+Main.orders.get(i).getGuestAddress()+" "+Main.orders.get(i).getGuestName()+" "+Main.orders.get(i).getGuestPNumber()+" "+Main.orders.get(i).getSum();
                 teljesitesLista.addElement(kiiratni);
             }
+            }
         }
          for(int i=0;i<Main.orders.size();i++)
         {
+            if(!(Main.orders.get(i).getOrderStatus()==3)){
             if(Main.orders.get(i).getCourierID()==0)
             {
                 switch(Main.orders.get(i).getPaymentMethod()){
@@ -223,11 +259,65 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                 felvetelLista.addElement(kiiratni);
             }
         }
+        }
         
     }//GEN-LAST:event_formWindowOpened
     /**
      * @param args the command line arguments
      */
+    
+    public void updateLists()
+    {
+        felvetelLista.clear();
+        teljesitesLista.clear();
+       
+        String fizetesmodja="";
+        for(int i=0;i<Main.orders.size();i++)
+        {
+            if(Main.orders.get(i).getCourierID()==Main.courier.getCourierID())
+            {
+                if(!(Main.orders.get(i).getOrderStatus()==3)){
+                switch(Main.orders.get(i).getPaymentMethod()){
+                case 0:
+                fizetesmodja="Készpénz";
+                break;
+            case 1:
+                fizetesmodja="Bankkártya";
+                break;
+            default:
+                fizetesmodja="SZÉP kártya";
+                break;
+                }
+                        
+                    
+                String kiiratni=Main.orders.get(i).getBatchID()+" "+Main.orders.get(i).getRestaurantName()+" "+Main.orders.get(i).getGuestAddress()+" "+Main.orders.get(i).getGuestName()+" "+Main.orders.get(i).getGuestPNumber()+" "+Main.orders.get(i).getSum();
+                teljesitesLista.addElement(kiiratni);
+            }
+            }
+        }
+         for(int i=0;i<Main.orders.size();i++)
+        {
+            if(!(Main.orders.get(i).getOrderStatus()==3)){
+            if(Main.orders.get(i).getCourierID()==0)
+            {
+                switch(Main.orders.get(i).getPaymentMethod()){
+                case 0:
+                fizetesmodja="Készpénz";
+                break;
+            case 1:
+                fizetesmodja="Bankkártya";
+                break;
+            default:
+                fizetesmodja="SZÉP kártya";
+                break;
+                }
+                String kiiratni=Main.orders.get(i).getBatchID()+" "+Main.orders.get(i).getRestaurantName()+" "+Main.orders.get(i).getGuestAddress()+" "+Main.orders.get(i).getGuestName()+" "+Main.orders.get(i).getGuestPNumber()+" "+Main.orders.get(i).getSum()+" "+fizetesmodja;
+                felvetelLista.addElement(kiiratni);
+            }
+        }
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
