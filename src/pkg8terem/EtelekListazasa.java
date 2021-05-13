@@ -338,9 +338,11 @@ DefaultListModel rendelesmod=new DefaultListModel();
 DefaultListModel etlapmod=new DefaultListModel();
     private void HozzaadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HozzaadasActionPerformed
          int db=(int) RendelesDarabszama.getValue();
-        String selected = EtlapLista.getSelectedValue().toString();
-        if(!(selected=="Előételek: "||selected=="Főételek: "||selected=="Desszertek: "||selected=="Italok: "))
-        rendelesmod.addElement(selected+" - "+db+" db");            
+         String selected = EtlapLista.getSelectedValue();
+         if(selected!=null){       
+        if(!("Főételek: ".equals(selected)||"Előételek: ".equals(selected)||"Desszertek: ".equals(selected)||"Italok: ".equals(selected)))
+        rendelesmod.addElement(selected+" - "+db+" db"); 
+         }
     }//GEN-LAST:event_HozzaadasActionPerformed
 
     private void EltavolitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EltavolitasActionPerformed
