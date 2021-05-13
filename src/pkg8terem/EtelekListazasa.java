@@ -452,9 +452,28 @@ DefaultListModel etlapmod=new DefaultListModel();
             objectOutputStream.writeObject(new Order(restaurant.getRestaurantID(),guest.getGuestID(),orderMap,response));
             objectOutputStream.flush();
             objectOutputStream.reset();
+            for(int i=0;i<4;i++)
+            {
+                for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
+                {
+                    for(int k=0;k<Main.discounts.size();k++)
+                    {
+                        if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
+                        {
+                            datas=new Pair<>(restaurant,3);
+                            objectOutputStream.writeObject(datas);
+                            objectOutputStream.flush();
+                            objectOutputStream.reset();
+                            restaurant.setMenu((List<Menu>)objectInputStream.readObject());
+                        }           
+                    }
+                }
+            }
         } catch (IOException ex) {
             Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }         catch (ClassNotFoundException ex) {
+                      Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
+                  }
         this.setVisible(false);
         }
         else if(n==NO_OPTION){
