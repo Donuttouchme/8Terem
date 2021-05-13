@@ -470,7 +470,6 @@ DefaultListModel etlapmod=new DefaultListModel();
                             objectOutputStream.flush();
                             objectOutputStream.reset();
                             restaurant.setMenu((List<Menu>)objectInputStream.readObject());
-                            rendelesmod.clear();
                         }           
                     }
                 }
