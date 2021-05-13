@@ -42,6 +42,7 @@ public class Order implements Serializable{
     private int paymentMethod;  
     private int orderStatus;
     private Timestamp orderDoneDate;
+    private int estimated_time;
     
     public Order()
     {
@@ -273,6 +274,14 @@ public class Order implements Serializable{
 
     public void setGuestPNumber(String guestPNumber) {
         this.guestPNumber = guestPNumber;
+    }
+    
+    public int getEstimated_time() {
+        return estimated_time;
+    }
+
+    public void setEstimated_time(int estimated_time) {
+        this.estimated_time = estimated_time;
     }
     
 }

@@ -497,8 +497,8 @@ DefaultListModel etlapmod=new DefaultListModel();
        for(int i=0;i<4;i++)
         {
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
-            {                
-                if(osszefuzott[1].equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
+            {          
+                if(osszefuzott[0].equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
                 {
                     masikosszefuzott="Allergének: "+restaurant.getMenu().get(i).getMeals().get(j).getAllergens()+"\n Összetevők:"+restaurant.getMenu().get(i).getMeals().get(j).getIngredients();
                     OsszetevokLabel.setText(masikosszefuzott);

@@ -370,6 +370,15 @@ public class RendelesKezeles extends javax.swing.JFrame {
       }
         
     }
+    
+    public void setDeliveryTimer(Order order, int delTime) throws IOException
+    {
+        order.setEstimated_time(delTime);
+        Main.datas=new Pair<>(order,2);
+        Main.objectOutputStream.writeObject(Main.datas);
+        Main.objectOutputStream.flush();
+        Main.objectOutputStream.reset();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> RendelesReszletek;
