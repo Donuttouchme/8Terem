@@ -325,18 +325,17 @@ public class RendelesKezeles extends javax.swing.JFrame {
            {
                statusz ="Kiszállítva";
            }
-           if(order.getPaymentMethod()==0)
-           {
-               fizetesmod="Készpénz";
-           }
-           else if(order.getPaymentMethod()==1)
-           {
-               fizetesmod="Bankkártya";
-           }
-           else
-           {
-               fizetesmod="SZÉP kártya";
-           }  
+        switch (order.getPaymentMethod()) {
+            case 0:
+                fizetesmod="Készpénz";
+                break;
+            case 1:
+                fizetesmod="Bankkártya";
+                break;
+            default:
+                fizetesmod="SZÉP kártya";
+                break;
+        }  
            return new Pair<String,String>(statusz, fizetesmod);
     }
     
