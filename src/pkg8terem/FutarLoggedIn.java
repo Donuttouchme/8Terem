@@ -154,7 +154,6 @@ public class FutarLoggedIn extends javax.swing.JFrame {
 DefaultListModel felvetelLista=new DefaultListModel();
 DefaultListModel teljesitesLista=new DefaultListModel();
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        teljesítőLista.setModel(teljesitesLista);
         String selected = felvevőLista.getSelectedValue();
          if(selected!=null){       
             teljesitesLista.addElement(selected);
@@ -180,6 +179,9 @@ DefaultListModel teljesitesLista=new DefaultListModel();
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        teljesítőLista.setModel(teljesitesLista);
+        felvevőLista.setModel(felvetelLista);
+        
         String fizetesmodja="";
         for(int i=0;i<Main.orders.size();i++)
         {
