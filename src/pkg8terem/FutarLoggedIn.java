@@ -218,6 +218,7 @@ DefaultListModel teljesitesLista=new DefaultListModel();
         String fizetesmodja="";
         for(int i=0;i<Main.orders.size();i++)
         {
+            if(Main.orders.get(i).getOrderStatus()==1||Main.orders.get(i).getOrderStatus()==2){
             if(Main.orders.get(i).getCourierID()==Main.courier.getCourierID())
             {
                 if(!(Main.orders.get(i).getOrderStatus()==3)){
@@ -238,9 +239,11 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                 teljesitesLista.addElement(kiiratni);
             }
             }
+            }
         }
          for(int i=0;i<Main.orders.size();i++)
         {
+            if(Main.orders.get(i).getOrderStatus()==1||Main.orders.get(i).getOrderStatus()==2){
             if(!(Main.orders.get(i).getOrderStatus()==3)){
             if(Main.orders.get(i).getCourierID()==0)
             {
@@ -259,6 +262,7 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                 felvetelLista.addElement(kiiratni);
             }
         }
+            }
         }
         
     }//GEN-LAST:event_formWindowOpened
