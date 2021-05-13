@@ -440,7 +440,7 @@ DefaultListModel etlapmod=new DefaultListModel();
                 }
             }
         }
-       
+       if(!orderMap.isEmpty()){
         Object[] options = {"Rendelés véglegesítése","Vissza a rendelésemhez",};
         int ar=0;
         for(Map.Entry<Meal,Integer> entry : orderMap.entrySet())
@@ -487,6 +487,7 @@ DefaultListModel etlapmod=new DefaultListModel();
         else if(n==NO_OPTION){
             
         }
+       }
     }//GEN-LAST:event_RendelésActionPerformed
 
     private void AllergenekListazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllergenekListazasActionPerformed
