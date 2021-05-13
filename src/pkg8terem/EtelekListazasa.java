@@ -491,18 +491,17 @@ DefaultListModel etlapmod=new DefaultListModel();
     }//GEN-LAST:event_RendelésActionPerformed
 
     private void AllergenekListazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllergenekListazasActionPerformed
-        String selected = EtlapLista.getSelectedValue().toString(); //valami lista vagy adattag i edik osszetevoit ebből lekérni
-        String osszefuzott="";
+        String selected = EtlapLista.getSelectedValue(); //valami lista vagy adattag i edik osszetevoit ebből lekérni
+        String [] osszefuzott=selected.split(" ");
         String masikosszefuzott="";
        for(int i=0;i<4;i++)
         {
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
-            {
-                masikosszefuzott=restaurant.getMenu().get(i).getMeals().get(j).getName();
-                if(masikosszefuzott.equals(selected))
+            {                
+                if(osszefuzott[1].equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
                 {
-                    osszefuzott="Allergének: "+restaurant.getMenu().get(i).getMeals().get(j).getAllergens()+"\n Összetevők:"+restaurant.getMenu().get(i).getMeals().get(j).getIngredients();
-                    OsszetevokLabel.setText(osszefuzott);
+                    masikosszefuzott="Allergének: "+restaurant.getMenu().get(i).getMeals().get(j).getAllergens()+"\n Összetevők:"+restaurant.getMenu().get(i).getMeals().get(j).getIngredients();
+                    OsszetevokLabel.setText(masikosszefuzott);
                 }
             }
         }
