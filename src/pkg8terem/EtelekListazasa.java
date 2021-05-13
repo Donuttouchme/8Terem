@@ -498,7 +498,7 @@ DefaultListModel etlapmod=new DefaultListModel();
         {
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
             {
-                masikosszefuzott=restaurant.getMenu().get(i).getMeals().get(j).getName()+" "+restaurant.getMenu().get(i).getMeals().get(j).getCost();
+                masikosszefuzott=restaurant.getMenu().get(i).getMeals().get(j).getName();
                 if(masikosszefuzott.equals(selected))
                 {
                     osszefuzott="Allergének: "+restaurant.getMenu().get(i).getMeals().get(j).getAllergens()+"\n Összetevők:"+restaurant.getMenu().get(i).getMeals().get(j).getIngredients();
