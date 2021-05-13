@@ -439,8 +439,13 @@ DefaultListModel etlapmod=new DefaultListModel();
         }
        
         Object[] options = {"Rendelés véglegesítése","Vissza a rendelésemhez",};
+        int ar=0;
+        for(Map.Entry<Meal,Integer> entry : orderMap.entrySet())
+        {
+            ar+=entry.getKey().getCost()*entry.getValue();
+        }       
         int n = JOptionPane.showOptionDialog(null,
-            "Ide kell beírni hogy mit szeretnél kiírni\n asd",
+            String.valueOf(ar)+" Ft a rendelés összértéke\n",
             "Rendelés véglegesítése",
             JOptionPane.YES_NO_CANCEL_OPTION,
             JOptionPane.QUESTION_MESSAGE,
