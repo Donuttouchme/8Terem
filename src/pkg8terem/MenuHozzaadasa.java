@@ -76,7 +76,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
         EtteremLista.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jScrollPane1.setViewportView(EtteremLista);
 
-        Hozzaad.setText("Hozáad");
+        Hozzaad.setText("Hozzáad");
         Hozzaad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HozzaadActionPerformed(evt);
@@ -181,7 +181,7 @@ public class MenuHozzaadasa extends javax.swing.JFrame {
                             .addComponent(Desszert)
                             .addGap(108, 108, 108)
                             .addComponent(Ital))))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

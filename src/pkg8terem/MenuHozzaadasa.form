@@ -121,7 +121,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="75" max="32767" attributes="0"/>
+                      <EmptySpace pref="74" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -206,7 +206,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="Hozzaad">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Hoz&#xe1;ad"/>
+                <Property name="text" type="java.lang.String" value="Hozz&#xe1;ad"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HozzaadActionPerformed"/>
