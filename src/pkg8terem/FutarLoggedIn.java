@@ -218,10 +218,9 @@ DefaultListModel teljesitesLista=new DefaultListModel();
         String fizetesmodja="";
         for(int i=0;i<Main.orders.size();i++)
         {
-            if(Main.orders.get(i).getOrderStatus()==1||Main.orders.get(i).getOrderStatus()==2){
+            if(Main.orders.get(i).getOrderStatus()==2){
             if(Main.orders.get(i).getCourierID()==Main.courier.getCourierID())
             {
-                if(!(Main.orders.get(i).getOrderStatus()==3)){
                 switch(Main.orders.get(i).getPaymentMethod()){
                 case 0:
                 fizetesmodja="Készpénz";
@@ -238,13 +237,11 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                 String kiiratni=Main.orders.get(i).getBatchID()+" "+Main.orders.get(i).getRestaurantName()+" "+Main.orders.get(i).getGuestAddress()+" "+Main.orders.get(i).getGuestName()+" "+Main.orders.get(i).getGuestPNumber()+" "+Main.orders.get(i).getSum();
                 teljesitesLista.addElement(kiiratni);
             }
-            }
-            }
+            }            
         }
          for(int i=0;i<Main.orders.size();i++)
         {
-            if(Main.orders.get(i).getOrderStatus()==1||Main.orders.get(i).getOrderStatus()==2){
-            if(!(Main.orders.get(i).getOrderStatus()==3)){
+            if(Main.orders.get(i).getOrderStatus()==2){
             if(Main.orders.get(i).getCourierID()==0)
             {
                 switch(Main.orders.get(i).getPaymentMethod()){
@@ -262,8 +259,7 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                 felvetelLista.addElement(kiiratni);
             }
         }
-            }
-        }
+            }       
         
     }//GEN-LAST:event_formWindowOpened
     /**
@@ -275,12 +271,12 @@ DefaultListModel teljesitesLista=new DefaultListModel();
         felvetelLista.clear();
         teljesitesLista.clear();
        
-        String fizetesmodja="";
+                String fizetesmodja="";
         for(int i=0;i<Main.orders.size();i++)
         {
+            if(Main.orders.get(i).getOrderStatus()==2){
             if(Main.orders.get(i).getCourierID()==Main.courier.getCourierID())
             {
-                if(!(Main.orders.get(i).getOrderStatus()==3)){
                 switch(Main.orders.get(i).getPaymentMethod()){
                 case 0:
                 fizetesmodja="Készpénz";
@@ -297,11 +293,11 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                 String kiiratni=Main.orders.get(i).getBatchID()+" "+Main.orders.get(i).getRestaurantName()+" "+Main.orders.get(i).getGuestAddress()+" "+Main.orders.get(i).getGuestName()+" "+Main.orders.get(i).getGuestPNumber()+" "+Main.orders.get(i).getSum();
                 teljesitesLista.addElement(kiiratni);
             }
-            }
+            }            
         }
          for(int i=0;i<Main.orders.size();i++)
         {
-            if(!(Main.orders.get(i).getOrderStatus()==3)){
+            if(Main.orders.get(i).getOrderStatus()==2){
             if(Main.orders.get(i).getCourierID()==0)
             {
                 switch(Main.orders.get(i).getPaymentMethod()){
@@ -319,7 +315,7 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                 felvetelLista.addElement(kiiratni);
             }
         }
-        }
+            } 
     }
     
     public static void main(String args[]) {

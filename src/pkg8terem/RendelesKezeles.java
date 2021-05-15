@@ -68,7 +68,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
         jScrollPane1.setViewportView(RendelesekMegjeleniteseLista);
 
         jToggleButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jToggleButton1.setText("Futár hozzárendelés");
+        jToggleButton1.setText("Szállításra kész");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
@@ -292,7 +292,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
         {
             if(orders.get(i).getBatchID()==selected+1)
             {
-                orders.get(i).setOrderStatus(2);
+                orders.get(i).setOrderStatus(4);
                 orderid=i;
             }
         }
@@ -369,6 +369,10 @@ public class RendelesKezeles extends javax.swing.JFrame {
            if(order.getOrderStatus()==3)
            {
                statusz ="Kiszállítva";
+           }
+           if(order.getOrderStatus()==4)
+           {
+               statusz="Szállítható";
            }
            if(order.getPaymentMethod()==0)
            {
