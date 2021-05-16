@@ -287,11 +287,12 @@ public class RendelesKezeles extends javax.swing.JFrame {
     }//GEN-LAST:event_RendelesekMegjeleniteseListaValueChanged
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        int selected = RendelesekMegjeleniteseLista.getSelectedIndex();
+        String selected = RendelesekMegjeleniteseLista.getSelectedValue();
+        String []strArray = selected.split(" ");
         int orderid=0;
         for(int i=0;i<orders.size();i++)
         {
-            if(orders.get(i).getBatchID()==selected+1)
+            if(orders.get(i).getBatchID()==Integer.parseInt(strArray[2]))
             {
                 orders.get(i).setOrderStatus(4);
                 orderid=i;
