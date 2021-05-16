@@ -210,13 +210,19 @@ public class RendelesKezeles extends javax.swing.JFrame {
            {
                sum+=orders.get(i).getSubsum();
            }
-           if((sumbatchid!=orders.get(i).getBatchID())|i==orders.size()-1){
+           if((sumbatchid!=orders.get(i).getBatchID())||i==orders.size()-1){
+               if(i==0)
+               {
+                   rendeleslista.addElement("Rendelés azonosító: " + orders.get(i).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(orders.get(i)).getKey());
+               }
+               else{
                rendeleslista.addElement("Rendelés azonosító: " + orders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(orders.get(i-1)).getKey());
                sum=0;
                sum+=orders.get(i).getSubsum();
                sumbatchid++;
                
-           }                              
+           }  
+           }
        }
       }
       else
