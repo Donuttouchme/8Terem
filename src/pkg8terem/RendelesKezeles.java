@@ -395,7 +395,8 @@ public class RendelesKezeles extends javax.swing.JFrame {
     {
         reszletekLista.clear();
         rendeleslista.clear();
-       int sumbatchid=1;
+       String fizetesmod="", statusz="";
+       int sumbatchid=Main.orders.get(0).getBatchID();
        int sum=0;
       if(orders!=null){
        for(int i=0;i<Main.orders.size();i++)
@@ -404,15 +405,13 @@ public class RendelesKezeles extends javax.swing.JFrame {
            {
                sum+=orders.get(i).getSubsum();
            }
-           if((sumbatchid!=orders.get(i).getBatchID())|i==orders.size()-1){
+           if((sumbatchid!=orders.get(i).getBatchID())||i==orders.size()-1){              
                rendeleslista.addElement("Rendelés azonosító: " + orders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(orders.get(i-1)).getKey());
                sum=0;
                sum+=orders.get(i).getSubsum();
                sumbatchid++;
-               
-           }           
-
-                   
+                           
+           }
        }
       }
       else
