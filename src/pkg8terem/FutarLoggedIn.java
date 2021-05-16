@@ -218,7 +218,7 @@ DefaultListModel teljesitesLista=new DefaultListModel();
         String fizetesmodja="";
         for(int i=0;i<Main.orders.size();i++)
         {
-            if(Main.orders.get(i).getOrderStatus()==2){
+            if(Main.orders.get(i).getOrderStatus()==4){
             if(Main.orders.get(i).getCourierID()==Main.courier.getCourierID())
             {
                 switch(Main.orders.get(i).getPaymentMethod()){
@@ -241,7 +241,7 @@ DefaultListModel teljesitesLista=new DefaultListModel();
         }
          for(int i=0;i<Main.orders.size();i++)
         {
-            if(Main.orders.get(i).getOrderStatus()==2){
+            if(Main.orders.get(i).getOrderStatus()==4){
             if(Main.orders.get(i).getCourierID()==0)
             {
                 switch(Main.orders.get(i).getPaymentMethod()){
@@ -274,7 +274,7 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                 String fizetesmodja="";
         for(int i=0;i<Main.orders.size();i++)
         {
-            if(Main.orders.get(i).getOrderStatus()==2){
+            if(Main.orders.get(i).getOrderStatus()==4){
             if(Main.orders.get(i).getCourierID()==Main.courier.getCourierID())
             {
                 switch(Main.orders.get(i).getPaymentMethod()){
@@ -297,7 +297,7 @@ DefaultListModel teljesitesLista=new DefaultListModel();
         }
          for(int i=0;i<Main.orders.size();i++)
         {
-            if(Main.orders.get(i).getOrderStatus()==2){
+            if(Main.orders.get(i).getOrderStatus()==4){
             if(Main.orders.get(i).getCourierID()==0)
             {
                 switch(Main.orders.get(i).getPaymentMethod()){
