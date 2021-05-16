@@ -267,12 +267,13 @@ public class RendelesKezeles extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton2ActionPerformed
     
     private void RendelesekMegjeleniteseListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_RendelesekMegjeleniteseListaValueChanged
-        int selected = RendelesekMegjeleniteseLista.getSelectedIndex();
-        if(selected>=0){
+        String selected = RendelesekMegjeleniteseLista.getSelectedValue();
+        String []strArray = selected.split(" ");
+        if(selected != null){
         reszletekLista.clear();
         for(int i=0;i<orders.size();i++)
         {
-            if(orders.get(i).getBatchID()==selected+1)
+            if(orders.get(i).getBatchID()==Integer.parseInt(strArray[3]))
             {
              reszletekLista.addElement(" Étel: " + orders.get(i).getMealName()+
            " Darabszám: "+ orders.get(i).getQuantity()+
