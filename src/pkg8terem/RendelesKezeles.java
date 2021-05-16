@@ -273,7 +273,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
         reszletekLista.clear();
         for(int i=0;i<orders.size();i++)
         {
-            if(orders.get(i).getBatchID()==Integer.parseInt(strArray[3]))
+            if(orders.get(i).getBatchID()==Integer.parseInt(strArray[2]))
             {
              reszletekLista.addElement(" Étel: " + orders.get(i).getMealName()+
            " Darabszám: "+ orders.get(i).getQuantity()+
