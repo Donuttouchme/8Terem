@@ -234,7 +234,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
         int orderid=0;
         for(int i=0;i<orders.size();i++)
         {
-            if(orders.get(i).getBatchID()==Integer.parseInt(strArray[3])+1)
+            if(orders.get(i).getBatchID()==Integer.parseInt(strArray[2]))
             {
                 orders.get(i).setOrderStatus(1);
                 orderid=i;
