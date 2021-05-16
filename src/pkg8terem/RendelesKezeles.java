@@ -201,7 +201,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
        RendelesekMegjeleniteseLista.setModel(rendeleslista);
        RendelesReszletek.setModel(reszletekLista);
        String fizetesmod="", statusz="";
-       int sumbatchid=1;
+       int sumbatchid=Main.orders.get(0).getBatchID();
        int sum=0;
       if(orders!=null){
        for(int i=0;i<Main.orders.size();i++)
