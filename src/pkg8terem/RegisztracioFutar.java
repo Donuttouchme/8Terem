@@ -283,7 +283,7 @@ public class RegisztracioFutar extends javax.swing.JFrame {
         String workingHours = munkaora1.getValue()+"-"+munkaora2.getValue();
         if(!workingHours.equals("-")&&!passwordInput.getText().isEmpty()&&!phoneNumber.getText().isEmpty()
                 &&!SurenameInput.getText().isEmpty()&&!passwordCheck.getText().isEmpty()&&!firstName.getText().isEmpty()&&!UsernameInput.getText().isEmpty()){
-        if((passwordCheck.getText()).equals(firstName.getText())){
+        if((passwordCheck.getText()).equals(passwordInput.getText())){
             try {
                 reg = m.registration(UsernameInput.getText(),passwordInput.getText(),firstName.getText(), SurenameInput.getText(),phoneNumber.getText(),workingHours,2);
             } catch (IOException ex) {
