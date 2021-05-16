@@ -267,9 +267,9 @@ public class RendelesKezeles extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton2ActionPerformed
     
     private void RendelesekMegjeleniteseListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_RendelesekMegjeleniteseListaValueChanged
-        String selected = RendelesekMegjeleniteseLista.getSelectedValue();
-        String []strArray = selected.split(" ");
+        String selected = RendelesekMegjeleniteseLista.getSelectedValue();        
         if(selected != null){
+        String []strArray = selected.split(" ");
         reszletekLista.clear();
         for(int i=0;i<orders.size();i++)
         {
