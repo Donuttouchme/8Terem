@@ -201,21 +201,30 @@ public class RendelesKezeles extends javax.swing.JFrame {
        RendelesekMegjeleniteseLista.setModel(rendeleslista);
        RendelesReszletek.setModel(reszletekLista);
        String fizetesmod="", statusz="";
-       int sumbatchid=Main.orders.get(0).getBatchID();
+       int sumbatchid=0;
+       for(int i=0;i<Main.orders.size();i++)
+       {
+           if(Main.orders.get(i).getOrderStatus()==3)
+           {
+               sumbatchid=Main.orders.get(i).getBatchID();
+               break;
+           }
+       }
+       
        int sum=0;
       if(orders!=null){
        for(int i=0;i<Main.orders.size();i++)
        { 
            if(Main.orders.get(i).getOrderStatus()!=3){
-           if(sumbatchid==orders.get(i).getBatchID())
+           if(sumbatchid==Main.orders.get(i).getBatchID())
            {
-               sum+=orders.get(i).getSubsum();
+               sum+=Main.orders.get(i).getSubsum();
            }
-           if((sumbatchid!=orders.get(i).getBatchID())||i==orders.size()){              
-               rendeleslista.addElement("Rendelés azonosító: " + orders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(orders.get(i-1)).getKey());
+           if((sumbatchid!=Main.orders.get(i).getBatchID())||i==Main.orders.size()){              
+               rendeleslista.addElement("Rendelés azonosító: " + Main.orders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(Main.orders.get(i-1)).getKey());
                sum=0;
-               sum+=orders.get(i).getSubsum();
-               sumbatchid=orders.get(i).getBatchID();
+               sum+=Main.orders.get(i).getSubsum();
+               sumbatchid=Main.orders.get(i).getBatchID();
                            
            }
            }
