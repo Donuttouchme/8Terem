@@ -52,7 +52,7 @@ public class Order implements Serializable{
         this.mealsOrdered = new HashMap<>();
     }
     
-    public Order(int _batchID,int _courierID,String _restaurantName, String _guestAddress,String _guestName, String _guestPNumber,int _sum, int _paymentMethod, int _orderStatus)
+    public Order(int _batchID,int _courierID,String _restaurantName, String _guestAddress,String _guestName, String _guestPNumber,int _sum, int _paymentMethod, int _orderStatus, int _restaurantID)
     {
         this.mealsOrdered = new HashMap<>();
         this.batchID=_batchID;
@@ -64,6 +64,7 @@ public class Order implements Serializable{
         this.sum=_sum;
         this.paymentMethod=_paymentMethod;
         this.orderStatus=_orderStatus;
+        this.restaurantID=_restaurantID;
     }
     
     public Order(int _orderID,int _batchID,int _courierID,int _guestID, int _subsum, int _foodID, String _foodName,
