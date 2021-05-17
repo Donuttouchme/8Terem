@@ -207,6 +207,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
            if(Main.orders.get(i).getOrderStatus()==3)
            {
                sumbatchid=Main.orders.get(i).getBatchID();
+               System.out.println("sumbatchid "+sumbatchid);
                break;
            }
        }
