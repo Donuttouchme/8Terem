@@ -205,7 +205,8 @@ public class RendelesKezeles extends javax.swing.JFrame {
        int sum=0;
       if(orders!=null){
        for(int i=0;i<Main.orders.size();i++)
-       {           
+       { 
+           if(Main.orders.get(i).getOrderStatus()!=3){
            if(sumbatchid==orders.get(i).getBatchID())
            {
                sum+=orders.get(i).getSubsum();
@@ -216,6 +217,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
                sum+=orders.get(i).getSubsum();
                sumbatchid++;
                            
+           }
            }
        }
       }
@@ -400,7 +402,8 @@ public class RendelesKezeles extends javax.swing.JFrame {
        int sum=0;
       if(orders!=null){
        for(int i=0;i<Main.orders.size();i++)
-       {           
+       {  
+           if(Main.orders.get(i).getOrderStatus()!=3){
            if(sumbatchid==orders.get(i).getBatchID())
            {
                sum+=orders.get(i).getSubsum();
@@ -411,6 +414,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
                sum+=orders.get(i).getSubsum();
                sumbatchid++;
                            
+           }
            }
        }
       }

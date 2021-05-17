@@ -275,6 +275,8 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                 String fizetesmodja="";
         for(int i=0;i<Main.orders.size();i++)
         {
+            System.out.println("orders size: "+Main.orders.size());
+            System.out.println("orders "+ i+". element "+Main.orders.get(i).getOrderStatus());
             if(Main.orders.get(i).getOrderStatus()==4){
             if(Main.orders.get(i).getCourierID()==Main.courier.getCourierID())
             {
