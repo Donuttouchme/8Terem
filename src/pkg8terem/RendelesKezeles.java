@@ -411,7 +411,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
       int sumbatchid=0;
        for(int i=0;i<Main.orders.size();i++)
        {
-           if(Main.orders.get(i).getOrderStatus()==3)
+           if(Main.orders.get(i).getOrderStatus()!=3)
            {
                sumbatchid=Main.orders.get(i).getBatchID();
                System.out.println("sumbatchid "+sumbatchid);
