@@ -408,7 +408,16 @@ public class RendelesKezeles extends javax.swing.JFrame {
         reszletekLista.clear();
         rendeleslista.clear();
        String fizetesmod="", statusz="";
-       int sumbatchid=Main.orders.get(0).getBatchID();
+      int sumbatchid=0;
+       for(int i=0;i<Main.orders.size();i++)
+       {
+           if(Main.orders.get(i).getOrderStatus()==3)
+           {
+               sumbatchid=Main.orders.get(i).getBatchID();
+               System.out.println("sumbatchid "+sumbatchid);
+               break;
+           }
+       }
        int sum=0;
       if(orders!=null){
        for(int i=0;i<Main.orders.size();i++)
