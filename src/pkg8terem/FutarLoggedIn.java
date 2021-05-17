@@ -190,6 +190,7 @@ DefaultListModel teljesitesLista=new DefaultListModel();
                     if(Main.orders.get(i).getBatchID()==Integer.parseInt(strArray[0]))
                     {
                         sendOrder=Main.orders.get(i);
+                        sendOrder.setOrderStatus(3);
                     }
                 }
                 Main.datas=new Pair<>(sendOrder,1);
