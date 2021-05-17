@@ -6,6 +6,7 @@
 package pkg8terem;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -202,39 +203,34 @@ public class RendelesKezeles extends javax.swing.JFrame {
        RendelesReszletek.setModel(reszletekLista);
        String fizetesmod="", statusz="";
        int sumbatchid=0;
+       List<Order>outputOrders= new ArrayList<>();
+       if(outputOrders!=null){
        for(int i=0;i<Main.orders.size();i++)
        {
-           if(Main.orders.get(i).getOrderStatus()!=3)
-           {
-               sumbatchid=Main.orders.get(i).getBatchID();
-               System.out.println("sumbatchid "+sumbatchid);
-               break;
-           }
+            if(Main.orders.get(i).getOrderStatus()!=3)
+            {
+                outputOrders.add(Main.orders.get(i));
+            }
        }
-       
+       sumbatchid=outputOrders.get(0).getBatchID();
        int sum=0;
-      if(orders!=null){
-       for(int i=0;i<Main.orders.size();i++)
-       { 
-           if(Main.orders.get(i).getOrderStatus()!=3){
-           if(sumbatchid==Main.orders.get(i).getBatchID())
+      if(outputOrders!=null){
+       for(int i=0;i<outputOrders.size();i++)
+       {          
+           if(sumbatchid==outputOrders.get(i).getBatchID())
            {
-               sum+=Main.orders.get(i).getSubsum();
+               sum+=outputOrders.get(i).getSubsum();
            }
-           if((sumbatchid!=Main.orders.get(i).getBatchID())||i==Main.orders.size()){              
-               rendeleslista.addElement("Rendelés azonosító: " + Main.orders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(Main.orders.get(i-1)).getKey());
+           if((sumbatchid!=outputOrders.get(i).getBatchID())||i==outputOrders.size()-1){              
+               rendeleslista.addElement("Rendelés azonosító: " + outputOrders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(Main.orders.get(i-1)).getKey());
                sum=0;
-               sum+=Main.orders.get(i).getSubsum();
-               sumbatchid=Main.orders.get(i).getBatchID();
+               sum+=outputOrders.get(i).getSubsum();
+               sumbatchid=outputOrders.get(i).getBatchID();
                            
            }
-           }
        }
-      }
-      else
-      {
-          
-      }
+           }
+       }     
     }//GEN-LAST:event_formWindowOpened
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
@@ -408,39 +404,35 @@ public class RendelesKezeles extends javax.swing.JFrame {
         reszletekLista.clear();
         rendeleslista.clear();
        String fizetesmod="", statusz="";
-      int sumbatchid=0;
+       int sumbatchid=0;
+            List<Order>outputOrders= new ArrayList<>();
+       if(outputOrders!=null){
        for(int i=0;i<Main.orders.size();i++)
        {
-           if(Main.orders.get(i).getOrderStatus()!=3)
-           {
-               sumbatchid=Main.orders.get(i).getBatchID();
-               System.out.println("sumbatchid "+sumbatchid);
-               break;
-           }
+            if(Main.orders.get(i).getOrderStatus()!=3)
+            {
+                outputOrders.add(Main.orders.get(i));
+            }
        }
+       sumbatchid=outputOrders.get(0).getBatchID();
        int sum=0;
-      if(orders!=null){
-       for(int i=0;i<Main.orders.size();i++)
-       {  
-           if(Main.orders.get(i).getOrderStatus()!=3){
-           if(sumbatchid==orders.get(i).getBatchID())
+      if(outputOrders!=null){
+       for(int i=0;i<outputOrders.size();i++)
+       {          
+           if(sumbatchid==outputOrders.get(i).getBatchID())
            {
-               sum+=orders.get(i).getSubsum();
+               sum+=outputOrders.get(i).getSubsum();
            }
-           if((sumbatchid!=orders.get(i).getBatchID())||i==orders.size()-1){              
-               rendeleslista.addElement("Rendelés azonosító: " + orders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(orders.get(i-1)).getKey());
+           if((sumbatchid!=outputOrders.get(i).getBatchID())||i==outputOrders.size()-1){              
+               rendeleslista.addElement("Rendelés azonosító: " + outputOrders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(Main.orders.get(i-1)).getKey());
                sum=0;
-               sum+=orders.get(i).getSubsum();
-               sumbatchid=orders.get(i).getBatchID();
+               sum+=outputOrders.get(i).getSubsum();
+               sumbatchid=outputOrders.get(i).getBatchID();
                            
            }
-           }
        }
-      }
-      else
-      {
-          
-      }
+           }
+       }   
         
     }
     
