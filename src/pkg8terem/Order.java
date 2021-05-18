@@ -67,6 +67,14 @@ public class Order implements Serializable{
         this.restaurantID=_restaurantID;
     }
     
+    public Order(String _restaurantName, int _sum,int _orderStatus, Timestamp _estimatedDelDate)
+    {
+        this.restaurantName=_restaurantName;
+        this.sum=sum;
+        this.orderStatus=_orderStatus;
+        this.estimatedDeliveryDate=_estimatedDelDate;
+    }
+    
     public Order(int _orderID,int _batchID,int _courierID,int _guestID, int _subsum, int _foodID, String _foodName,
             int _quantity, int _restaurantID, Timestamp _orderTime, Timestamp _estimatedDeliveryTime,
             int _paymentMethod, int _orderStatus,Timestamp _orderDoneTime)

@@ -3,6 +3,7 @@ package pkg8terem;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -20,10 +21,11 @@ public class Guest implements Users, Serializable {
     private String guestAddress = null;
     private String phoneNumber = null;
     private String registrationDate = null;
+    private String deliveryAddress=null;
     
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     static Scanner input = new Scanner(System.in);
-
+    
     public Guest()
     {  
     }

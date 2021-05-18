@@ -5,6 +5,12 @@
  */
 package pkg8terem;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.util.Pair;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 
 /**
@@ -31,7 +37,7 @@ public class RendelesekMegtekintese extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        VendegRendeleseiLista = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -45,8 +51,8 @@ public class RendelesekMegtekintese extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(3, 41, 80));
 
-        jList1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jScrollPane1.setViewportView(jList1);
+        VendegRendeleseiLista.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jScrollPane1.setViewportView(VendegRendeleseiLista);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -78,9 +84,42 @@ public class RendelesekMegtekintese extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    DefaultListModel vendegRendelesei = new DefaultListModel();
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        VendegRendeleseiLista.setModel(vendegRendelesei);
+        try {
+            Main.datas= new Pair<>(Main.guest,2);
+            Main.objectOutputStream.writeObject(Main.datas);
+            Main.objectOutputStream.flush();
+            Main.objectOutputStream.reset();
+            Main.orders=(List<Order>)Main.objectInputStream.readObject();
+            String orderstatus="";
+            for(int i=0;i<Main.orders.size();i++)
+            {
+                switch(Main.orders.get(i).getOrderStatus())
+                {
+                    case 0:
+                        orderstatus="Az étterem még nem igazolta vissza a rendelést!";
+                        break;
+                    case 1:
+                        orderstatus="Készül a rendelés!";
+                        break;
+                    case 2:
+                        orderstatus="A futár már úton van!";
+                        break;
+                    case 3:
+                        orderstatus="Kiszállítva :)";
+                        break;
+                    default:
+                        orderstatus="Futárra vár a rendelés";
+                        break;
+                }
+                vendegRendelesei.addElement(Main.orders.get(i).getRestaurantName()+"-ból/ből rendelt ételének jelenlegi státusza: "+orderstatus+ ", a fizetendő összeg: "+Main.orders.get(i).getSum()+" Várható szállítási idő:"+Main.orders.get(i).getEstimatedDeliveryDate());
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(RendelesekMegtekintese.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -123,7 +162,7 @@ public class RendelesekMegtekintese extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> VendegRendeleseiLista;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
