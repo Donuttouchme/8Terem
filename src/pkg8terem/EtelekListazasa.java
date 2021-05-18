@@ -59,6 +59,7 @@ public class EtelekListazasa extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         Eltavolitas = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         EtlapLista = new javax.swing.JList<>();
@@ -130,6 +131,9 @@ public class EtelekListazasa extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kiszállítás", "Elvitel" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -139,18 +143,20 @@ public class EtelekListazasa extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
                         .addComponent(Rendelés)
                         .addGap(18, 18, 18)
-                        .addComponent(Eltavolitas, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Eltavolitas, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton2))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(49, 49, 49))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(201, 201, 201)
@@ -160,11 +166,13 @@ public class EtelekListazasa extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton3)
@@ -174,7 +182,7 @@ public class EtelekListazasa extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Rendelés, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Eltavolitas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                .addGap(34, 34, 34))
         );
 
         jPanel2.setBackground(new java.awt.Color(3, 41, 80));
@@ -297,7 +305,7 @@ public class EtelekListazasa extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -345,151 +353,6 @@ DefaultListModel etlapmod=new DefaultListModel();
          }
     }//GEN-LAST:event_HozzaadasActionPerformed
 
-    private void EltavolitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EltavolitasActionPerformed
-        int size=RendelesLista.getModel().getSize();
-        int selected = RendelesLista.getSelectedIndex();
-        if(size>0 && selected!=-1){
-        System.out.println(selected);
-        ((DefaultListModel) RendelesLista.getModel()).remove(selected);
-        }
-        
-    }//GEN-LAST:event_EltavolitasActionPerformed
-
-    private void RendelésActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RendelésActionPerformed
-              int response = -1;
-        String qwe="";
-        for (Enumeration<AbstractButton> buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
-            AbstractButton button = buttons.nextElement();
-            if (button.isSelected()) {
-               qwe= button.getText();
-               if(null==qwe){
-                   response=2;
-               }
-               else switch (qwe) {
-                    case "Bankkártya":
-                        response=1;
-                        break;
-                    case "Készpénz":
-                        response=0;
-                        break;
-                    default:
-                        response=2;
-                        break;
-                }
-            }
-        }
-        
-        
-        Map<Meal,Integer> orderMap;      
-        orderMap = new HashMap<>();
-        List<String> orderedMealsList = new ArrayList();
-        for(int i=0;i<RendelesLista.getModel().getSize();i++)
-        {
-            String [] arrofStr =RendelesLista.getModel().getElementAt(i).split(" - ");
-            String mealName=arrofStr[0]+" "+arrofStr[1];
-            orderedMealsList.add(mealName);
-        }
-        for(int i=0;i<4;i++)
-            {
-                for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
-                {
-                    for(int k=0;k<Main.discounts.size();k++)
-                    {
-                        if(restaurant.getMenu().get(i).getMeals().get(j).getId()==Main.discounts.get(k).getFoodID())
-                        {
-                            restaurant.getMenu().get(i).getMeals().get(j).setDiscounted(true);
-                            restaurant.getMenu().get(i).getMeals().get(j).setDiscountAmount(Main.discounts.get(k).getDiscountPercentage());
-                        }           
-                    }
-                }
-            }
-        
-        
-        for(int i=0;i<4;i++)
-        {
-            for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
-            {
-                for(int k=0;k<orderedMealsList.size();k++)
-                {
-                    String [] iforderedMealslist=orderedMealsList.get(k).split(" ");
-                    if(iforderedMealslist[0].equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
-                    {
-                        if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
-                    {
-                        float d1 = (float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getDiscountAmount()/100);
-                        float d2 = (float) 1-d1;  
-                        float discountedPrice=(float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getCost()*d2);                        
-                        restaurant.getMenu().get(i).getMeals().get(j).setCost((int)discountedPrice);
-                        float parseFloat = Float.parseFloat(iforderedMealslist[2]);
-                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),(int)parseFloat);
-                    }
-                    else
-                    {
-                        float parseFloat = Float.parseFloat(iforderedMealslist[2]);
-                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),(int)parseFloat);
-                    }
-//                        for(int l=0;l<Main.discounts.size();l++){
-//                            if(Main.discounts.get(l).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId()){
-//                                int original=restaurant.getMenu().get(i).getMeals().get(j).getCost();
-//                                restaurant.getMenu().get(i).getMeals().get(j).setCost(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(l).getDiscountPercentage()/100)));
-//                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j), Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));   
-//                                restaurant.getMenu().get(i).getMeals().get(j).setCost(original);
-//                            }
-//                        }
-                    }
-                }
-            }
-        }
-       if(!orderMap.isEmpty()){
-        Object[] options = {"Rendelés véglegesítése","Vissza a rendelésemhez",};
-        int ar=0;
-        for(Map.Entry<Meal,Integer> entry : orderMap.entrySet())
-        {
-            ar+=entry.getKey().getCost()*entry.getValue();
-        }       
-        int n = JOptionPane.showOptionDialog(null,
-            String.valueOf(ar)+" Ft a rendelés összértéke\n",
-            "Rendelés véglegesítése",
-            JOptionPane.YES_NO_CANCEL_OPTION,
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            options,
-            options[1]);
-        if(n==YES_OPTION){
-        try {   
-            objectOutputStream.writeObject(new Order(restaurant.getRestaurantID(),guest.getGuestID(),orderMap,response));
-            objectOutputStream.flush();
-            objectOutputStream.reset();
-            for(int i=0;i<4;i++)
-            {
-                for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
-                {
-                    for(int k=0;k<Main.discounts.size();k++)
-                    {
-                        if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
-                        {
-                            datas=new Pair<>(restaurant,3);
-                            objectOutputStream.writeObject(datas);
-                            objectOutputStream.flush();
-                            objectOutputStream.reset();
-                            restaurant.setMenu((List<Menu>)objectInputStream.readObject());
-                        }           
-                    }
-                }
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
-        }         catch (ClassNotFoundException ex) {
-                      Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
-                  }
-        this.setVisible(false);
-        }
-        else if(n==NO_OPTION){
-            
-        }
-       }
-    }//GEN-LAST:event_RendelésActionPerformed
-
     private void AllergenekListazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllergenekListazasActionPerformed
         String selected = EtlapLista.getSelectedValue(); //valami lista vagy adattag i edik osszetevoit ebből lekérni
         String [] osszefuzott=selected.split(" ");
@@ -497,8 +360,8 @@ DefaultListModel etlapmod=new DefaultListModel();
        for(int i=0;i<4;i++)
         {
             for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
-            {          
-                if(osszefuzott[0].equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
+            {                
+                if(osszefuzott[1].equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
                 {
                     masikosszefuzott="Allergének: "+restaurant.getMenu().get(i).getMeals().get(j).getAllergens()+"\n Összetevők:"+restaurant.getMenu().get(i).getMeals().get(j).getIngredients();
                     OsszetevokLabel.setText(masikosszefuzott);
@@ -580,6 +443,16 @@ DefaultListModel etlapmod=new DefaultListModel();
         
     }//GEN-LAST:event_formWindowOpened
 
+    private void EltavolitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EltavolitasActionPerformed
+        int size=RendelesLista.getModel().getSize();
+        int selected = RendelesLista.getSelectedIndex();
+        if(size>0 && selected!=-1){
+            System.out.println(selected);
+            ((DefaultListModel) RendelesLista.getModel()).remove(selected);
+        }
+
+    }//GEN-LAST:event_EltavolitasActionPerformed
+
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
@@ -587,6 +460,140 @@ DefaultListModel etlapmod=new DefaultListModel();
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void RendelésActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RendelésActionPerformed
+        int Elvitel=jComboBox1.getSelectedIndex();
+        int response = -1;
+        String qwe="";
+        for (Enumeration<AbstractButton> buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+            if (button.isSelected()) {
+                qwe= button.getText();
+                if(null==qwe){
+                    response=2;
+                }
+                else switch (qwe) {
+                    case "Bankkártya":
+                    response=1;
+                    break;
+                    case "Készpénz":
+                    response=0;
+                    break;
+                    default:
+                    response=2;
+                    break;
+                }
+            }
+        }
+
+        Map<Meal,Integer> orderMap;
+        orderMap = new HashMap<>();
+        List<String> orderedMealsList = new ArrayList();
+        for(int i=0;i<RendelesLista.getModel().getSize();i++)
+        {
+            String [] arrofStr =RendelesLista.getModel().getElementAt(i).split(" - ");
+            String mealName=arrofStr[0]+" "+arrofStr[1];
+            orderedMealsList.add(mealName);
+        }
+        for(int i=0;i<4;i++)
+        {
+            for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
+            {
+                for(int k=0;k<Main.discounts.size();k++)
+                {
+                    if(restaurant.getMenu().get(i).getMeals().get(j).getId()==Main.discounts.get(k).getFoodID())
+                    {
+                        restaurant.getMenu().get(i).getMeals().get(j).setDiscounted(true);
+                        restaurant.getMenu().get(i).getMeals().get(j).setDiscountAmount(Main.discounts.get(k).getDiscountPercentage());
+                    }
+                }
+            }
+        }
+
+        for(int i=0;i<4;i++)
+        {
+            for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
+            {
+                for(int k=0;k<orderedMealsList.size();k++)
+                {
+                    String [] iforderedMealslist=orderedMealsList.get(k).split(" ");
+                    if(iforderedMealslist[0].equals(restaurant.getMenu().get(i).getMeals().get(j).getName()))
+                    {
+                        if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
+                        {
+                            float d1 = (float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getDiscountAmount()/100);
+                            float d2 = (float) 1-d1;
+                            float discountedPrice=(float) ((float)restaurant.getMenu().get(i).getMeals().get(j).getCost()*d2);
+                            restaurant.getMenu().get(i).getMeals().get(j).setCost((int)discountedPrice);
+                            float parseFloat = Float.parseFloat(iforderedMealslist[2]);
+                            orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),(int)parseFloat);
+                        }
+                        else
+                        {
+                            float parseFloat = Float.parseFloat(iforderedMealslist[2]);
+                            orderMap.put(restaurant.getMenu().get(i).getMeals().get(j),(int)parseFloat);
+                        }
+                        //                        for(int l=0;l<Main.discounts.size();l++){
+                            //                            if(Main.discounts.get(l).getFoodID()==restaurant.getMenu().get(i).getMeals().get(j).getId()){
+                                //                                int original=restaurant.getMenu().get(i).getMeals().get(j).getCost();
+                                //                                restaurant.getMenu().get(i).getMeals().get(j).setCost(restaurant.getMenu().get(i).getMeals().get(j).getCost()*(1-(Main.discounts.get(l).getDiscountPercentage()/100)));
+                                //                        orderMap.put(restaurant.getMenu().get(i).getMeals().get(j), Collections.frequency(orderedMealsList, restaurant.getMenu().get(i).getMeals().get(j).getName()));
+                                //                                restaurant.getMenu().get(i).getMeals().get(j).setCost(original);
+                                //                            }
+                            //                        }
+                    }
+                }
+            }
+        }
+        if(!orderMap.isEmpty()){
+            Object[] options = {"Rendelés véglegesítése","Vissza a rendelésemhez",};
+            int ar=0;
+            for(Map.Entry<Meal,Integer> entry : orderMap.entrySet())
+            {
+                ar+=entry.getKey().getCost()*entry.getValue();
+            }
+            int n = JOptionPane.showOptionDialog(null,
+                String.valueOf(ar)+" Ft a rendelés összértéke\n",
+                "Rendelés véglegesítése",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[1]);
+            if(n==YES_OPTION){
+                try {
+                    objectOutputStream.writeObject(new Order(restaurant.getRestaurantID(),guest.getGuestID(),orderMap,response));
+                    objectOutputStream.flush();
+                    objectOutputStream.reset();
+                    for(int i=0;i<4;i++)
+                    {
+                        for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
+                        {
+                            for(int k=0;k<Main.discounts.size();k++)
+                            {
+                                if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
+                                {
+                                    datas=new Pair<>(restaurant,3);
+                                    objectOutputStream.writeObject(datas);
+                                    objectOutputStream.flush();
+                                    objectOutputStream.reset();
+                                    restaurant.setMenu((List<Menu>)objectInputStream.readObject());
+                                }
+                            }
+                        }
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
+                }         catch (ClassNotFoundException ex) {
+                    Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.setVisible(false);
+            }
+            else if(n==NO_OPTION){
+
+            }
+        }
+    }//GEN-LAST:event_RendelésActionPerformed
 
     /**
      * @param args the command line arguments
@@ -635,6 +642,7 @@ DefaultListModel etlapmod=new DefaultListModel();
     private javax.swing.JList<String> RendelesLista;
     private javax.swing.JButton Rendelés;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
