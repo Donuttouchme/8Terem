@@ -390,8 +390,10 @@ public class RendelesKezeles extends javax.swing.JFrame {
             case 4:
                 statusz="Szállítható";
                 break;
-            default:
+            case 11:
                 statusz="A vendég átveheti a rendelését az üzletben!";
+            default:
+                statusz="default ág";
                 break;
         }
            if(order.getPaymentMethod()==0)
