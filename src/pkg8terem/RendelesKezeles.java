@@ -302,8 +302,17 @@ public class RendelesKezeles extends javax.swing.JFrame {
         {
             if(orders.get(i).getBatchID()==Integer.parseInt(strArray[2]))
             {
+                if(orders.get(i).getOrderStatus()==10)
+                {
+                    orders.get(i).setOrderStatus(11);
+                    orderid=i;
+                }
+                else
+                {
                 orders.get(i).setOrderStatus(4);
-                orderid=i;
+                orderid=i;      
+                }
+                
             }
         }
         Main.datas= new Pair<>(orders.get(orderid),1);
@@ -364,26 +373,27 @@ public class RendelesKezeles extends javax.swing.JFrame {
     public Pair statusCheck(Order order)
     {
         String statusz="",fizetesmod="";
-        if(order.getOrderStatus()==0)
-           {
-               statusz ="Visszaigazolásra vár";
-           }
-           if(order.getOrderStatus()==1)
-           {
-               statusz ="Készítés alatt";
-           }
-           if(order.getOrderStatus()==2)
-           {
-               statusz ="Szállítás alatt";
-           }
-           if(order.getOrderStatus()==3)
-           {
-               statusz ="Kiszállítva";
-           }
-           if(order.getOrderStatus()==4)
-           {
-               statusz="Szállítható";
-           }
+        switch(order.getOrderStatus())
+        {
+            case 0:
+                statusz ="Visszaigazolásra vár";
+                break;
+            case 1:
+                statusz ="Készítés alatt";
+                break;
+            case 2:
+                statusz ="Szállítás alatt";
+                break;
+            case 3:
+                statusz ="Kiszállítva";
+                break;
+            case 4:
+                statusz="Szállítható";
+                break;
+            default:
+                statusz="A vendég átveheti a rendelését az üzletben!";
+                break;
+        }
            if(order.getPaymentMethod()==0)
            {
                fizetesmod="Készpénz";

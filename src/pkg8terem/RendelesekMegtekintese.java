@@ -107,6 +107,9 @@ public class RendelesekMegtekintese extends javax.swing.JFrame {
                     case 3:
                         orderstatus="Kiszállítva :)";
                         break;
+                    case 11:
+                        orderstatus="Az üzletben átveheti a rendelését!";
+                        break;
                     default:
                         orderstatus="Futárra vár a rendelés";
                         break;
