@@ -133,6 +133,11 @@ public class EtelekListazasa extends javax.swing.JFrame {
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kiszállítás", "Elvitel" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -462,7 +467,7 @@ DefaultListModel etlapmod=new DefaultListModel();
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void RendelésActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RendelésActionPerformed
-        int Elvitel=jComboBox1.getSelectedIndex();
+        int kiszallitas =jComboBox1.getSelectedIndex();
         int response = -1;
         String qwe="";
         for (Enumeration<AbstractButton> buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
@@ -562,7 +567,12 @@ DefaultListModel etlapmod=new DefaultListModel();
                 options[1]);
             if(n==YES_OPTION){
                 try {
-                    objectOutputStream.writeObject(new Order(restaurant.getRestaurantID(),guest.getGuestID(),orderMap,response));
+                    Order sendToServer = new Order(restaurant.getRestaurantID(),guest.getGuestID(),orderMap,response);
+                    if(kiszallitas==0)
+                        sendToServer.setOrderStatus(kiszallitas);
+                    else
+                        sendToServer.setOrderStatus(10);
+                    objectOutputStream.writeObject(sendToServer);
                     objectOutputStream.flush();
                     objectOutputStream.reset();
                     for(int i=0;i<4;i++)
@@ -594,6 +604,10 @@ DefaultListModel etlapmod=new DefaultListModel();
             }
         }
     }//GEN-LAST:event_RendelésActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
