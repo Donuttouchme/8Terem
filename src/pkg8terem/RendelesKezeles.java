@@ -217,13 +217,12 @@ public class RendelesKezeles extends javax.swing.JFrame {
       if(outputOrders!=null){
        for(int i=0;i<outputOrders.size();i++)
        {
-           System.out.println("A kiírando order méret: "+ outputOrders.size()+" batchid: "+outputOrders.get(i).getBatchID()+" státusz: "+outputOrders.get(i).getOrderStatus());
            if(sumbatchid==outputOrders.get(i).getBatchID())
            {
                sum+=outputOrders.get(i).getSubsum();
            }
            if((sumbatchid!=outputOrders.get(i).getBatchID())||i==outputOrders.size()-1){              
-               rendeleslista.addElement("Rendelés azonosító: " + outputOrders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(Main.orders.get(i-1)).getKey());
+               rendeleslista.addElement("Rendelés azonosító: " + outputOrders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(outputOrders.get(i-1)).getKey());
                sum=0;
                sum+=outputOrders.get(i).getSubsum();
                sumbatchid=outputOrders.get(i).getBatchID();
@@ -299,21 +298,17 @@ public class RendelesKezeles extends javax.swing.JFrame {
         String selected = RendelesekMegjeleniteseLista.getSelectedValue();
         String []strArray = selected.split(" ");
         int orderid=0;
-        System.out.println("Az order mérete"+Main.orders.size());
         for(int i=0;i<Main.orders.size();i++)
         {
-            System.out.println("Order lista elemei:" +Main.orders.get(i).getBatchID()+Main.orders.get(i).getMealName()+Main.orders.get(i).getOrderStatus());
             if(Main.orders.get(i).getBatchID()==Integer.parseInt(strArray[2]))
             {
                 if(Main.orders.get(i).getOrderStatus()==10)
                 {
-                    System.out.println("9-es státusz állítás" + Main.orders.get(i).getBatchID()+" i:"+i);
                     Main.orders.get(i).setOrderStatus(9);
                     orderid=i;
                 }
                 else
                 {
-                System.out.println("4-es státusz állítás" + Main.orders.get(i).getBatchID()+" i:"+i);
                 Main.orders.get(i).setOrderStatus(4);
                 orderid=i;      
                 }                
@@ -376,7 +371,6 @@ public class RendelesKezeles extends javax.swing.JFrame {
     
     public Pair statusCheck(Order order)
     {
-        System.out.println("Statuscheckben az order státusza: "+order.getOrderStatus()+" batchid"+order.getBatchID());
         String statusz="",fizetesmod="";
         if(order.getOrderStatus()==0)
         {
