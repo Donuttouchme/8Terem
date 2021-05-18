@@ -70,7 +70,7 @@ public class Order implements Serializable{
     public Order(String _restaurantName, int _sum,int _orderStatus, Timestamp _estimatedDelDate)
     {
         this.restaurantName=_restaurantName;
-        this.sum=sum;
+        this.sum=_sum;
         this.orderStatus=_orderStatus;
         this.estimatedDeliveryDate=_estimatedDelDate;
     }
