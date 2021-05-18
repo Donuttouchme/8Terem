@@ -375,6 +375,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
     
     public Pair statusCheck(Order order)
     {
+        System.out.println("Statuscheckben az order státusza: "+order.getOrderStatus()+" batchid"+order.getBatchID());
         String statusz="",fizetesmod="";
         if(order.getOrderStatus()==0)
         {
