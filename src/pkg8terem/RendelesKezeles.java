@@ -304,15 +304,14 @@ public class RendelesKezeles extends javax.swing.JFrame {
             {
                 if(orders.get(i).getOrderStatus()==10)
                 {
-                    orders.get(i).setOrderStatus(11);
+                    orders.get(i).setOrderStatus(9);
                     orderid=i;
                 }
                 else
                 {
                 orders.get(i).setOrderStatus(4);
                 orderid=i;      
-                }
-                
+                }                
             }
         }
         Main.datas= new Pair<>(orders.get(orderid),1);
@@ -390,7 +389,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
             case 4:
                 statusz="Szállítható";
                 break;
-            case 11:
+            case 9:
                 statusz="A vendég átveheti a rendelését az üzletben!";
             default:
                 statusz="default ág";
