@@ -41,7 +41,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RendelesekMegjeleniteseLista = new javax.swing.JList<>();
-        SzallitasGomb = new javax.swing.JToggleButton();
+        AtadvaGomb = new javax.swing.JToggleButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -51,6 +51,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         szallitasiIdo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        SzallitasGomb1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -68,11 +69,11 @@ public class RendelesKezeles extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(RendelesekMegjeleniteseLista);
 
-        SzallitasGomb.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        SzallitasGomb.setText("Szállításra kész");
-        SzallitasGomb.addActionListener(new java.awt.event.ActionListener() {
+        AtadvaGomb.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        AtadvaGomb.setText("Átadva");
+        AtadvaGomb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SzallitasGombActionPerformed(evt);
+                AtadvaGombActionPerformed(evt);
             }
         });
 
@@ -143,6 +144,14 @@ public class RendelesKezeles extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
+        SzallitasGomb1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        SzallitasGomb1.setText("Szállításra kész");
+        SzallitasGomb1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SzallitasGomb1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -150,16 +159,19 @@ public class RendelesKezeles extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane1)
-                            .addComponent(SzallitasGomb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))))
-                .addContainerGap())
+                            .addComponent(AtadvaGomb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SzallitasGomb1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,12 +182,15 @@ public class RendelesKezeles extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(SzallitasGomb, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(SzallitasGomb1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AtadvaGomb, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -294,7 +309,39 @@ public class RendelesKezeles extends javax.swing.JFrame {
 //        RendelesekMegjeleniteseLista.getSelectedValue()
     }//GEN-LAST:event_RendelesekMegjeleniteseListaValueChanged
 
-    private void SzallitasGombActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SzallitasGombActionPerformed
+    private void AtadvaGombActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtadvaGombActionPerformed
+        String selected = RendelesekMegjeleniteseLista.getSelectedValue();
+        String []strArray = selected.split(" ");
+        int orderid=0;
+        for(int i=0;i<Main.orders.size();i++)
+        {
+            if(Main.orders.get(i).getBatchID()==Integer.parseInt(strArray[2]))
+            {
+                if(Main.orders.get(i).getOrderStatus()==9)
+                {
+                    Main.orders.get(i).setOrderStatus(3);
+                    orderid=i;
+                }           
+            }
+        }
+        Main.datas= new Pair<>(Main.orders.get(orderid),1);
+        try {
+            Main.objectOutputStream.writeObject(Main.datas);
+            System.out.println("kiirta az obj");
+            Main.objectOutputStream.flush();
+            Main.objectOutputStream.reset();
+            Main.orders =(List<Order>) Main.objectInputStream.readObject();
+            System.out.println("megkapta az orderst");
+            updateList(Main.orders);
+            System.out.println("updatelte a listát");
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(RendelesKezeles.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Hibába futott");
+        }
+        
+    }//GEN-LAST:event_AtadvaGombActionPerformed
+
+    private void SzallitasGomb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SzallitasGomb1ActionPerformed
         String selected = RendelesekMegjeleniteseLista.getSelectedValue();
         String []strArray = selected.split(" ");
         int orderid=0;
@@ -329,7 +376,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
             System.out.println("Hibába futott");
         }
         
-    }//GEN-LAST:event_SzallitasGombActionPerformed
+    }//GEN-LAST:event_SzallitasGomb1ActionPerformed
  private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
 
          this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -465,10 +512,11 @@ public class RendelesKezeles extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton AtadvaGomb;
     private javax.swing.JToggleButton ElfogadasGomb;
     private javax.swing.JList<String> RendelesReszletek;
     private javax.swing.JList<String> RendelesekMegjeleniteseLista;
-    private javax.swing.JToggleButton SzallitasGomb;
+    private javax.swing.JToggleButton SzallitasGomb1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
