@@ -551,56 +551,63 @@ DefaultListModel etlapmod=new DefaultListModel();
             }
         }
         if(!orderMap.isEmpty()){
-            Object[] options = {"Rendelés véglegesítése","Vissza a rendelésemhez",};
-            int ar=0;
-            for(Map.Entry<Meal,Integer> entry : orderMap.entrySet())
-            {
-                ar+=entry.getKey().getCost()*entry.getValue();
-            }
-            int n = JOptionPane.showOptionDialog(null,
-                String.valueOf(ar)+" Ft a rendelés összértéke\n",
-                "Rendelés véglegesítése",
-                JOptionPane.YES_NO_CANCEL_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                options,
-                options[1]);
-            if(n==YES_OPTION){
-                try {
-                    Order sendToServer = new Order(restaurant.getRestaurantID(),guest.getGuestID(),orderMap,response);
-                    if(kiszallitas==0)
-                        sendToServer.setOrderStatus(kiszallitas);
-                    else
-                        sendToServer.setOrderStatus(10);
-                    objectOutputStream.writeObject(sendToServer);
-                    objectOutputStream.flush();
-                    objectOutputStream.reset();
-                    for(int i=0;i<4;i++)
-                    {
-                        for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
+            try {
+                Object[] options = {"Rendelés véglegesítése","Vissza a rendelésemhez",};
+                int ar=0;
+                for(Map.Entry<Meal,Integer> entry : orderMap.entrySet())
+                {
+                    ar+=entry.getKey().getCost()*entry.getValue();
+                }
+                Main.guest.setGuestAddress(JOptionPane.showInputDialog(null,"Kérem adja meg a szállítási címet:",Main.guest.getGuestAddress()));
+                Main.datas=new Pair<>(Main.guest,3);
+                Main.objectOutputStream.writeObject(Main.datas);
+                Main.objectOutputStream.flush();
+                Main.objectOutputStream.reset();
+                int n = JOptionPane.showOptionDialog(null,
+                        String.valueOf(ar)+" Ft a rendelés összértéke\n",
+                        "Rendelés véglegesítése",
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        options,
+                        options[1]);
+                if(n==YES_OPTION){
+                    try {
+                        Order sendToServer = new Order(restaurant.getRestaurantID(),guest.getGuestID(),orderMap,response);
+                        if(kiszallitas==0)
+                            sendToServer.setOrderStatus(kiszallitas);
+                        else
+                            sendToServer.setOrderStatus(10);
+                        objectOutputStream.writeObject(sendToServer);
+                        objectOutputStream.flush();
+                        objectOutputStream.reset();
+                        for(int i=0;i<4;i++)
                         {
-                            for(int k=0;k<Main.discounts.size();k++)
+                            for(int j=0;j<restaurant.getMenu().get(i).getMeals().size();j++)
                             {
-                                if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
+                                for(int k=0;k<Main.discounts.size();k++)
                                 {
-                                    datas=new Pair<>(restaurant,3);
-                                    objectOutputStream.writeObject(datas);
-                                    objectOutputStream.flush();
-                                    objectOutputStream.reset();
-                                    restaurant.setMenu((List<Menu>)objectInputStream.readObject());
+                                    if(restaurant.getMenu().get(i).getMeals().get(j).isDiscounted())
+                                    {
+                                        datas=new Pair<>(restaurant,3);
+                                        objectOutputStream.writeObject(datas);
+                                        objectOutputStream.flush();
+                                        objectOutputStream.reset();
+                                        restaurant.setMenu((List<Menu>)objectInputStream.readObject());
+                                    }
                                 }
                             }
                         }
+                    } catch (IOException | ClassNotFoundException ex) {
+                        Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                } catch (IOException ex) {
-                    Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
-                }         catch (ClassNotFoundException ex) {
-                    Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
+                    this.setVisible(false);
                 }
-                this.setVisible(false);
-            }
-            else if(n==NO_OPTION){
-
+                else if(n==NO_OPTION){
+                    
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(EtelekListazasa.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_RendelésActionPerformed
