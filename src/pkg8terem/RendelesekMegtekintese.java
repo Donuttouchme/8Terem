@@ -51,7 +51,7 @@ public class RendelesekMegtekintese extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(3, 41, 80));
 
-        VendegRendeleseiLista.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        VendegRendeleseiLista.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jScrollPane1.setViewportView(VendegRendeleseiLista);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -111,7 +111,7 @@ public class RendelesekMegtekintese extends javax.swing.JFrame {
                         orderstatus="Futárra vár a rendelés";
                         break;
                 }
-                vendegRendelesei.addElement(Main.orders.get(i).getRestaurantName()+"-ból/ből rendelt ételének jelenlegi státusza: "+orderstatus+ ", a fizetendő összeg: "+Main.orders.get(i).getSum()+" Várható szállítási idő:"+Main.orders.get(i).getEstimatedDeliveryDate());
+                vendegRendelesei.addElement(Main.orders.get(i).getRestaurantName()+"-ból/ből rendelt ételének jelenlegi státusza: "+orderstatus+ ", a fizetendő összeg: "+Main.orders.get(i).getSum()+" Várható szállítási idő:"+Main.orders.get(i).getEstimatedDeliveryDate()+"\n");
             }
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(RendelesekMegtekintese.class.getName()).log(Level.SEVERE, null, ex);
