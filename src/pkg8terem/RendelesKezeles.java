@@ -314,7 +314,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
                 }                
             }
         }
-        Main.datas= new Pair<>(Main.orders.get(orderid).getBatchID(),1);
+        Main.datas= new Pair<>(Main.orders.get(orderid),1);
         try {
             Main.objectOutputStream.writeObject(Main.datas);
             System.out.println("kiirta az obj");
