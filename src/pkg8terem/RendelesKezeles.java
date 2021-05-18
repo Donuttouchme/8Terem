@@ -425,6 +425,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
        if(outputOrders!=null){
        for(int i=0;i<orders.size();i++)
        {
+           System.out.println(" teszt "+orders.get(i).getBatchID()+" "+orders.get(i).getSubsum()+" "+statusCheck(orders.get(i)));
             if(orders.get(i).getOrderStatus()!=3)
             {
                 outputOrders.add(orders.get(i));
