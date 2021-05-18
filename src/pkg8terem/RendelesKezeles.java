@@ -372,28 +372,30 @@ public class RendelesKezeles extends javax.swing.JFrame {
     public Pair statusCheck(Order order)
     {
         String statusz="",fizetesmod="";
-        switch(order.getOrderStatus())
+        if(order.getOrderStatus()==0)
         {
-            case 0:
-                statusz ="Visszaigazolásra vár";
-                break;
-            case 1:
-                statusz ="Készítés alatt";
-                break;
-            case 2:
-                statusz ="Szállítás alatt";
-                break;
-            case 3:
-                statusz ="Kiszállítva";
-                break;
-            case 4:
-                statusz="Szállítható";
-                break;
-            case 9:
-                statusz="A vendég átveheti a rendelését az üzletben!";
-            default:
-                statusz="default ág";
-                break;
+            statusz ="Visszaigazolásra vár";
+        }
+        if(order.getOrderStatus()==1)
+        {
+            statusz ="Készítés alatt";                
+        }
+        if(order.getOrderStatus()==2)
+        {
+            statusz ="Szállítás alatt";
+ 
+        }
+        if(order.getOrderStatus()==3)
+        {
+            statusz="Kiszállítva";
+        }
+        if(order.getOrderStatus()==4)
+        {
+           statusz="Szállítható"; 
+        }
+        if(order.getOrderStatus()==9)
+        {
+            statusz="A vendég átveheti a rendelését az üzletben!";
         }
            if(order.getPaymentMethod()==0)
            {
@@ -414,7 +416,6 @@ public class RendelesKezeles extends javax.swing.JFrame {
     {
         reszletekLista.clear();
         rendeleslista.clear();
-       String fizetesmod="", statusz="";
        int sumbatchid=0;
             List<Order>outputOrders= new ArrayList<>();
        if(outputOrders!=null){
