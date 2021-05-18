@@ -440,7 +440,7 @@ public class RendelesKezeles extends javax.swing.JFrame {
                sum+=outputOrders.get(i).getSubsum();
            }
            if((sumbatchid!=outputOrders.get(i).getBatchID())||i==outputOrders.size()-1){              
-               rendeleslista.addElement("Rendelés azonosító: " + outputOrders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(Main.orders.get(i-1)).getKey());
+               rendeleslista.addElement("Rendelés azonosító: " + outputOrders.get(i-1).getBatchID()+" Fizetendő összeg: "+ sum + " Rendelés státusza: " + statusCheck(outputOrders.get(i-1)).getKey());
                sum=0;
                sum+=outputOrders.get(i).getSubsum();
                sumbatchid=outputOrders.get(i).getBatchID();
