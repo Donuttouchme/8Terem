@@ -216,7 +216,8 @@ public class RendelesKezeles extends javax.swing.JFrame {
        int sum=0;
       if(outputOrders!=null){
        for(int i=0;i<outputOrders.size();i++)
-       {          
+       {
+           System.out.println("A kiírando order méret: "+ outputOrders.size()+" batchid: "+outputOrders.get(i).getBatchID()+" státusz: "+outputOrders.get(i).getOrderStatus());
            if(sumbatchid==outputOrders.get(i).getBatchID())
            {
                sum+=outputOrders.get(i).getSubsum();
