@@ -12,6 +12,7 @@ import javax.swing.JList;
 import java.awt.*;  
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import static pkg8terem.Main.*;
 /**
  *
@@ -48,7 +49,7 @@ public class Foablak extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        ErtekelesButton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
@@ -112,8 +113,13 @@ public class Foablak extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton3.setText("Értékelés");
+        ErtekelesButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        ErtekelesButton.setText("Értékelés");
+        ErtekelesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ErtekelesButtonActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton4.setText("Rendeléseim megtekintése");
@@ -148,7 +154,7 @@ public class Foablak extends javax.swing.JFrame {
                             .addGroup(EtteremListazasPanelLayout.createSequentialGroup()
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton3))
+                                .addComponent(ErtekelesButton))
                             .addComponent(jButton4))))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
@@ -172,7 +178,7 @@ public class Foablak extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(EtteremListazasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ErtekelesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
@@ -249,6 +255,10 @@ DefaultListModel mod=new DefaultListModel();
                 }
         megtekintes.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void ErtekelesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ErtekelesButtonActionPerformed
+         JOptionPane.showMessageDialog(null, "Köszönjük az értékelést!");
+    }//GEN-LAST:event_ErtekelesButtonActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -285,12 +295,12 @@ DefaultListModel mod=new DefaultListModel();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ErtekelesButton;
     private javax.swing.JTextArea EtteremInfok;
     private javax.swing.JPanel EtteremListazasPanel;
     private javax.swing.JList<String> etteremLista;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;

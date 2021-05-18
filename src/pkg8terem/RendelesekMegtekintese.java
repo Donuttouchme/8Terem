@@ -51,7 +51,7 @@ public class RendelesekMegtekintese extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(3, 41, 80));
 
-        VendegRendeleseiLista.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        VendegRendeleseiLista.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jScrollPane1.setViewportView(VendegRendeleseiLista);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
