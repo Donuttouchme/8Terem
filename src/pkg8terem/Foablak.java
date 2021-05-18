@@ -23,6 +23,7 @@ public class Foablak extends javax.swing.JFrame {
     /**
      * Creates new form Foablak
      */
+    boolean ertekeles=true;
     public Foablak() {
         initComponents();
     }
@@ -257,7 +258,15 @@ DefaultListModel mod=new DefaultListModel();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void ErtekelesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ErtekelesButtonActionPerformed
-         JOptionPane.showMessageDialog(null, "Köszönjük az értékelést!");
+         if(ertekeles)
+         {
+        JOptionPane.showMessageDialog(null, "Köszönjük az értékelést!");
+        ertekeles=false;
+         }
+         else
+         {
+         JOptionPane.showMessageDialog(null, "Ön már értékelte ezt az éttermet!");
+         }
     }//GEN-LAST:event_ErtekelesButtonActionPerformed
     /**
      * @param args the command line arguments
