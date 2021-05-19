@@ -572,7 +572,7 @@ DefaultListModel etlapmod=new DefaultListModel();
                     }
                     if(kiszallitas==1)
                     {
-                        JOptionPane.showMessageDialog(null, "Az ételét a következő címen veheti át:"+restaurant.getRestaurantAddress());
+                        JOptionPane.showMessageDialog(null, "A rendelését a következő címen veheti át:"+restaurant.getRestaurantAddress());
                     }
                     Main.datas=new Pair<>(Main.guest,3);
                     Main.objectOutputStream.writeObject(Main.datas);
