@@ -567,7 +567,13 @@ DefaultListModel etlapmod=new DefaultListModel();
                     options[1]);
             if(n==YES_OPTION){
                 try {
+                    if(kiszallitas==0){
                     Main.guest.setGuestAddress(JOptionPane.showInputDialog(null,"Kérem adja meg a szállítási címet:",Main.guest.getGuestAddress()));
+                    }
+                    if(kiszallitas==1)
+                    {
+                        JOptionPane.showMessageDialog(null, "Az ételét a következő címen veheti át:"+restaurant.getRestaurantAddress());
+                    }
                     Main.datas=new Pair<>(Main.guest,3);
                     Main.objectOutputStream.writeObject(Main.datas);
                     Main.objectOutputStream.flush();
