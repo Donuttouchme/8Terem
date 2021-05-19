@@ -568,7 +568,10 @@ DefaultListModel etlapmod=new DefaultListModel();
             if(n==YES_OPTION){
                 try {
                     if(kiszallitas==0){
-                    Main.guest.setGuestAddress(JOptionPane.showInputDialog(null,"Kérem adja meg a szállítási címet:",Main.guest.getGuestAddress()));
+                        String gAddrs = JOptionPane.showInputDialog(null,"Kérem adja meg a szállítási címet:",Main.guest.getGuestAddress());
+                        if(gAddrs!=null||!gAddrs.equals("null")){
+                            Main.guest.setGuestAddress(gAddrs);
+                            }
                     }
                     if(kiszallitas==1)
                     {
